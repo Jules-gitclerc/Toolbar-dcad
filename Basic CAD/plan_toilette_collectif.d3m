@@ -1,0 +1,4524 @@
+currentlayer = sys(3)
+currentlinetype = sys(4)
+currentlinetypescale = sys(5)
+currentdrawingcolorr = sys(300)
+currentdrawingcolorg = sys(301)
+currentdrawingcolorb = sys(302)
+
+include "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\dcadalias.d3i"
+
+tetete = 0
+starts = 1
+ends = 0
+nbrplan = 1
+murG = 0
+murD = 0
+erreur = 0
+ModePlan = 0
+test= 0
+raccord_value = 0
+possedeserviette = 0
+'symbolecouj$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\console plan.dcd"
+symboleEmplctPS$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\emplct_porte_serviette.dcd"
+raccordplan$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Equipement\Raccord plan toilette dev.dcd"
+percageG$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Equipement\percage raccord plan gauche.dcd"
+percageD$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Equipement\percage raccord plan droit.dcd"
+percagedetailG$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Equipement\percage detail gauche.dcd"
+percagedetailD$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Equipement\percage detail droit.dcd"
+if sysex$(1) = "brio" or sysex$(1) = "brio exel" then
+    symbolePied$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Pied_Dessus 13.dcd"
+else
+    symbolePied$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\Pied_Dessus.dcd"
+endif
+gosub Parametrage
+gosub DetectionTypeMur
+
+sys(4) = 0
+if nbrplan > 1 then
+    if murG = 1 then
+        if sysex$(1) = "brio" or sysex$(1) = "brio exel" then
+            tmp = 7
+        else
+            tmp = 5
+        endif
+        if murDend = 1 then
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 37
+                <PointXYZ [px1 + tmp, fy - profondeurPlan - 200, departZ1]
+                <PointXYZ [px2 - tmp, fy - profondeurPlan - 200, departZ2]
+                <PointXYZ [px2 - tmp, fy - profondeurPlan - 500, departZ2]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0                                                           'dimension de percage
+                <Location 0
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"
+                <FontType 1
+                <Size 40  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 0
+                <Gap 100  'Decalage'
+                <Length 300
+                <OverShoot 30 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 0
+                <DimUnits 0
+                <DimEnableTextInsidePos 0
+                <ArrowSize 40   'Taille fleche'
+                <OptDimTextOffset 30  'Decalage Texte%'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        else
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 37
+                <PointXYZ [px1 + tmp, fy - profondeurPlan - 200, departZ1]
+                <PointXYZ [px2, fy - profondeurPlan - 200, departZ2]
+                <PointXYZ [px2, fy - profondeurPlan - 500, departZ2]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 0
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"
+                <FontType 1
+                <Size 40  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 0
+                <Gap 100  'Decalage'
+                <Length 300
+                <OverShoot 30 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 0
+                <DimUnits 0
+                <DimEnableTextInsidePos 0
+                <ArrowSize 40   'Taille fleche'
+                <OptDimTextOffset 30  'Decalage Texte%'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        endif
+    else
+        if murDend = 1 then
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 37
+                <PointXYZ [px1, fy - profondeurPlan - 200, departZ1]
+                <PointXYZ [px2 - tmp, fy - profondeurPlan - 200, departZ2]
+                <PointXYZ [px2 - tmp, fy - profondeurPlan - 500, departZ2]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 0
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"
+                <FontType 1
+                <Size 40  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 0
+                <Gap 100  'Decalage'
+                <Length 300
+                <OverShoot 30 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 0
+                <DimUnits 0
+                <DimEnableTextInsidePos 0
+                <ArrowSize 40   'Taille fleche'
+                <OptDimTextOffset 30  'Decalage Texte%'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        else
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 37
+                <PointXYZ [px1, fy - profondeurPlan - 200, departZ1]
+                <PointXYZ [px1 + Longueurplan, fy - profondeurPlan - 200, departZ2]
+                <PointXYZ [px1 + Longueurplan, fy - profondeurPlan - 500, departZ2]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 0
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"
+                <FontType 1
+                <Size 40  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 0
+                <Gap 45  'Decalage'
+                <Length 300
+                <OverShoot 5 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 0
+                <DimUnits 0
+                <DimEnableTextInsidePos 0
+                <ArrowSize 40   'Taille fleche'
+                <OptDimTextOffset 30  'Decalage Texte%'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        endif
+    endif
+endif
+
+startnbrplan = nbrplan
+nbrplantmp = nbrplan
+if nbrplan = 1 and test <> 1 then
+    starts = 1
+    ends = 1
+    gosub NewDim
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+
+if nbrplan > 1 or test = 1 then
+    if ModePlan = 0 then
+        px1start = px1
+        px2start = px2
+        px2 = px1 + LongueurForPlan
+        do while nbrplan > 1
+            murD = 2                                      'boucle qui place les plans'
+            gosub NewDim
+            px1 = px2
+            SelectX = px1
+            px2 = px2 + LongueurForPlan
+            nbrplan = nbrplan - 1
+            starts = 0
+            murG = 2
+            murD = 2
+        loop
+        murD = murDend
+        ends = 1
+
+        px2 = px2start
+
+        gosub NewDim
+        >Line
+        {
+            <Color 0,0,0
+            <Layer 1
+            <LineStyle 0,0,0
+            <PointXYZ [0, 0, 0]
+            <PointXYZ [0, 0, 0]
+        }
+
+        CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+        sys(3) = currentlayer
+        sys(4) = currentlinetype
+        sys(5) = currentlinetypescale
+        sys(300) = currentdrawingcolorr
+        sys(301) = currentdrawingcolorg
+        sys(302) = currentdrawingcolorb
+        end
+    else
+        px1start = px1
+        px2start = px2
+        px2 = px1 + LongueurForPlan
+        murD = 2                                      'boucle qui place les plans'
+        do while nbrplan > 0
+            code = code + 1
+            if px2 < px2start then
+                gosub NewDim
+                px1 = px2
+                SelectX = px1
+                px2 = px2 + LongueurForPlan
+                starts = 0
+                murG = 2
+                murD = 2
+            endif
+            nbrplan = nbrplan - 1
+        loop
+        if raccord_value = 0 then
+            >SymbolLoad
+            {
+                <Filename [raccordplan$]
+                <Layer 37
+                <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+                <Type 1
+                <Scale 1
+            }
+            >SymbolExplode
+            {
+            }
+
+            >SymbolLoad
+            {
+                <Filename [symbolecouj$]
+                <Layer 37
+                <PointXYZ [finPlanX, fy, 0]
+                <Type 1
+                <Scale 1
+            }
+            >SymbolExplode
+            {
+            }
+            attributcouj$ = nomCouj$ + "," + repereCouj$ + "," + sysex$(1) + "," + largeurCouj$ + "," + hauteurCouj$ + "," + "10" + "," + largeurCouj$ + "," + hauteurCouj$ + "," + "10"
+            >Attribute
+            {
+                <Size 10
+                <Layer 5
+                <Color 255, 0, 0
+                <Justification 1
+                <Text [attributcouj$]
+                <Visible 1
+                <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+                <FontType 1
+            }
+
+            attributProfil$ = "C12," + profilType$ + profilLettre$ + "," + sysex$(1) + "," + sizeProfil$ + ",0,0," + sizeProfil$ + ",0,0"
+            >Attribute
+            {
+                <Size 10
+                <Layer 5
+                <Color 255, 0, 0
+                <Justification 1
+                <Text [attributProfil$]
+                <Visible 1
+                <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+                <FontType 1
+            }
+        endif
+        nbrDecoupes = nbrtmpDecoupes
+        murD = murDend
+        ends = 1
+        px1 = finPlanX
+        px2 = px2start
+        gosub NewDim
+        >Line
+        {
+            <Color 0,0,0
+            <Layer 1
+            <LineStyle 0,0,0
+            <PointXYZ [0, 0, 0]
+            <PointXYZ [0, 0, 0]
+        }
+
+        CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+        sys(3) = currentlayer
+        sys(4) = currentlinetype
+        sys(5) = currentlinetypescale
+        sys(300) = currentdrawingcolorr
+        sys(301) = currentdrawingcolorg
+        sys(302) = currentdrawingcolorb
+        end
+    endif
+endif
+
+>Line
+{
+    <Color 0,0,0
+    <Layer 1
+    <LineStyle 0,0,0
+    <PointXYZ [0, 0, 0]
+    <PointXYZ [0, 0, 0]
+}
+
+CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+sys(3) = currentlayer
+sys(4) = currentlinetype
+sys(5) = currentlinetypescale
+sys(300) = currentdrawingcolorr
+sys(301) = currentdrawingcolorg
+sys(302) = currentdrawingcolorb
+end
+
+'--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Parametrage:
+
+retry:
+sys(1106) = 2
+regen
+setpoint "Placez un point a chaque extremite du plan toilette" 2
+if sys(1) < 1 then goto retry
+pointval px1 py1 pz1 1
+pointval px2 py2 pz2 2
+
+retryFond:
+setpoint "Placez un point sur le fond" 1
+if sys(1) < 1 then goto retryFond
+pointval px3 py3 pz3 1
+
+precision 0
+sys(1106) =  0
+regen
+if px1 > px2 then
+    tmpX = px2
+    px2 = px1
+    px1 = tmpX
+
+    tmpY = py2
+    py2 = py1
+    py1 = tmpY
+
+    tmpZ = pz2
+    pz2 = pz1
+    pz1 = tmpZ
+endif
+
+input "Profondeur ? (defaut. 600)", profondeurPlan
+
+
+if profondeurPlan = 0 then profondeurPlan = 600
+
+epaisseurPanneau = 10
+
+if sysex$(1) = "brio" or sysex$(1) = "brio exel" then epaisseurPanneau = 13
+
+epaisseurPanneau$ = epaisseurPanneau
+
+profilLettre$ = "P"
+profondeurPlan$ = profondeurPlan
+vasquequestion:
+input "Combien de vasque ?", nbrVasque
+if nbrVasque = 0 then goto vasquequestion
+gosub DetectionNbrPlan
+
+questionProduit:
+window 10,50
+print "Choisissez le type de vasque"
+print "1. Vasque Kalysse"
+print "2. Vasque Client"
+anykey key
+wclose
+if key = -69 then
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+if key = 27 then
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+
+if key = 97 then
+    planVasqueNom$ = "PVK"
+    fichierPlanVasque$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\vasque_kalysse.dcd"
+    possedeVasqueK = 1
+else
+    if key = 98 then
+        planVasqueNom$ = "PVC"
+        fichierPlanVasque$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\vasque_client.dcd"
+        possedeVasqueK = 0
+    else
+        goto questionProduit
+    endif
+endif
+
+questionProduit:
+window 10,50
+print "Porte serviette ?"
+print "1. Oui"
+print "2. Non"
+anykey key
+wclose
+
+if key = - 69 then
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+if key = 27 then
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+
+if key = 97 then
+    symboleEmplctPS$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\emplct_porte_serviette.dcd"
+    possedeserviette = 1
+else
+    if key = 98 then possedeserviette = 0
+endif
+
+coujs:
+window 10,50
+print "Console ou jambage ?"
+print "1. Console"
+print "2. Jambage"
+anykey key
+wclose
+
+if key = 27 then
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+if key = 97 then
+    CouJ = 1
+else
+    if key = 98 then
+        CouJ = 2
+    else
+        goto coujs
+    endif
+endif
+
+
+if CouJ = 2 then
+    symbolecouj$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\jambage.dcd"
+    nomCouj$ = "Jambage"
+    repereCouj$ = "JB1"
+    hauteurCouj$ = "740"
+    profilType$ = "12A"
+    sizeProfil$ = "700"
+endif
+if CouJ = 1 then
+    symbolecouj$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\console plan.dcd"
+    nomCouj$ = "Console"
+    repereCouj$ = "CS1"
+    hauteurCouj$ = "500"
+    profilType$ = "12B"
+    sizeProfil$ = "460"
+
+endif
+
+return
+'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DetectionNbrPlan:
+Longueurplan = px2 - px1
+Longueurplan = round(Longueurplan)
+LongueurForPlan = Longueurplan / nbrVasque
+longueurevier = 855
+if (500 * nbrVasque) > Longueurplan then goto vasquequestion
+if saisieTailleEvier > 0 then longueurevier = saisieTailleEvier
+Longueurplantmp = round(LongueurForPlan)
+if Longueurplantmp > LongueurForPlan then LongueurForplan = round(LongueurForPlan - 0.5)
+if Longueurplantmp < LongueurForPlan then LongueurForplan = round(LongueurForPlan)
+
+if LongueurForPlan > 2100 then
+    message "Plan trop long (> 2100)"
+    CALL "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+    sys(3) = currentlayer
+    sys(4) = currentlinetype
+    sys(5) = currentlinetypescale
+    sys(300) = currentdrawingcolorr
+    sys(301) = currentdrawingcolorg
+    sys(302) = currentdrawingcolorb
+    end
+endif
+precision 1
+check = 0
+typePlan = nbrVasque MOD 2
+if Longueurplan > 2100 then
+    if typePlan > 0 then
+        typePlan = nbrVasque MOD 3
+        if typePlan > 0 or (3 * LongueurForPlan) > 2100 then
+            precision 0
+            Longueurplan = px2 - px1
+            if 3 * LongueurForPlan < 2100 then
+                if (2 * LongueurForPlan) < 2100 then
+                    Longueurplan = Longueurplan - 3 * LongueurForPlan
+                    LongueurForPlan = 2 * LongueurForPlan
+                    Longueurplantmp = LongueurForPlan
+                    nbrplan = Longueurplan / LongueurForPlan
+                    nbrDecoupes = 2
+                    nbrtmpDecoupes = 3
+                    ModePlan = 1
+                else
+                    nbrplan = Longueurplan / LongueurForPlan
+                    nbrDecoupes = 1
+                endif
+            else
+                if (2 * LongueurForPlan) < 2100 then
+                    precision 28
+                    Longueurplan = px2 - px1
+                    LongueurForPlan = Longueurplan / nbrVasque
+                    LongueurForPlan = 2 * LongueurForPlan
+                    Longueurplantmp = round(LongueurForPlan)
+                    nbrplan = Longueurplan / LongueurForPlan
+                    if Longueurplantmp > LongueurForPlan then LongueurForplan = round(LongueurForPlan - 0.5)
+                    check = 0
+                    if Longueurplantmp < LongueurForPlan then
+                        LongueurForplan = round(LongueurForPlan)
+                        nbrplan = nbrplan - 1
+                        check = 1
+                        test = 1
+                    endif
+                    if Longueurplan MOD Longueurplantmp = 0 and LongueurForPlan = Longueurplantmp and check = 0 then
+                        nbrplan = nbrplan - 1
+                        test = 1
+                    endif
+                    nbrtmpDecoupes = 1
+                    ModePlan = 1
+                    nbrDecoupes = 2
+                    if nbrvasque = 3 then raccord_value = 1
+                else
+                    nbrplan = Longueurplan / LongueurForPlan
+                    if Longueurplan MOD Longueurplantmp > 0 and LongueurForPlan = Longueurplantmp then nbrplan = nbrplan - 1
+                    nbrDecoupes = 1
+                endif
+            endif
+        else
+            LongueurForPlan = 3 * LongueurForPlan
+            Longueurplantmp = LongueurForPlan
+            nbrplan = Longueurplan / LongueurForplan
+            nbrDecoupes = 3
+        endif
+    else
+        if (2 * LongueurForPlan) <= 2100 then
+            precision 28
+            Longueurplan = px2 - px1
+            Longueurplan = round(Longueurplan)
+            LongueurForPlan = Longueurplan / nbrVasque
+            LongueurForPlan = 2 * LongueurForPlan
+            Longueurplantmp = round(LongueurForPlan)
+            nbrplan = Longueurplan / LongueurForPlan
+            if Longueurplantmp > LongueurForPlan then LongueurForplan = round(LongueurForPlan)' - 0.5)
+            if Longueurplantmp < LongueurForPlan then
+                LongueurForplan = round(LongueurForPlan)
+                nbrplan = nbrplan - 1
+                check = 1
+                test = 1
+            endif
+            if Longueurplan MOD Longueurplantmp = 0 and LongueurForPlan = Longueurplantmp and check = 0 then
+                nbrplan = nbrplan - 1
+                check = 1
+                test = 1
+            endif
+            nbrtmpDecoupes = 2
+            ModePlan = 1
+            nbrDecoupes = 2
+        else
+            nbrplan = Longueurplan / LongueurForPlan
+            nbrDecoupes = 1
+        endif
+    endif
+    precision 0
+else
+    nbrDecoupes = nbrVasque
+    nbrplan = 1
+endif
+
+if Longueurplantmp > LongueurForPlan and check = 0 then nbrplan = nbrplan - 1
+if Longueurplantmp < LongueurForPlan and check = 0 then nbrplan = nbrplan - 1
+precision 0
+return
+
+'---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DetectionTypemur:
+selectX = px1
+selectY = py3 - 40
+selectZ = pz1
+gosub SelectEntity
+entity selected
+query ENT_COLOR, red, green, blue
+pointval pgx pgy pgz 1
+px1 = pgx
+if (((sys(93) > 30) or (sys(93) <= 40))) and ((red = 255 or red = 253) and green = 0 and blue = 0) then murG = 1
+if ModePlan = 1 and nbrplan = 0 then
+    selectX = px2
+    selectY = py3 - 40
+    selectZ = pz2
+    gosub SelectEntity
+    entity selected
+    query ENT_COLOR, red, green, blue
+    pointval pdx pdy pdz 1
+    px2 = pdx
+    if (((sys(93) > 30) or (sys(93) <= 40))) and ((red = 255 or red = 253) and green = 0 and blue = 0) then
+        murDend = 1
+        murD = 1
+    else
+        murD = 0
+        murDend = 0
+    endif
+else
+    selectX = px2
+    selectY = py3 - 40
+    selectZ = pz2
+    gosub SelectEntity
+    entity selected
+    query ENT_COLOR, red, green, blue
+    pointval pdx pdy pdz 1
+    px2 = pdx
+    if (((sys(93) > 30) or (sys(93) <= 40))) and ((red = 255 or red = 253) and green = 0 and blue = 0) then
+        murDend = 1
+        murD = 1
+    else
+        murD = 0
+        murDend = 0
+    endif
+endif
+px2 = pdx
+selectX = px3
+selectY = py3
+selectZ = pz3
+gosub SelectEntity
+entity selected
+pointval fx fy fz 1
+pointval fx2 fy2 fz2 2
+
+if fy < fy2 then fy = fy2
+if sys(93) = 1 then profilLettre$ = "M"
+
+return
+'-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NewDim:
+departPlanX = px1 + (5 * murG)
+finPlanX = px2 - (5 * murD)
+if murG = 2 or murG = 0 then departPlanX = px1
+if murG = 1 then
+    if sysex$(1) = "primo" or sysex$(1) = "primo exel" or sysex$(1) = "bambino" then
+        departPlanX = px1 + (5 * murG)
+    else
+        departPlanX = px1 + (7 * murG)
+    endif
+endif
+
+if murD = 2 or murD = 0 then finPlanX = px2
+if murD = 1 then
+    if sysex$(1) = "primo" or sysex$(1) = "primo exel" or sysex$(1) = "bambino" then
+        finPlanX = px2 - (5 * murD)
+    else
+        finPlanX = px2 - (7 * murD)
+    endif
+endif
+
+planL = finPlanX - departPlanX
+largeurPlan = planL
+attributLargeurPlan = largeurPlan
+largeurPlan$ = attributLargeurPlan
+
+positionVasqueX = departPlanX + (largeurPlan / 2)
+positionVasqueY = fy - (profondeurPlan / 2)
+
+if aGauche = 0 then posVX = px2 - espacePE
+if aGauche = 1 then posVX = px1 + espacePE
+gosub Dessinplan
+return
+'--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dessinplan:
+
+sys(36) = 2
+regen
+
+>2DBox
+{
+    <Color 0,0,0
+    <Layer 37
+    <LineStyle 0,100,0
+    <PointXYZ [departPlanX, fy, fz]
+    <PointXYZ [finPlanX, fy - profondeurPlan, fz]
+    <Type 1
+    <Orientation 0
+}
+
+>2DBox
+{
+    <Color 0,0,255
+    <Layer 10
+    <LineStyle 0,100,0
+    <PointXYZ [departPlanX, fy - profondeurPlan - 60, fz]
+    <PointXYZ [finPlanX, fy - profondeurPlan - 60 - 140, fz]
+    <Type 1
+    <Orientation 0
+}
+
+
+largeurCouJ = profondeurPlan - 100
+largeurCouJ$ = largeurCouJ
+ecartementVasque = planL / nbrDecoupes
+positionVasqueX = departPlanX + (ecartementVasque / 2)
+positionVasqueY = fy - (profondeurPlan / 2)
+
+
+posPorteServietteX_old = departPlanX
+for dec = 1 to nbrDecoupes
+    if possedeserviette = 1 then
+        symboleEmplctPS$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\emplct_porte_serviette.dcd"
+        >SymbolLoad
+        {
+            <Filename [symboleEmplctPS$]
+            <Layer 37
+            <PointXYZ [positionVasqueX + ecartementVasque / 2 - 200, positionVasqueY - profondeurPlan / 2 - 140, 0]
+            <Type 1
+            <Scale 1
+        }
+        >SymbolExplode
+        {
+
+        }
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 37
+            <PointXYZ [posPorteServietteX_old,positionVasqueY - profondeurPlan / 2 - 50, 0]
+            <PointXYZ [positionVasqueX + ecartementVasque / 2 - 200, positionVasqueY - profondeurPlan / 2 - 50, 0]
+            <PointXYZ [positionVasqueX + ecartementVasque / 2 - 200, positionVasqueY - profondeurPlan / 2 - 250, 0]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 0
+            <Gap 100  'Decalage'
+            <Length 300
+            <OverShoot 30 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 0
+            <DimUnits 0
+            <DimEnableTextInsidePos 0
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset 30  'Decalage Texte%'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+        posPorteServietteX_old = positionVasqueX + ecartementVasque / 2 - 200
+        retombeeTexte$ = "RPS" + largeurPlan$
+        retombeeRep$ = "RPS" + largeurPlan$
+    endif
+    if possedeserviette = 0 then
+        retombeeTexte$ = "R" + largeurPlan$
+        retombeeRep$ = "R" + largeurPlan$
+    endif
+    if dec < nbrDecoupes then
+        >SymbolLoad
+        {
+            <Filename [symbolecouj$]
+            <Layer 37
+            <PointXYZ [positionVasqueX + ecartementVasque / 2, fy, 0]
+            <Type 1
+            <Scale 1
+        }
+        >SymbolExplode
+        {
+        }
+        attributcouj$ = nomCouj$ + "," + repereCouj$ + "," + sysex$(1) + "," + largeurCouJ$ + "," + hauteurCouj$ + "," + "10" + "," + largeurCouJ$ + "," + hauteurCouj$ + "," + "10"
+        >Attribute
+        {
+            <Size 10
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text [attributcouj$]
+            <Visible 1
+            <PointXYZ [positionVasqueX + ecartementVasque / 2, positionVasqueY, 0]
+            <FontType 1
+        }
+
+        attributProfil$ = "C12," + profilType$ + profilLettre$ + "," + sysex$(1) + "," + sizeProfil$ + ",0,0," + sizeProfil$ + ",0,0"
+        >Attribute
+        {
+            <Size 10
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text [attributProfil$]
+            <Visible 1
+            <PointXYZ [positionVasqueX + ecartementVasque / 2, positionVasqueY, 0]
+            <FontType 1
+        }
+    endif
+    >SymbolLoad
+    {
+        <Filename [fichierPlanVasque$]
+        <Layer 37
+        <PointXYZ [positionVasqueX, positionVasqueY, 0]
+        <Type 1
+        <Scale 1
+    }
+    if possedeVasqueK = 1 then
+        attributVasque$ = "Vasque,K," + sysex$(1) + ",0,0,0,0,0,0"
+        >Attribute
+        {
+            <Size 10
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text [attributVasque$]
+            <Visible 1
+            <PointXYZ [positionVasqueX, positionVasqueY, 0]
+            <FontType 1
+        }
+    endif
+    positionVasqueX = positionVasqueX + ecartementVasque
+next dec
+
+if possedeserviette = 1 then
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 37
+        <PointXYZ [posPorteServietteX_old,positionVasqueY - profondeurPlan / 2 - 50, 0]
+        <PointXYZ [finPlanX, positionVasqueY - profondeurPlan / 2 - 50, 0]
+        <PointXYZ [finPlanX, positionVasqueY - profondeurPlan / 2 - 250, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 0
+        <Gap 100  'Decalage'
+        <Length 300
+        <OverShoot 30 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 0
+        <DimUnits 0
+        <DimEnableTextInsidePos 0
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte%'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+endif
+'----------------------------------------------------------------------------------'
+positionVasqueX = positionVasqueX - ecartementVasque
+attributPlanVasque$ = "Plan vasque," + planVasqueNom$ + largeurPlan$ + "," + sysex$(1) + "," + profondeurPlan$ + "," + largeurPlan$ + ",10," + profondeurPlan$ + "," + largeurPlan$ + ",10"
+>Attribute
+{
+    <Size 10
+    <Layer 5
+    <Color 255, 0, 0
+    <Justification 1
+    <Text [attributPlanVasque$]
+    <Visible 1
+    <PointXYZ [positionVasqueX, positionVasqueY - 50, 0]
+    <FontType 1
+}
+
+planVasqueTexte$ = planVasqueNom$ + largeurPlan$
+>Text
+{
+    <Color 0,0,255
+    <Layer 37
+    <PointXYZ [positionVasqueX + 120, positionVasqueY + 150, pdz]
+    <DrawAs2dText
+    <Style 0
+    <Justification 0
+    <Size 50
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Angle 0
+    <Text [planVasqueTexte$]
+}
+
+>Text
+{
+    <Color 0,0,255
+    <Layer 37
+    <PointXYZ [positionVasqueX - ecartementVasque / 2 , fy - profondeurPlan - 50 - 130, pdz]
+    <DrawAs2dText
+    <Style 0
+    <Justification 0
+    <Size 50
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Angle 0
+    <Text [retombeeTexte$]
+}
+
+attributRetombee$ = "Retombee," + retombeeRep$ + "," + sysex$(1) + "," + "140" + "," + largeurPlan$ + ",10," + "140" + "," + largeurPlan$ + ",10"
+>Attribute
+{
+    <Size 10
+    <Layer 5
+    <Color 255, 0, 0
+    <Justification 1
+    <Text [attributRetombee$]
+    <Visible 1
+    <PointXYZ [positionVasqueX - ecartementVasque / 2 + 200, fy - profondeurPlan - 130, pdz]
+    <FontType 1
+}
+
+sys(80) = 0
+sys(242) = 1
+
+>Dimension
+{
+    <Color 0,0,0
+    <Layer 37
+    <PointXYZ [departPlanX, fy - profondeurPlan - 143, departZ1]
+    <PointXYZ [finPlanX, fy - profondeurPlan - 143, departZ2]
+    <PointXYZ [finPlanX, fy - profondeurPlan - 360, departZ2]
+    <Axis 0
+    <Orientation 0
+    <Precision 0
+    <Format 0
+    <Location 0
+    <ToleranceType 0
+    <ToleranceSize 0.5
+    <ToleranceLow -0.001
+    <ToleranceHigh +0.001
+    <Tolerance 0.001
+    <Suffix "0"
+    <Prefix "0"
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Size 40  'Taille texte'
+    <Style 0
+    <Type 0
+    <Fix 0
+    <Gap 100  'Decalage'
+    <Length 300
+    <OverShoot 30 'Saillie'
+    <Arrowhead 4
+    <Arrowhead2 4
+    <EnableSecondArrow 0
+    <DimUnits 0
+    <DimEnableTextInsidePos 0
+    <ArrowSize 40   'Taille fleche'
+    <OptDimTextOffset 30  'Decalage Texte%'
+    <DimHorizontalTextPos 0
+    <DimMovement 0
+    <LinePosition 0
+    <Multiplier 1
+    <Associated 0
+    <ForceTextHorizontallyOutside 0
+    <TextMovement 0
+}
+
+fichierEquerre$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Symboles\Equerre dessus non vue.dcd"
+
+if murG = 1 or murG = 0 then
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [departPlanX, fy - 80, 0]
+        <Type 1
+        <Scale 1
+    }
+
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [departPlanX, fy - profondeurPlan + 100, 0]
+        <Type 1
+        <Scale 1
+    }
+
+    if murG = 0 then
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation mur,203.015,,,,,,,"
+            <Visible 1
+            <PointXYZ [departPlanX, fy - 80, 0]
+            <FontType 1
+        }
+
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation mur,203.015,,,,,,,"
+            <Visible 1
+            <PointXYZ [departPlanX, fy - profondeurPlan + 100, 0]
+            <FontType 1
+        }
+    endif
+
+    if murG = 1 then
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation px10 et 13,203.016,,,,,,,"
+            <Visible 1
+            <PointXYZ [departPlanX, fy - 80, 0]
+            <FontType 1
+        }
+
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation px10 et 13,203.016,,,,,,,"
+            <Visible 1
+            <PointXYZ [departPlanX, fy - profondeurPlan + 100, 0]
+            <FontType 1
+        }
+
+        >Merge
+        {
+            <Filename [symbolePied$]
+            <Layer 50
+            <PointXYZ [departPlanX, fy - profondeurPlan + 100, 0]
+            <Type 0
+            <Scale 1
+            <ExplodeBlocks 1
+        }
+    endif
+endif
+
+if murD = 1 or murD = 0 then
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [finPlanX, fy - 80, 0]
+        <Type 1
+        <Scale 1
+    }
+
+    >Rotate
+    {
+        <Axis 2
+        <PointXYZ [finPlanX, fy - 80, 0]
+        <Angle -180
+    }
+
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [finPlanX, fy - profondeurPlan + 100, 0]
+        <Type 1
+        <Scale 1
+    }
+
+    >Rotate
+    {
+        <Axis 2
+        <PointXYZ [finPlanX, fy - profondeurPlan + 100, 0]
+        <Angle -180
+    }
+
+    if murD = 0 then
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation mur,203.015,,,,,,,"
+            <Visible 1
+            <PointXYZ [finPlanX, fy - 80, 0]
+            <FontType 1
+        }
+
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation mur,203.015,,,,,,,"
+            <Visible 1
+            <PointXYZ [finPlanX, fy - profondeurPlan + 100, 0]
+            <FontType 1
+        }
+    endif
+
+    if murD = 1 then
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation px10 et 13,203.016,,,,,,,"
+            <Visible 1
+            <PointXYZ [finPlanX, fy - 80, 0]
+            <FontType 1
+        }
+
+        >Attribute
+        {
+            <Size 4
+            <Layer 3
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation px10 et 13,203.016,,,,,,,"
+            <Visible 1
+            <PointXYZ [finPlanX, fy - profondeurPlan + 100, 0]
+            <FontType 1
+        }
+    endif
+endif
+
+if murD = 2 and nbrplan > 1 then
+    >SymbolLoad
+    {
+        <Filename [raccordplan$]
+        <Layer 37
+        <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+        <Type 1
+        <Scale 1
+    }
+    >SymbolExplode
+    {
+    }
+
+    >SymbolLoad
+    {
+        <Filename [symbolecouj$]
+        <Layer 37
+        <PointXYZ [finPlanX, fy, 0]
+        <Type 1
+        <Scale 1
+    }
+    >SymbolExplode
+    {
+    }
+    attributcouj$ = nomCouj$ + "," + repereCouj$ + "," + sysex$(1) + "," + largeurCouj$ + "," + hauteurCouj$ + "," + "10" + "," + largeurCouj$ + "," + hauteurCouj$ + "," + "10"
+    >Attribute
+    {
+        <Size 10
+        <Layer 5
+        <Color 255, 0, 0
+        <Justification 1
+        <Text [attributcouj$]
+        <Visible 1
+        <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+        <FontType 1
+    }
+
+    attributProfil$ = "C12," + profilType$ + profilLettre$ + "," + sysex$(1) + "," + sizeProfil$ + ",0,0," + sizeProfil$ + ",0,0"
+    >Attribute
+    {
+        <Size 10
+        <Layer 5
+        <Color 255, 0, 0
+        <Justification 1
+        <Text [attributProfil$]
+        <Visible 1
+        <PointXYZ [finPlanX, fy - profondeurPlan/2, 0]
+        <FontType 1
+    }
+endif
+
+longc13 = (planL - 200)
+longpt = longc13 + 200
+if planL > 1000 then
+    >Line
+    {
+        <Color 0,0,0
+        <Layer 37
+        <LineStyle 2,50,0
+        <PointXYZ [departPlanX + 100, fy, 0]
+        <PointXYZ [departPlanX + 100, fy - 40, 0]
+    }
+
+    >Line
+    {
+        <Color 0,0,0
+        <Layer 37
+        <LineStyle 2,100,0
+        <PointXYZ [departPlanX + 100, fy - 40, 0]
+        <PointXYZ [finPlanX - 100, fy - 40, 0]
+    }
+
+    >Line
+    {
+        <Color 0,0,0
+        <Layer 37
+        <LineStyle 2,50,0
+        <PointXYZ [finPlanX - 100, fy - 40, 0]
+        <PointXYZ [finPlanX - 100, fy, 0]
+    }
+
+    test$ = longc13
+    longc13$ = longc13
+    attributC13$ = "C13,C13." + longc13$ + ",nr," + test$ + ",0,0," + test$ + ",0,0"
+    >Attribute
+    {
+        <Size 10
+        <Layer 5
+        <Color 255, 0, 0
+        <Justification 1
+        <Text [attributC13$]
+        <Visible 1
+        <PointXYZ [((finPlanX + departPlanX) / 2), fy + 40, 0]
+        <FontType 1
+    }
+    textc13$ = "C13." + longc13$
+
+    >Text
+    {
+        <Color 0, 0, 255
+        <Layer 37
+        <PointXYZ [((finPlanX + departPlanX) / 2) - 150, fy - 40, 0]
+        <DrawAs2dText
+        <Style 0
+        <Angle 0
+        <Justification 0
+        <Size 50
+        <Font "Arial"
+        <VectorFont "Simplex_Win
+        <FontType 1
+        <Text [textc13$]
+    }
+
+    if planL > 1000 then
+        if longc13 < 1600 then nbrEcart = 2
+        if longc13 >= 1600 then nbrEcart = 3
+        if longc13 >= 2400 then nbrEcart = 4
+        if longc13 >= 3200 then nbrEcart = 5
+        if longc13 >= 4000 then nbrEcart = 6
+        if longc13 >= 4800 then nbrEcart = 7
+        if longc13 >= 5600 then nbrEcart = 8
+        ecartPercage = (longc13 - 100) / nbrEcart
+        >Attribute
+        {
+            <Size 4
+            <Layer 5
+            <Color 255, 0, 0
+            <Justification 1
+            <Text "Fixation mur,203.017,,,,,,,"
+            <Visible 1
+            <PointXYZ [departPlanX + 100 + 50,py3 - 18]
+            <FontType 1
+        }
+        for i = 1 to (nbrEcart)
+            >Attribute
+            {
+                <Size 4
+                <Layer 5
+                <Color 255, 0, 0
+                <Justification 1
+                <Text "Fixation mur,203.017,,,,,,,"
+                <Visible 1
+                <PointXYZ [departPlanX + 100 + 50 + (i * ecartPercage) ,py3 - 18]
+                <FontType 1
+            }
+        next i
+    endif
+endif
+
+if planL <= 1000 then
+    ecartPercage = planL / 3
+
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [departPlanX + ecartPercage ,py3]
+        <Type 1
+        <Scale 1
+    }
+
+    >Rotate
+    {
+        <Axis 2
+        <PointXYZ [departPlanX + ecartPercage ,py3]
+        <Angle -90
+    }
+
+    >SymbolLoad
+    {
+        <Filename [fichierEquerre$]
+        <Layer 37
+        <PointXYZ [departPlanX + (2 * ecartPercage) ,py3]
+        <Type 1
+        <Scale 1
+    }
+
+    >Rotate
+    {
+        <Axis 2
+        <PointXYZ [departPlanX + (2 * ecartPercage) ,py3]
+        <Angle -90
+    }
+
+    >Attribute
+    {
+        <Size 4
+        <Layer 5
+        <Color 255, 0, 0
+        <Justification 1
+        <Text "Fixation mur,203.015,,,,,,,"
+        <Visible 1
+        <PointXYZ [departPlanX + ecartPercage ,py3 - 18]
+        <FontType 1
+    }
+
+    >Attribute
+    {
+        <Size 4
+        <Layer 5
+        <Color 255, 0, 0
+        <Justification 1
+        <Text "Fixation mur,203.015,,,,,,,"
+        <Visible 1
+        <PointXYZ [departPlanX + (2 * ecartPercage) ,py3 - 18]
+        <FontType 1
+    }
+endif
+
+>Line
+{
+    <Color 0,0,0
+    <Layer 37
+    <LineStyle 0,0,0
+    <PointXYZ [0, 0, 0]
+    <PointXYZ [0, 0, 0]
+}
+
+gosub ChoixVuePlanc
+
+sys(36) = 0
+regen
+sys(80) = 0
+sys(242) = 1
+return
+
+'-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NouvelleFenetre:
+'Ouvre une nouvelle fenetre'
+'{'
+    window 5,50
+    return
+'}'
+'----------------------------------------------------------------------------------------------------------------------'
+FinFenetre:
+'Ferme la fenetre en recuperant une touche'
+'{'
+    anykey key
+    key = key - 96
+    wclose
+    return
+'}'
+'----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SelectEntity:
+sys(36) = 2
+    regen
+    test = 0
+    for toto = 0 to 150
+        sys(80) = 0
+        >PointSelect
+        {
+            <PointXYZ [selectX + toto, selectY, selectZ]
+            <Type 0
+        }
+        if sys(80) <> 0 then
+            test = 1
+            exit for
+        endif
+    next toto
+    if test = 0 then
+        for toto = 0 to 150
+            sys(80) = 0
+            >PointSelect
+            {
+                <PointXYZ [selectX - toto, selectY, selectZ]
+                <Type 0
+            }
+            if sys(80) <> 0 then
+                test = 1
+                exit for
+            endif
+        next toto
+    endif
+    if test = 0 then
+        message "Erreur, aucune entite selectionnee"
+        sys(3) = currentlayer
+        sys(4) = currentlinetype
+        sys(5) = currentlinetypescale
+        sys(300) = currentdrawingcolorr
+        sys(301) = currentdrawingcolorg
+        sys(302) = currentdrawingcolorb
+        end
+    endif
+    getselect sys(80), selected
+    sys(80) = 0
+    sys(36) = 0
+    regen
+    return
+return
+'-----------------------------------------------------------------------------------------------------------------------
+ChoixVuePlanc:
+'{'
+    sys(36) = 0
+    regen
+    if affichage = 0 then
+        gosub NouvelleFenetre
+        print "Afficher le plan d'usinage ?"
+        print "1. Oui"
+        print "2. Non"
+        gosub FinFenetre
+        if key = 2 or key = -69 then
+            affichage = 2
+            return
+        endif
+        if key <> 2 and key <> 1 then goto ChoixVuePlanc
+        if key = 1 then
+            affichage = 1
+            setpoint "Placez un point pour poser le plan de percage" 1
+            pointval percageX percageY percageZ 1
+            lengthold = (px2 - px1)
+            nbrDecoupesold = nbrDecoupes
+            goto percage
+            sys(36) = 2
+            regen
+            sys(36) = 0
+            regen
+            return
+        endif
+    endif'
+
+    if murD = 2 and murG = 2 and affichage = 1 then
+        if USI = 2 and (lengthold >= (px2 - px1) - 1 and lengthold < (px2 - px1) + 1) and nbrDecoupes = nbrDecoupesold then
+            sys(36) = 2
+            regen
+            sys(36) = 0
+            regen
+            return
+        endif
+        if USI <> 2 or (lengthold < px2 - px1 or lengthold > (px2 - px1) + 1) or (nbrDecoupes <> nbrDecoupesold) then
+            lengthold = (px2 - px1) + 0.5
+            nbrDecoupesold = nbrDecoupes
+            USI = 2
+            setpoint "Placez un point pour poser le plan de percage" 1
+            pointval percageX percageY percageZ 1
+            goto percage
+        endif
+        sys(36) = 2
+        regen
+        sys(36) = 0
+        regen
+        return
+    endif
+    if affichage = 1 and murD <> 2 or murG <> 2 then
+        lengthold = (px2 - px1) + 0.5
+        nbrDecoupesold = nbrDecoupes
+        USI = 1
+        setpoint "Placez un point pour poser le plan de percage" 1
+        pointval percageX percageY percageZ 1
+        goto percage
+    endif
+sys(36) = 2
+regen
+sys(36) = 0
+regen
+return
+
+'}'
+'----------------------------------------------------------------------------------------------------------------------'
+percage:
+sys(36) = 2
+regen
+
+precision 2
+compensation = 0
+neg = 0
+lcorniere = planL - 200
+a = 0
+calcLongueur = planL - 300
+nbrTrous = (lcorniere - 100) \ 800 + 1
+ecart = (lcorniere - 100) \ nbrTrous
+ecart = round(ecart - 0.5)
+calcLongueur = planL - (nbrTrous * ecart) - 300
+calcLongueur = round(calcLongueur)
+if calcLongueur >= 1 then
+    compensation = calcLongueur / 2
+    a = 1
+endif
+if compensation > 0.5 then compensation = 0.5
+if calcLongueur < 0 then
+    neg = 1
+    compensation = 0.5
+    a = 1
+endif
+precision 0
+>Line
+{
+    <Color 0,255,0
+    <Layer 14
+    <LineStyle 0,0,0
+    <PointXYZ [percageX + longpt, percageY, 0]
+    <PointXYZ [percageX + longpt, percageY + profondeurPlan, 0]
+    <PointXYZ [percageX, percageY + profondeurPlan, 0]
+    <PointXYZ [percageX, percageY, 0]
+}
+
+>Line
+{
+    <Color 255,0,0
+    <Layer 12
+    <LineStyle 0,0,0
+    <PointXYZ [percageX, percageY, 0]
+    <PointXYZ [percageX + longpt, percageY, 0]
+}
+
+>2DBox
+{
+    <Color 0,0,255
+    <Layer 10
+    <LineStyle 0,0,0
+    <PointXYZ [percageX + 1 + longpt, percageY - 1, 0]
+    <PointXYZ [percageX - 1, percageY + profondeurPlan + 1, 0]
+}
+
+>Dimension
+{
+    <Color 0,0,0
+    <Layer 2
+    <PointXYZ [percageX ,percageY - 10, 0]
+    <PointXYZ [percageX + longpt, percageY - 10, 0]
+    <PointXYZ [percageX,percageY - 60, 0]
+    <Axis 0
+    <Orientation 0
+    <Precision 0
+    <Format 0
+    <Location 2
+    <ToleranceType 0
+    <ToleranceSize 0.5
+    <ToleranceLow -0.001
+    <ToleranceHigh +0.001
+    <Tolerance 0.001
+    <Suffix "0"
+    <Prefix "0"
+    <Font "Arial"
+    <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+    <FontType 1
+    <Size 40  'Taille texte'
+    <Style 0
+    <Type 0
+    <Fix 1
+    <Gap 0  'Decalage'
+    <Length 300
+    <OverShoot 15 'Saillie'
+    <Arrowhead 4
+    <Arrowhead2 4
+    <EnableSecondArrow 1
+    <DimUnits 0
+    <DimEnableTextInsidePos 1
+    <ArrowSize 40   'Taille fleche'
+    <OptDimTextOffset -50  'Decalage Texte'
+    <DimHorizontalTextPos 0
+    <DimMovement 0
+    <LinePosition 0
+    <Multiplier 1
+    <Associated 0
+    <ForceTextHorizontallyOutside 0
+    <TextMovement 0
+}
+
+>Text
+{
+    <Color 0,0,255
+    <Layer 2
+    <PointXYZ [percageX + longpt - 350, percageY + profondeurPlan - 140, 0]
+    <DrawAs2dText
+    <Style 0
+    <Justification 0
+    <Size 50
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Angle 0
+    <Text [planVasqueTexte$]
+}
+
+>Text
+{
+    <Color 0,0,255
+    <Layer 2
+    <PointXYZ [percageX + ((longpt - 800) / 2) + 600, percageY - 170, 0]
+    <DrawAs2dText
+    <Style 0
+    <Justification 0
+    <Size 50
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Angle 0
+    <Text [planVasqueTexte$]
+}
+
+vuedessous$ = "Vue de dessous"
+
+>Text
+{
+    <Color 0,0,0
+    <Layer 2
+    <PointXYZ [percageX + ((longpt - 800) / 2), percageY - 170, 0]
+    <DrawAs2dText
+    <Style 0
+    <Justification 0
+    <Size 50
+    <Font "Arial"
+    <VectorFont "Simplex_Win"
+    <FontType 1
+    <Angle 0
+    <Text [vuedessous$]
+}
+
+if (planVasqueNom$ = "PVK") then
+    fichierVasqueRet$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Symboles\vasque.dcd"
+else
+    fichierVasqueRet$ = "\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Symboles\plans\vasque_client.dcd"
+end if
+ecart_vasque = 0
+
+for i = 1 to nbrDecoupes
+    ecart_vasque_old = ecart_vasque
+
+    if i = 1 then
+        ecart_vasque = longpt / (nbrDecoupes * 2)
+    else
+        ecart_vasque = ecart_vasque + longpt / nbrDecoupes
+    endif
+
+    >SymbolLoad
+    {
+        <Filename [fichierVasqueRet$]
+        <Layer 2
+        <PointXYZ [percageX + ecart_vasque, percageY + (profondeurPlan / 2), 0]
+        <Type 1
+        <Scale 1
+    }
+    >SymbolExplode
+    {
+
+    }
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + ecart_vasque_old ,percageY + (profondeurPlan / 2), 0]
+        <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+        <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    if (planVasqueNom$ = "PVK") then
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan), 0]
+            <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+            <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    else
+        if (planVasqueNom$ = "PVC" and i = 1) then
+            prefix$ = "A definir"
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 2
+                <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan), 0]
+                <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+                <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <PrefixText [prefix$]
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 40  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 1
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 40   'Taille fleche'
+                <OptDimTextOffset -50  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        endif
+    endif
+next i
+
+>Dimension
+{
+    <Color 0,0,0
+    <Layer 2
+    <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+    <PointXYZ [percageX + longpt ,percageY + (profondeurPlan / 2), 0]
+    <PointXYZ [percageX + ecart_vasque ,percageY + (profondeurPlan / 2), 0]
+    <Axis 0
+    <Orientation 0
+    <Precision 0
+    <Format 0
+    <Location 2
+    <ToleranceType 0
+    <ToleranceSize 0.5
+    <ToleranceLow -0.001
+    <ToleranceHigh +0.001
+    <Tolerance 0.001
+    <Suffix "0"
+    <Prefix "0"
+    <Font "Arial"
+    <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+    <FontType 1
+    <Size 40  'Taille texte'
+    <Style 0
+    <Type 0
+    <Fix 1
+    <Gap 0  'Decalage'
+    <Length 300
+    <OverShoot 15 'Saillie'
+    <Arrowhead 4
+    <Arrowhead2 4
+    <EnableSecondArrow 1
+    <DimUnits 0
+    <DimEnableTextInsidePos 1
+    <ArrowSize 40   'Taille fleche'
+    <OptDimTextOffset -50  'Decalage Texte'
+    <DimHorizontalTextPos 0
+    <DimMovement 0
+    <LinePosition 0
+    <Multiplier 1
+    <Associated 0
+    <ForceTextHorizontallyOutside 0
+    <TextMovement 0
+}
+
+if (murG = 2 and starts = 1) and (murD = 1 or murD = 0) then
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX - 5,percageY + 100]
+        <PointXYZ [percageX - 5,percageY]
+        <PointXYZ [percageX - 70,percageY + 80]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX - 5,percageY + profondeurPlan - 80]
+        <PointXYZ [percageX - 5,percageY + 100]
+        <PointXYZ [percageX - 70,percageY + (profondeurPlan / 2)]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX - 5,percageY + profondeurPlan - 80]
+        <PointXYZ [percageX - 5,percageY + profondeurPlan]
+        <PointXYZ [percageX - 70,percageY + profondeurPlan - 40]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX,percageY + profondeurPlan - 95]
+        <PointXYZ [percageX + 25,percageY + profondeurPlan - 95]
+        <PointXYZ [percageX + 12,percageY + profondeurPlan - 140]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 2
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+else
+    if murD = 2 and ends = 1 then
+        'I FOUND AN EMPTY IF SO I PUT A FISH IN IT
+        '        /\
+        '      _/./
+        '   ,-'    `-:.,-'/
+        '  > O )<)    _  (
+        '   `-._  _.:' `-.\
+        '       `` \;'
+    endif
+
+    if (murG = 2) and (murD = 1 or murD = 0) then
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX - 5,percageY + 100]
+            <PointXYZ [percageX - 5,percageY]
+            <PointXYZ [percageX - 70,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX - 5,percageY + profondeurPlan - 80]
+            <PointXYZ [percageX - 5,percageY + 100]
+            <PointXYZ [percageX - 70,percageY + (profondeurPlan / 2)]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX - 5,percageY + profondeurPlan - 80]
+            <PointXYZ [percageX - 5,percageY + profondeurPlan]
+            <PointXYZ [percageX - 70,percageY + profondeurPlan - 40]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX,percageY + profondeurPlan - 95]
+            <PointXYZ [percageX + 25,percageY + profondeurPlan - 95]
+            <PointXYZ [percageX + 12,percageY + profondeurPlan - 140]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 1
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 2
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    endif
+    if (murG = 2 and starts <> 1) then
+        >SymbolLoad
+        {
+            <Filename [percageG$]
+            <Layer 37
+            <PointXYZ [percageX + longpt, percageY + profondeurPlan/2, 0]
+            <Type 1
+            <Scale 1
+        }
+        >SymbolExplode
+        {
+
+        }
+        '>SymbolExplode
+        '{
+
+        '}
+        newpos = profondeurPlan - 600
+        newpos = newpos/2
+
+        if newpos > 0 then
+            >SymbolLoad
+            {
+                <Filename [percagedetailG$]
+                <Layer 37
+                <PointXYZ [percageX + longpt - 317 + 140, (percageY + profondeurPlan + 200 + 275) + newpos, 0]
+                <Type 1
+                <Scale 2,2,2
+            }
+            >SymbolExplode
+            {
+
+            }
+            >Line
+            {
+                <Color 0,0,255
+                <Layer 34
+                <LineStyle 0,0,0
+                <PointXYZ [percageX + longpt - 140 + 140, (percageY + profondeurPlan + 800 + 275), 0]
+                <PointXYZ [percageX + longpt - 417 + 140, (percageY + profondeurPlan + 800 + 275), 0]
+            }
+
+            >Line
+            {
+                <Color 0,0,255
+                <Layer 34
+                <LineStyle 0,0,0
+                <PointXYZ [percageX + longpt - 140 + 140, (percageY + profondeurPlan + 800 + profondeurPlan - 1 + 275), 0]
+                <PointXYZ [percageX + longpt - 417 + 140, (percageY + profondeurPlan + 800 + profondeurPlan - 1 + 275), 0]
+            }
+
+            >Line
+            {
+                <Color 0,0,255
+                <Layer 34
+                <LineStyle 0,0,0
+                <PointXYZ [percageX + longpt - 139 + 140, (percageY + profondeurPlan + 800 + 275), 0]
+                <PointXYZ [percageX + longpt - 139 + 140, (percageY + profondeurPlan + 800 + profondeurPlan - 1 + 275), 0]
+            }
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + newpos - 75 + 275]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+                <PointXYZ [percageX + longpt - 60 + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 1
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + newpos - 150 + 275]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+                <PointXYZ [percageX + longpt + 51 + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 1
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + newpos - 495 + 275]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+                <PointXYZ [percageX + longpt + 155 + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 1
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        else
+            >SymbolLoad
+            {
+                <Filename [percagedetailG$]
+                <Layer 37
+                <PointXYZ [percageX + longpt - 317 + 140, percageY + 800 + 275, 0]
+                <Type 1
+                <Scale 2,2,2
+            }
+            >SymbolExplode
+            {
+
+            }
+            >Line
+            {
+                <Color 0,0,255
+                <Layer 34
+                <LineStyle 0,0,0
+                <PointXYZ [percageX + longpt - 140 + 140, percageY + 1400 + 275, 0]
+                <PointXYZ [percageX + longpt - 417 + 140, percageY + 1400 + 275, 0]
+            }
+
+            >Line
+            {
+                <Color 0,0,255
+                <Layer 34
+                <LineStyle 0,0,0
+                <PointXYZ [percageX + longpt - 140 + 140, percageY + 1400 + profondeurPlan - 1 + 275, 0]
+                <PointXYZ [percageX + longpt - 417 + 140, percageY + 1400 + profondeurPlan - 1 + 275, 0]
+            }
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan - 75 + 275)]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275]
+                <PointXYZ [percageX + longpt - 60  + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 2
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan - 150 + 275)]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275]
+                <PointXYZ [percageX + longpt + 51 + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 2
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+            >Dimension
+            {
+                <Color 0,0,0
+                <Layer 34
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan - 495 + 275]
+                <PointXYZ [percageX + longpt - 139 + 140,percageY + 1400 + profondeurPlan + 275]
+                <PointXYZ [percageX + longpt + 155 + 140,percageY + 80]
+                <Axis 0
+                <Orientation 0
+                <Precision 0
+                <Format 0
+                <Location 2
+                <ToleranceType 0
+                <ToleranceSize 0.5
+                <ToleranceLow -0.001
+                <ToleranceHigh +0.001
+                <Tolerance 0.001
+                <Suffix "0"
+                <Prefix "0"
+                <Font "Arial"
+                <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+                <FontType 1
+                <Size 30  'Taille texte'
+                <Style 0
+                <Type 0
+                <Fix 2
+                <Gap 0  'Decalage'
+                <Length 300
+                <OverShoot 15 'Saillie'
+                <Arrowhead 4
+                <Arrowhead2 4
+                <EnableSecondArrow 1
+                <DimUnits 0
+                <DimEnableTextInsidePos 1
+                <ArrowSize 20   'Taille fleche'
+                <OptDimTextOffset 10  'Decalage Texte'
+                <DimHorizontalTextPos 0
+                <DimMovement 0
+                <LinePosition 0
+                <Multiplier 1
+                <Associated 0
+                <ForceTextHorizontallyOutside 0
+                <TextMovement 0
+            }
+        endif
+    endif
+    if murG <> 2 then
+        >Circle
+        {
+            <Color 0,0,255
+            <Layer 24
+            <LineStyle 0,100,0
+            <PointXYZ [percageX + longpt - 25,percageY + 100]
+            <PointXYZ [percageX + longpt - 25 - 2.1,percageY + 100]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+            <Type 0
+        }
+
+        >Text
+        {
+            <Color 0,0,255
+            <Layer 2
+            <PointXYZ [percageX + longpt  - 45,percageY + 100 - 15]
+            <DrawAs2dText
+            <Style 0
+            <Justification 0
+            <Size 20
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Angle 0
+            <Text "b"
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + longpt + 5,percageY + 100]
+            <PointXYZ [percageX + longpt + 5,percageY]
+            <PointXYZ [percageX + longpt + 70,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Circle
+        {
+            <Color 0,0,255
+            <Layer 24
+            <LineStyle 0,100,0
+            <PointXYZ [percageX + longpt - 25,percageY + profondeurPlan - 80]
+            <PointXYZ [percageX + longpt - 25 - 2.1,percageY + profondeurPlan - 80]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+            <Type 0
+        }
+
+        >Text
+        {
+            <Color 0,0,255
+            <Layer 2
+            <PointXYZ [percageX + longpt - 45,percageY + profondeurPlan - 80 - 13]
+            <DrawAs2dText
+            <Style 0
+            <Justification 0
+            <Size 20
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Angle 0
+            <Text "b"
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + longpt + 5,percageY + profondeurPlan - 80]
+            <PointXYZ [percageX + longpt + 5,percageY + 100]
+            <PointXYZ [percageX + longpt + 70,percageY + (profondeurPlan / 2)]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + longpt + 5,percageY + profondeurPlan - 80]
+            <PointXYZ [percageX + longpt + 5,percageY + profondeurPlan]
+            <PointXYZ [percageX + longpt + 70,percageY + profondeurPlan - 40]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + longpt,percageY + profondeurPlan - 95]
+            <PointXYZ [percageX + longpt - 25,percageY + profondeurPlan - 95]
+            <PointXYZ [percageX + longpt - 12,percageY + profondeurPlan - 140]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 1
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 2
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    endif
+endif
+
+if (murD = 2 and ends <> 1) then 'X'
+    >SymbolLoad
+    {
+        <Filename [percageD$]
+        <Layer 37
+        <PointXYZ [percageX, percageY + profondeurPlan/2, 0]
+        <Type 1
+        <Scale 1
+    }
+    >SymbolExplode
+    {
+
+    }
+    newpos = profondeurPlan - 600
+    newpos = newpos/2
+
+    if newpos > 0 then
+        >SymbolLoad
+        {
+            <Filename [percagedetailD$]
+            <Layer 37
+            <PointXYZ [percageX - 120, percageY + profondeurPlan + 800 + newpos + 275, 0]
+            <Type 1
+            <Scale 2,2,2
+        }
+        >SymbolExplode
+        {
+
+        }
+        >Line
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,0,0
+            <PointXYZ [percageX + 119 - 120, (percageY + profondeurPlan + 800 + 275), 0]
+            <PointXYZ [percageX + 417 - 120, (percageY + profondeurPlan + 800 + 275), 0]
+        }
+
+        >Line
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,0,0
+            <PointXYZ [percageX + 119 - 120, (percageY + profondeurPlan + 800 + profondeurPlan + 275), 0]
+            <PointXYZ [percageX + 417 - 120, (percageY + profondeurPlan + 800 + profondeurPlan + 275), 0]
+        }
+
+        >Line
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,0,0
+            <PointXYZ [percageX + 119 - 120, (percageY + profondeurPlan + 800 + 275), 0]
+            <PointXYZ [percageX + 119 - 120, (percageY + profondeurPlan + 800 + profondeurPlan + 275), 0]
+        }
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + newpos - 75 + 275)]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+            <PointXYZ [percageX + 40 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + newpos - 150 + 275]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+            <PointXYZ [percageX - 54 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + newpos - 495 + 275)]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275 + newpos * 2]
+            <PointXYZ [percageX - 117 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    else
+        >SymbolLoad
+        {
+            <Filename [percagedetailD$]
+            <Layer 37
+            <PointXYZ [percageX - 120, percageY + profondeurPlan * 2 + 200 + newpos + 275, 0]
+            <Type 1
+            <Scale 2,2,2
+        }
+        >SymbolExplode
+        {
+
+        }
+        >Line
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,0,0
+            <PointXYZ [percageX + 119 - 120, percageY + 1400 + 275, 0]
+            <PointXYZ [percageX + 417 - 120, percageY + 1400 + 275, 0]
+        }
+
+        >Line
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,0,0
+            <PointXYZ [percageX + 119 - 120, percageY + 1400 + profondeurPlan + 275, 0]
+            <PointXYZ [percageX + 417 - 120, percageY + 1400 + profondeurPlan + 275, 0]
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan - 75 + 275]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275]
+            <PointXYZ [percageX + 40 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan - 150 + 275]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275]
+            <PointXYZ [percageX - 54 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan - 495 + 275]
+            <PointXYZ [percageX + 119 - 120,percageY + 1400 + profondeurPlan + 275]
+            <PointXYZ [percageX - 117 - 120,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 30  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 20   'Taille fleche'
+            <OptDimTextOffset 10  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    endif
+endif
+
+if (murD = 1 or murD = 0) then
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 24
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + 25,percageY + 100]
+        <PointXYZ [percageX + 25 + 2.1,percageY + 100]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Text
+    {
+        <Color 0,0,255
+        <Layer 2
+        <PointXYZ [percageX + 45,percageY + 100 - 13]
+        <DrawAs2dText
+        <Style 0
+        <Justification 0
+        <Size 20
+        <Font "Arial"
+        <VectorFont "Simplex_Win"
+        <FontType 1
+        <Angle 0
+        <Text "b"
+    }
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 24
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + 25,percageY + profondeurPlan - 80]
+        <PointXYZ [percageX + 25 + 2.1,percageY + profondeurPlan - 80]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Text
+    {
+        <Color 0,0,255
+        <Layer 2
+        <PointXYZ [percageX + 45,percageY + profondeurPlan - 80 - 13]
+        <DrawAs2dText
+        <Style 0
+        <Justification 0
+        <Size 20
+        <Font "Arial"
+        <VectorFont "Simplex_Win"
+        <FontType 1
+        <Angle 0
+        <Text "b"
+    }
+endif
+
+if (finPlanX - departPlanX) > 1000 then
+    if longc13 < 1600 then nbrEcart = 2
+    if longc13 >= 1600 then nbrEcart = 3
+    if longc13 >= 2400 then nbrEcart = 4
+    if longc13 >= 3200 then nbrEcart = 5
+    if longc13 >= 4000 then nbrEcart = 6
+    if longc13 >= 4800 then nbrEcart = 7
+    if longc13 >= 5600 then nbrEcart = 8
+
+    ecartPercage = (longc13 - 100) / nbrEcart
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 24
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + 100 + 50,percageY + profondeurPlan - 18]
+        <PointXYZ [percageX + 100 + 50 + 2.1, percageY + profondeurPlan - 18]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Text
+    {
+        <Color 0,0,255
+        <Layer 2
+        <PointXYZ [percageX + 100 + 50 + 20,percageY + profondeurPlan - 18 - 13]
+        <DrawAs2dText
+        <Style 0
+        <Justification 0
+        <Size 20
+        <Font "Arial"
+        <VectorFont "Simplex_Win"
+        <FontType 1
+        <Angle 0
+        <Text "b"
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + 100 + 65,percageY + profondeurPlan]
+        <PointXYZ [percageX + 100 + 65,percageY + profondeurPlan - 18]
+        <PointXYZ [percageX + 100 + 150,percageY + profondeurPlan - 18]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 2
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + 100 + 50 + compensation,percageY + profondeurPlan + 5]
+        <PointXYZ [percageX,percageY + profondeurPlan + 5]
+        <PointXYZ [percageX + 75,percageY + profondeurPlan + 90]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    '>Circle
+    '{
+    '    <Color 0,0,255
+    '    <Layer 24
+    '    <LineStyle 0,100,0
+    '    <PointXYZ [percageX + longpt - 100 - 50,percageY + profondeurPlan - 18]
+    '    <PointXYZ [percageX + longpt - 100 - 50 + 2.1, percageY + profondeurPlan - 18]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+    '    <Type 0
+    '}
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + longpt - 100 - 50 - compensation,percageY + profondeurPlan + 5]
+        <PointXYZ [percageX + longpt,percageY + profondeurPlan  + 5]
+        <PointXYZ [percageX + longpt - 75,percageY + profondeurPlan + 90]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+    'compensation = round (compensation - 0.5)
+    for i = 1 to (nbrEcart)
+        >Circle
+        {
+            <Color 0,0,255
+            <Layer 24
+            <LineStyle 0,100,0
+            <PointXYZ [percageX + 100 + 50 + (i * ecartPercage) ,percageY + profondeurPlan - 18]
+            <PointXYZ [percageX + 100 + 50 + (i * ecartPercage) + 2.1,percageY + profondeurPlan - 18]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+            <Type 0
+        }
+
+        >Text
+        {
+            <Color 0,0,255
+            <Layer 2
+            <PointXYZ [percageX + 100 + 70 + (i * ecartPercage) ,percageY + profondeurPlan - 18 - 13]
+            <DrawAs2dText
+            <Style 0
+            <Justification 0
+            <Size 20
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Angle 0
+            <Text "b"
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [percageX + 100 + 50 + (i * ecartPercage) - compensation ,percageY + profondeurPlan + 5]
+            <PointXYZ [percageX + 100 + 50 + ((i - 1) * ecartPercage) - compensation,percageY + profondeurPlan + 5]
+            <PointXYZ [percageX + 100 + 50 + ((i + (i - 1)) / 2 * ecartPercage) ,percageY + profondeurPlan + 90]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    next i
+
+    percageY = percageY + profondeurPlan + 290
+    percageX = percageX
+
+    >Line
+    {
+        <Color 0,255,0
+        <Layer 14
+        <LineStyle 0,0,0
+        <PointXYZ [percageX + longpt, percageY, 0]
+        <PointXYZ [percageX + longpt, percageY + 140, 0]
+        <PointXYZ [percageX, percageY + 140, 0]
+        <PointXYZ [percageX, percageY, 0]
+    }
+
+    >2DBox
+    {
+        <Color 0,0,255
+        <Layer 10
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + longpt + 1, percageY - 1, 0]
+        <PointXYZ [percageX - 1, percageY + 140 + 1, 0]
+        <Type 1
+        <Orientation 0
+    }
+
+    ecartementVasque = planL / nbrDecoupes
+    positionVasqueXdec = percageX + ecartementVasque/2
+    for dec = 1 to nbrDecoupes
+        >SymbolLoad
+        {
+            <Filename [symboleEmplctPS$]
+            <Layer 37
+            <PointXYZ [positionVasqueXdec + ecartementVasque /2 - 200, percageY + 60, 0]
+            <Type 1
+            <Scale 1
+        }
+        >SymbolExplode
+        {
+
+        }
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [positionVasqueXdec - ecartementVasque/2,percageY, 0]
+            <PointXYZ [positionVasqueXdec + ecartementVasque/2 - 200, percageY, 0]
+            <PointXYZ [positionVasqueXdec + ecartementVasque - 200, percageY - 50, 0]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 0
+            <Gap 100  'Decalage'
+            <Length 300
+            <OverShoot 30 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 0
+            <DimUnits 0
+            <DimEnableTextInsidePos 0
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset 30  'Decalage Texte%'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 2
+            <PointXYZ [positionVasqueXdec + ecartementVasque/2 - 200, percageY, 0]
+            <PointXYZ [positionVasqueXdec + ecartementVasque/2, percageY, 0]
+            <PointXYZ [positionVasqueXdec + ecartementVasque/2, percageY - 50, 0]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 0
+            <Gap 100  'Decalage'
+            <Length 300
+            <OverShoot 30 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 0
+            <DimUnits 0
+            <DimEnableTextInsidePos 0
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset 30  'Decalage Texte%'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+        positionVasqueXdec = positionVasqueXdec + ecartementVasque
+    next dec
+    >Text
+    {
+        <Color 0,0,255
+        <Layer 2
+        <PointXYZ [percageX + 20, percageY + 70, 0]
+        <DrawAs2dText
+        <Style 0
+        <Justification 0
+        <Size 50
+        <Font "Arial"
+        <VectorFont "Simplex_Win"
+        <FontType 1
+        <Angle 0
+        <Text [retombeeTexte$]
+    }
+
+    >Line
+    {
+        <Color 255,0,0
+        <Layer 12
+        <LineStyle 0,0,0
+        <PointXYZ [percageX, percageY, 0]
+        <PointXYZ [percageX + longpt, percageY, 0]
+    }
+
+    percageY = percageY + 290
+    percageX = percageX + 100
+    >2DBox
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX, percageY, 0]
+        <PointXYZ [percageX + longc13, percageY + 40, 0]
+        <Type 1
+        <Orientation 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX, percageY - 10, 0]
+        <PointXYZ [percageX + longc13, percageY - 10, 0]
+        <PointXYZ [percageX, percageY - 40, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    ecartPercage = (longc13 - 100) / nbrEcart
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + longc13 + 10, percageY + 40, 0]
+        <PointXYZ [percageX + longc13 + 10, percageY, 0]
+        <PointXYZ [percageX + longc13 + 60, percageY + 20, 0]]
+        <Axis 0
+        <Orientation 1
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + 50,percageY + 20]
+        <PointXYZ [percageX + 50 + 2.1,percageY + 20]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + 50 + compensation,percageY + 50]
+        <PointXYZ [percageX,percageY + 50]
+        <PointXYZ [percageX + 25,percageY + 80]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + longc13 - 50,percageY + 20]
+        <PointXYZ [percageX + longc13 - 50 + 2.1,percageY + 20]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + longc13 - 50 - compensation,percageY + 50]
+        <PointXYZ [percageX + longc13,percageY + 50]
+        <PointXYZ [percageX + longc13 - 25,percageY + 80]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    for i = 1 to nbrEcart
+        >Circle
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,100,0
+            <PointXYZ [percageX + 50 + (i * ecartPercage) ,percageY + 20]
+            <PointXYZ [percageX + 50 + (i * ecartPercage) + 2.1,percageY + 20]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+            <Type 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 50 + (i * ecartPercage) - compensation,percageY + 50]
+            <PointXYZ [percageX + 50 + ((i - 1) * ecartPercage) - compensation,percageY + 50]
+            <PointXYZ [percageX + 50 + ((i + (i - 1)) / 2 * ecartPercage) ,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    next i
+
+    percageY = percageY + 260
+
+    >2DBox
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX, percageY, 0]
+        <PointXYZ [percageX + longc13, percageY + 30, 0]
+        <Type 1
+        <Orientation 0
+    }
+
+    >Text
+    {
+        <Color 0, 0, 255
+        <Layer 34
+        <PointXYZ [percageX, percageY + 160, 0]
+        <DrawAs2dText
+        <Style 0
+        <Angle 0
+        <Justification 0
+        <Size 50
+        <Font "Arial"
+        <VectorFont "Simplex_Win
+        <FontType 1
+        <Text [textc13$]
+    }
+
+    ecartPercage = (longc13 - 100) / nbrEcart
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + longc13 + 10, percageY + 30, 0]
+        <PointXYZ [percageX + longc13 + 10, percageY, 0]
+        <PointXYZ [percageX + longc13 + 60, percageY + 15, 0]]
+        <Axis 0
+        <Orientation 1
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + 50,percageY + 15]
+        <PointXYZ [percageX + 50 + 2.1,percageY + 15]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + 50 + compensation,percageY + 40]
+        <PointXYZ [percageX,percageY + 40]
+        <PointXYZ [percageX + 25,percageY + 80]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 34
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + longc13 - 50,percageY + 15]
+        <PointXYZ [percageX + longc13 - 50 + 2.1,percageY + 15]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 34
+        <PointXYZ [percageX + longc13 - 50 - compensation,percageY + 40]
+        <PointXYZ [percageX + longc13,percageY + 40]
+        <PointXYZ [percageX + longc13 - 25,percageY + 80]
+        <Axis 0
+        <Orientation 0
+        <Precision [a]
+        <Format 0
+        <Location 1
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension Droite lame percage'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 15  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset 30  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    for i = 1 to nbrEcart
+        >Circle
+        {
+            <Color 0,0,255
+            <Layer 34
+            <LineStyle 0,100,0
+            <PointXYZ [percageX + 50 + (i * ecartPercage) ,percageY + 15]
+            <PointXYZ [percageX + 50 + (i * ecartPercage) + 2.1,percageY + 15]            'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+            <Type 0
+        }
+
+        >Dimension
+        {
+            <Color 0,0,0
+            <Layer 34
+            <PointXYZ [percageX + 50 + (i * ecartPercage) + compensation ,percageY + 40]
+            <PointXYZ [percageX + 50 + ((i - 1) * ecartPercage) + compensation,percageY + 40]
+            <PointXYZ [percageX + 50 + ((i + (i - 1)) / 2 * ecartPercage) ,percageY + 80]
+            <Axis 0
+            <Orientation 0
+            <Precision 0
+            <Format 0
+            <Location 2
+            <ToleranceType 0
+            <ToleranceSize 0.5
+            <ToleranceLow -0.001
+            <ToleranceHigh +0.001
+            <Tolerance 0.001
+            <Suffix "0"
+            <Prefix "0"
+            <Font "Arial"
+            <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+            <FontType 1
+            <Size 40  'Taille texte'
+            <Style 0
+            <Type 0
+            <Fix 1
+            <Gap 0  'Decalage'
+            <Length 300
+            <OverShoot 15 'Saillie'
+            <Arrowhead 4
+            <Arrowhead2 4
+            <EnableSecondArrow 1
+            <DimUnits 0
+            <DimEnableTextInsidePos 1
+            <ArrowSize 40   'Taille fleche'
+            <OptDimTextOffset -50  'Decalage Texte'
+            <DimHorizontalTextPos 0
+            <DimMovement 0
+            <LinePosition 0
+            <Multiplier 1
+            <Associated 0
+            <ForceTextHorizontallyOutside 0
+            <TextMovement 0
+        }
+    next i
+else
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 24
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + (longpt / 3 * 2), percageY + profondeurPlan - 25, 0]
+        <PointXYZ [percageX + (longpt / 3 * 2) + 2.1 , percageY + profondeurPlan - 25, 0]           'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + longpt , percageY + profondeurPlan , 0]
+        <PointXYZ [percageX + (longpt * 2/ 3), percageY + profondeurPlan, 0]
+        <PointXYZ [percageX , percageY + profondeurPlan + 80, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + (longpt * 1/ 3), percageY + profondeurPlan, 0]
+        <PointXYZ [percageX + (longpt * 2/ 3), percageY + profondeurPlan, 0]
+        <PointXYZ [percageX , percageY + profondeurPlan + 80, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+
+    >Circle
+    {
+        <Color 0,0,255
+        <Layer 24
+        <LineStyle 0,100,0
+        <PointXYZ [percageX + (longpt / 3), percageY + profondeurPlan - 25, 0]
+        <PointXYZ [percageX + (longpt / 3) + 2.1 , percageY + profondeurPlan - 25, 0]           'cercle trou borgne 4.2mm en boucle pour le nombre de trou'
+        <Type 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX + (longpt / 3) - 10, percageY + profondeurPlan, 0]
+        <PointXYZ [percageX + (longpt / 3) - 10, percageY + profondeurPlan - 25, 0]
+        <PointXYZ [percageX + (longpt / 3) - 100, percageY + profondeurPlan, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 2
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+
+    >Dimension
+    {
+        <Color 0,0,0
+        <Layer 2
+        <PointXYZ [percageX , percageY + profondeurPlan , 0]
+        <PointXYZ [percageX + (longpt / 3), percageY + profondeurPlan, 0]
+        <PointXYZ [percageX , percageY + profondeurPlan + 80, 0]
+        <Axis 0
+        <Orientation 0
+        <Precision 0
+        <Format 0
+        <Location 2
+        <ToleranceType 0
+        <ToleranceSize 0.5
+        <ToleranceLow -0.001
+        <ToleranceHigh +0.001
+        <Tolerance 0.001
+        <Suffix "0"
+        <Prefix "0"
+        <Font "Arial"
+        <VectorFont "Simplex_Win"                                                                            'Met FLeche de dimension ecart entre trou pour percage 4.2mm'
+        <FontType 1
+        <Size 40  'Taille texte'
+        <Style 0
+        <Type 0
+        <Fix 1
+        <Gap 0  'Decalage'
+        <Length 300
+        <OverShoot 15 'Saillie'
+        <Arrowhead 4
+        <Arrowhead2 4
+        <EnableSecondArrow 1
+        <DimUnits 0
+        <DimEnableTextInsidePos 1
+        <ArrowSize 40   'Taille fleche'
+        <OptDimTextOffset -50  'Decalage Texte'
+        <DimHorizontalTextPos 0
+        <DimMovement 0
+        <LinePosition 0
+        <Multiplier 1
+        <Associated 0
+        <ForceTextHorizontallyOutside 0
+        <TextMovement 0
+    }
+endif
+
+sys(36) = 0
+
+>Line
+{
+    <Color 0,0,0
+    <Layer 1
+    <LineStyle 0,0,0
+    <PointXYZ [0, 0, 0]
+    <PointXYZ [0, 0, 0]
+}
+
+if sys(80) >= 1 then
+    for i = 1 to sys(80)
+        getselect i, j
+        entity j
+        if sys(90) = 75 then
+            change D_PREFIX, " "
+            change D_SUFFIX, " "
+            update
+            regen
+        endif
+    next i
+endif
+
+return

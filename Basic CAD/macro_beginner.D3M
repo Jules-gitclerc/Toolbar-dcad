@@ -1,0 +1,20 @@
+retry:
+input "Entrez une valeur :" valeur
+
+if valeur <= 0 then
+    message "mauvaise valeur"
+    goto retry
+else
+    setpoint "Poser 1 point" 1
+
+    pointval pgx pgy pgz 1
+
+    >2DBox
+    {
+            <PointXYZ [pgx + valeur, pgy, 0]
+            <PointXYZ [pgx, pgy + valeur, 0]
+            <Layer 1
+            <Color 0,0,0
+            <LineStyle 0,2.0000,0.0000
+    }
+endif

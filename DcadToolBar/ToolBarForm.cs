@@ -28,6 +28,7 @@ namespace DcadToolBar
         private System.Timers.Timer aTimer;
         public Dictionary<string, int> ModelsDict;
         public Dictionary<string, int> MaterialsDict;
+        public Dictionary<string, int> BambinoDict;
         public Dictionary<string, string> MacroDict;
         private int _appPid;
         private Thread _thread;
@@ -317,6 +318,11 @@ namespace DcadToolBar
                 {"inox", 2}
             };
 
+            BambinoDict = new Dictionary<string, int>()
+            {
+                {"poteau bambino", 0},
+            };
+
             MacroDict = InitializeMenu.InitMacroDict();
         }
 
@@ -435,6 +441,46 @@ namespace DcadToolBar
                 FileName = "cmd",
                 WindowStyle = ProcessWindowStyle.Hidden
             });
+        }
+
+        private void menuStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void PoignéeCarréeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoPc");
+        }
+
+        private void poteauToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoP");
+        }
+
+        private void PoignéeLuneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoPl");
+        }
+
+        private void PoignéeOvaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoPo");
+        }
+
+        private void PoignéeRondeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoPr");
+        }
+
+        private void PoignéeTriangleRéfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BambinoPt");
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("PtCollectif");
         }
     }
 }

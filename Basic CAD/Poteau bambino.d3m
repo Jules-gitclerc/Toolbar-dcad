@@ -1,0 +1,38 @@
+currentlayer = sys(3)
+currentlinetype = sys(4)
+currentlinetypescale = sys(5)
+currentdrawingcolorr = sys(300)
+currentdrawingcolorg = sys(301)
+currentdrawingcolorb = sys(302)
+
+include "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\dcadalias.d3i"
+'----------------------------------------------------------------------------------------------------------------------'
+PlacerPoints:
+'{'
+    setpoint "Placez un point pour poser l'attribut." 1
+    if sys(1) < 1 then goto EndMacro
+        pointval px py pz 1
+'}'
+    
+symbolpoteau$ = "\\Serv-kalysse\be\Etudes\BEZH - Zahir\Symbole Kalysse\Accessoires/Poteau Bambino.dcd"
+
+>SymbolLoad
+{
+        <Filename [symbolpoteau$]
+        <Layer 36
+        <PointXYZ [px, py, pz]
+        <Type 1
+        <Scale 1
+}
+
+EndMacro:
+'{'
+    currentlayer = sys(3)
+    currentlinetype = sys(4)
+    currentlinetypescale = sys(5)
+    currentdrawingcolorr = sys(300)
+    currentdrawingcolorg = sys(301)
+    currentdrawingcolorb = sys(302)
+    call "\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\REGEN.d3m"
+'}'
+end

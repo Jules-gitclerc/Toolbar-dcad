@@ -44,6 +44,13 @@ namespace DcadToolBar
                 {"Nylon", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Modele\nylon.d3m"},
                 {"Aluminium", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Modele\alu.d3m"},
                 {"Inox", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Modele\inox.d3m"},
+                {"BambinoP",@"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires/Poteau bambino.d3m"},
+                {"BambinoPc", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires\Poignee Carre Cabine Bambino Ref.221.310.d3m"},
+                {"BambinoPl", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires\Poignee Lune Cabine Bambino Ref.221.314.d3m"},
+                {"BambinoPo", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires\Poignee Ovale Cabine Bambino Ref.221.313.d3m"},
+                {"BambinoPr", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires\Poignee Ronde Cabine Bambino Ref.221.311.d3m"},
+                {"BambinoPt", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Accessoires\Macros accessoires\Poignee Triangle Cabine Bambino Ref.221.312.d3m"},
+                {"PtCollectif", @"C:\Users\DevKalysse\Desktop\plan_toilette_collectif.d3m"},
             };
 
             return newDict;
