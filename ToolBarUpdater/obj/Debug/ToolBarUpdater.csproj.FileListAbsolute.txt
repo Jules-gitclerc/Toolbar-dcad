@@ -8,3 +8,13 @@ C:\Users\UBE03\source\repos\DcadToolBar\ToolBarUpdater\obj\Debug\ToolBarUpdater.
 C:\Users\UBE03\source\repos\DcadToolBar\ToolBarUpdater\obj\Debug\ToolBarUpdater.csproj.CoreCompileInputs.cache
 C:\Users\UBE03\source\repos\DcadToolBar\ToolBarUpdater\obj\Debug\ToolBarUpdater.exe
 C:\Users\UBE03\source\repos\DcadToolBar\ToolBarUpdater\obj\Debug\ToolBarUpdater.pdb
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\bin\Debug\ToolBarUpdater.exe.config
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\bin\Debug\ToolBarUpdater.exe
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\bin\Debug\ToolBarUpdater.pdb
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.csprojAssemblyReference.cache
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.CheckUpdateForm.resources
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.Properties.Resources.resources
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.csproj.GenerateResource.cache
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.csproj.CoreCompileInputs.cache
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.exe
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\ToolBarUpdater\obj\Debug\ToolBarUpdater.pdb

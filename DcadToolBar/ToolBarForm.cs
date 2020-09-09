@@ -127,6 +127,8 @@ namespace DcadToolBar
             FormBorderStyle = FormBorderStyle.None;
             ShowInTaskbar = false;
             ShowIcon = false;
+            if (ProcessTools.CheckProcByName("DcadToolBar"))
+                ProcessTools.KillAllProcWithName("DcadToolBar");
             SetTimer();
             _thread.Start();
         }
@@ -142,20 +144,6 @@ namespace DcadToolBar
         }
 
         // ============ Class methods =============
-
-        private bool FindProcessWithPid(int pid)
-        {
-            var allProcesses = Process.GetProcesses();
-
-            return allProcesses.Any(process => process.Id == pid);
-        }
-
-        private bool FindDesignCAD()
-        {
-            var allProcesses = Process.GetProcesses();
-
-            return allProcesses.Any(process => process.ProcessName == "DcP10");
-        }
 
         private bool IsDesignCADActive()
         {
@@ -191,7 +179,7 @@ namespace DcadToolBar
 
             while (App == null)
             {
-                if (!FindDesignCAD()) continue;
+                if (!ProcessTools.CheckProcByName("DcP10")) continue;
                 try
                 {
                     App = (Application) Interaction.GetObject(null, "DesignCAD.Application.26"); // Gets app instance
@@ -233,7 +221,7 @@ namespace DcadToolBar
 
         private void WaitForClosing()
         {
-            while (FindProcessWithPid(_appPid))                 // TODO Add something which detects if window is minimized or not
+            while (ProcessTools.CheckProcWithPid(_appPid))                 // TODO Add something which detects if window is minimized or not
             {
                 if (IsDesignCADActive() || ActiveForm == this)
                 {
@@ -261,7 +249,7 @@ namespace DcadToolBar
 
         private void ActiveDocChangesWatcher()
         {
-            while (FindProcessWithPid(_appPid))
+            while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 if (!IsDesignCADActive()) continue;
                 if (App.ActiveDocument == null)
@@ -443,44 +431,9 @@ namespace DcadToolBar
             });
         }
 
-        private void menuStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void PoignéeCarréeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoPc");
-        }
-
-        private void poteauToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoP");
-        }
-
-        private void PoignéeLuneToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoPl");
-        }
-
-        private void PoignéeOvaleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoPo");
-        }
-
-        private void PoignéeRondeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoPr");
-        }
-
-        private void PoignéeTriangleRéfToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BambinoPt");
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("PtCollectif");
+            LaunchMacro("CasierHBanc");
         }
     }
 }

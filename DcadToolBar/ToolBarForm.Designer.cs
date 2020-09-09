@@ -35,32 +35,50 @@ namespace DcadToolBar
             this.DocTitle = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.bambinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PoignéeCarréeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PoignéeLuneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PoignéeOvaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PoignéeRondeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.PoignéeTriangleRéfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.poteauToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.poignée1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.poignée2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.test3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
-            this.test4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.test3ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
+            this.CloakRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CasiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierDiploToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caiserhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casiersAgroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierZToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierHToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierMétalliquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.armoiresCollectivesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CasiersInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BancsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BancsBoisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB100ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB150ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB200ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB250ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB300ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB350ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB400ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB450ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB500ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB550ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB600ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB650ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB700ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB750ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BancsCompactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC60ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC100ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC125ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC150ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC500ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieC550ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.série600ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.série700ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.série750ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.BarreDePenderieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casiersBancsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +98,8 @@ namespace DcadToolBar
             "Hauzeo",
             "Bambino",
             "Exéléo"});
-            this.ModelComboBox.Location = new System.Drawing.Point(169, 36);
+            this.ModelComboBox.Location = new System.Drawing.Point(139, 28);
+            this.ModelComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModelComboBox.Name = "ModelComboBox";
             this.ModelComboBox.Size = new System.Drawing.Size(121, 24);
             this.ModelComboBox.TabIndex = 4;
@@ -95,7 +114,8 @@ namespace DcadToolBar
             "Nylon",
             "Aluminium",
             "Inox"});
-            this.MaterialComboBox.Location = new System.Drawing.Point(40, 36);
+            this.MaterialComboBox.Location = new System.Drawing.Point(139, 59);
+            this.MaterialComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaterialComboBox.Name = "MaterialComboBox";
             this.MaterialComboBox.Size = new System.Drawing.Size(121, 24);
             this.MaterialComboBox.TabIndex = 5;
@@ -104,7 +124,7 @@ namespace DcadToolBar
             // 
             this.DocTitle.AutoSize = true;
             this.DocTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DocTitle.Location = new System.Drawing.Point(12, 9);
+            this.DocTitle.Location = new System.Drawing.Point(12, 5);
             this.DocTitle.Name = "DocTitle";
             this.DocTitle.Size = new System.Drawing.Size(69, 13);
             this.DocTitle.TabIndex = 6;
@@ -114,7 +134,8 @@ namespace DcadToolBar
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
-            this.UpdateButton.Location = new System.Drawing.Point(264, 2);
+            this.UpdateButton.Location = new System.Drawing.Point(246, 1);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(24, 23);
             this.UpdateButton.TabIndex = 7;
@@ -126,222 +147,340 @@ namespace DcadToolBar
             this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bambinoToolStripMenuItem,
-            this.poignée1ToolStripMenuItem,
-            this.poignée2ToolStripMenuItem,
-            this.test3ToolStripMenuItem,
-            this.test4ToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 80);
+            this.CloakRoomToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(9, 28);
             this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(387, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(189, 24);
             this.menuStrip2.TabIndex = 9;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // bambinoToolStripMenuItem
+            // CloakRoomToolStripMenuItem
             // 
-            this.bambinoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PoignéeCarréeToolStripMenuItem,
-            this.PoignéeLuneToolStripMenuItem,
-            this.PoignéeOvaleToolStripMenuItem,
-            this.PoignéeRondeToolStripMenuItem1,
-            this.PoignéeTriangleRéfToolStripMenuItem,
-            this.poteauToolStripMenuItem1});
-            this.bambinoToolStripMenuItem.Name = "bambinoToolStripMenuItem";
-            this.bambinoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.bambinoToolStripMenuItem.Text = "Bambino";
+            this.CloakRoomToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CasiersToolStripMenuItem,
+            this.CasiersInfoToolStripMenuItem,
+            this.BancsToolStripMenuItem,
+            this.BarreDePenderieToolStripMenuItem});
+            this.CloakRoomToolStripMenuItem.Name = "CloakRoomToolStripMenuItem";
+            this.CloakRoomToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.CloakRoomToolStripMenuItem.Text = "Vestiaire";
             // 
-            // PoignéeCarréeToolStripMenuItem
+            // CasiersToolStripMenuItem
             // 
-            this.PoignéeCarréeToolStripMenuItem.Name = "PoignéeCarréeToolStripMenuItem";
-            this.PoignéeCarréeToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.PoignéeCarréeToolStripMenuItem.Text = "Poignée Carrée Réf.221.310";
-            this.PoignéeCarréeToolStripMenuItem.Click += new System.EventHandler(this.PoignéeCarréeToolStripMenuItem_Click);
+            this.CasiersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.casierDiploToolStripMenuItem,
+            this.casiersBancsToolStripMenuItem,
+            this.casiersAgroToolStripMenuItem,
+            this.casierMétalliquesToolStripMenuItem,
+            this.armoiresCollectivesToolStripMenuItem});
+            this.CasiersToolStripMenuItem.Name = "CasiersToolStripMenuItem";
+            this.CasiersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersToolStripMenuItem.Text = "Casiers";
             // 
-            // PoignéeLuneToolStripMenuItem
+            // casierDiploToolStripMenuItem
             // 
-            this.PoignéeLuneToolStripMenuItem.Name = "PoignéeLuneToolStripMenuItem";
-            this.PoignéeLuneToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.PoignéeLuneToolStripMenuItem.Text = "Poignée Lune Réf.221.314";
-            this.PoignéeLuneToolStripMenuItem.Click += new System.EventHandler(this.PoignéeLuneToolStripMenuItem_Click);
+            this.casierDiploToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.caiserhToolStripMenuItem,
+            this.casierZToolStripMenuItem});
+            this.casierDiploToolStripMenuItem.Name = "casierDiploToolStripMenuItem";
+            this.casierDiploToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.casierDiploToolStripMenuItem.Text = "Casiers Diplo";
             // 
-            // PoignéeOvaleToolStripMenuItem
+            // caiserhToolStripMenuItem
             // 
-            this.PoignéeOvaleToolStripMenuItem.Name = "PoignéeOvaleToolStripMenuItem";
-            this.PoignéeOvaleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.PoignéeOvaleToolStripMenuItem.Text = "Poignée Ovale Réf.221.313";
-            this.PoignéeOvaleToolStripMenuItem.Click += new System.EventHandler(this.PoignéeOvaleToolStripMenuItem_Click);
+            this.caiserhToolStripMenuItem.Name = "caiserhToolStripMenuItem";
+            this.caiserhToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.caiserhToolStripMenuItem.Text = "Casier h";
             // 
-            // PoignéeRondeToolStripMenuItem1
+            // casierZToolStripMenuItem
             // 
-            this.PoignéeRondeToolStripMenuItem1.Name = "PoignéeRondeToolStripMenuItem1";
-            this.PoignéeRondeToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
-            this.PoignéeRondeToolStripMenuItem1.Text = "Poignée Ronde Réf.221.311";
-            this.PoignéeRondeToolStripMenuItem1.Click += new System.EventHandler(this.PoignéeRondeToolStripMenuItem1_Click);
+            this.casierZToolStripMenuItem.Name = "casierZToolStripMenuItem";
+            this.casierZToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.casierZToolStripMenuItem.Text = "Casier z";
             // 
-            // PoignéeTriangleRéfToolStripMenuItem
+            // casiersAgroToolStripMenuItem
             // 
-            this.PoignéeTriangleRéfToolStripMenuItem.Name = "PoignéeTriangleRéfToolStripMenuItem";
-            this.PoignéeTriangleRéfToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.PoignéeTriangleRéfToolStripMenuItem.Text = "Poignée Triangle Réf.221.312";
-            this.PoignéeTriangleRéfToolStripMenuItem.Click += new System.EventHandler(this.PoignéeTriangleRéfToolStripMenuItem_Click);
+            this.casiersAgroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.casierZToolStripMenuItem1,
+            this.casierHToolStripMenuItem1});
+            this.casiersAgroToolStripMenuItem.Name = "casiersAgroToolStripMenuItem";
+            this.casiersAgroToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.casiersAgroToolStripMenuItem.Text = "Casiers Agro";
             // 
-            // poteauToolStripMenuItem1
+            // casierZToolStripMenuItem1
             // 
-            this.poteauToolStripMenuItem1.Name = "poteauToolStripMenuItem1";
-            this.poteauToolStripMenuItem1.Size = new System.Drawing.Size(223, 22);
-            this.poteauToolStripMenuItem1.Text = "Poteau";
-            this.poteauToolStripMenuItem1.Click += new System.EventHandler(this.poteauToolStripMenuItem1_Click);
+            this.casierZToolStripMenuItem1.Name = "casierZToolStripMenuItem1";
+            this.casierZToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.casierZToolStripMenuItem1.Text = "Casier z";
             // 
-            // poignée1ToolStripMenuItem
+            // casierHToolStripMenuItem1
             // 
-            this.poignée1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5});
-            this.poignée1ToolStripMenuItem.Name = "poignée1ToolStripMenuItem";
-            this.poignée1ToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.poignée1ToolStripMenuItem.Text = "Test 1";
+            this.casierHToolStripMenuItem1.Name = "casierHToolStripMenuItem1";
+            this.casierHToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.casierHToolStripMenuItem1.Text = "Casier h";
             // 
-            // toolStripMenuItem2
+            // casierMétalliquesToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "pt collectif";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.casierMétalliquesToolStripMenuItem.Name = "casierMétalliquesToolStripMenuItem";
+            this.casierMétalliquesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.casierMétalliquesToolStripMenuItem.Text = "Casiers Métalliques";
             // 
-            // toolStripMenuItem3
+            // armoiresCollectivesToolStripMenuItem
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Test 2";
+            this.armoiresCollectivesToolStripMenuItem.Name = "armoiresCollectivesToolStripMenuItem";
+            this.armoiresCollectivesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.armoiresCollectivesToolStripMenuItem.Text = "Armoires Collectives";
             // 
-            // toolStripMenuItem4
+            // CasiersInfoToolStripMenuItem
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = "Test 3";
+            this.CasiersInfoToolStripMenuItem.Name = "CasiersInfoToolStripMenuItem";
+            this.CasiersInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersInfoToolStripMenuItem.Text = "Casiers informatisé";
             // 
-            // toolStripMenuItem5
+            // BancsToolStripMenuItem
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = "Test 4";
+            this.BancsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BancsBoisToolStripMenuItem,
+            this.BancsCompactToolStripMenuItem});
+            this.BancsToolStripMenuItem.Name = "BancsToolStripMenuItem";
+            this.BancsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsToolStripMenuItem.Text = "Bancs";
             // 
-            // poignée2ToolStripMenuItem
+            // BancsBoisToolStripMenuItem
             // 
-            this.poignée2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem9});
-            this.poignée2ToolStripMenuItem.Name = "poignée2ToolStripMenuItem";
-            this.poignée2ToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.poignée2ToolStripMenuItem.Text = "Test 2";
+            this.BancsBoisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sérieB1ToolStripMenuItem,
+            this.sérieB50ToolStripMenuItem,
+            this.sérieB100ToolStripMenuItem,
+            this.sérieB150ToolStripMenuItem,
+            this.sérieB200ToolStripMenuItem,
+            this.sérieB250ToolStripMenuItem,
+            this.sérieB300ToolStripMenuItem,
+            this.sérieB350ToolStripMenuItem,
+            this.sérieB400ToolStripMenuItem,
+            this.sérieB450ToolStripMenuItem,
+            this.sérieB500ToolStripMenuItem,
+            this.sérieB550ToolStripMenuItem,
+            this.sérieB600ToolStripMenuItem,
+            this.sérieB650ToolStripMenuItem,
+            this.sérieB700ToolStripMenuItem,
+            this.sérieB750ToolStripMenuItem});
+            this.BancsBoisToolStripMenuItem.Name = "BancsBoisToolStripMenuItem";
+            this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsBoisToolStripMenuItem.Text = "Bancs Bois";
             // 
-            // toolStripMenuItem6
+            // sérieB1ToolStripMenuItem
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem6.Text = "Test 1";
+            this.sérieB1ToolStripMenuItem.Name = "sérieB1ToolStripMenuItem";
+            this.sérieB1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB1ToolStripMenuItem.Text = "Série B1";
             // 
-            // toolStripMenuItem7
+            // sérieB50ToolStripMenuItem
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem7.Text = "Test 2";
+            this.sérieB50ToolStripMenuItem.Name = "sérieB50ToolStripMenuItem";
+            this.sérieB50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB50ToolStripMenuItem.Text = "Série B50";
             // 
-            // toolStripMenuItem8
+            // sérieB100ToolStripMenuItem
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem8.Text = "Test 3";
+            this.sérieB100ToolStripMenuItem.Name = "sérieB100ToolStripMenuItem";
+            this.sérieB100ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB100ToolStripMenuItem.Text = "Série B100";
             // 
-            // toolStripMenuItem9
+            // sérieB150ToolStripMenuItem
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem9.Text = "Test 4";
+            this.sérieB150ToolStripMenuItem.Name = "sérieB150ToolStripMenuItem";
+            this.sérieB150ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB150ToolStripMenuItem.Text = "Série B150";
             // 
-            // test3ToolStripMenuItem
+            // sérieB200ToolStripMenuItem
             // 
-            this.test3ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem10,
-            this.toolStripMenuItem11,
-            this.toolStripMenuItem12});
-            this.test3ToolStripMenuItem.Name = "test3ToolStripMenuItem";
-            this.test3ToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.test3ToolStripMenuItem.Text = "Test 3";
+            this.sérieB200ToolStripMenuItem.Name = "sérieB200ToolStripMenuItem";
+            this.sérieB200ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB200ToolStripMenuItem.Text = "Série B200";
             // 
-            // toolStripMenuItem10
+            // sérieB250ToolStripMenuItem
             // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem10.Text = "Test 1";
+            this.sérieB250ToolStripMenuItem.Name = "sérieB250ToolStripMenuItem";
+            this.sérieB250ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB250ToolStripMenuItem.Text = "Série B250";
             // 
-            // toolStripMenuItem11
+            // sérieB300ToolStripMenuItem
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem11.Text = "Test 2";
+            this.sérieB300ToolStripMenuItem.Name = "sérieB300ToolStripMenuItem";
+            this.sérieB300ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB300ToolStripMenuItem.Text = "Série B300";
             // 
-            // toolStripMenuItem12
+            // sérieB350ToolStripMenuItem
             // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            this.toolStripMenuItem12.Size = new System.Drawing.Size(103, 22);
-            this.toolStripMenuItem12.Text = "Test 3";
+            this.sérieB350ToolStripMenuItem.Name = "sérieB350ToolStripMenuItem";
+            this.sérieB350ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB350ToolStripMenuItem.Text = "Série B350";
             // 
-            // test4ToolStripMenuItem
+            // sérieB400ToolStripMenuItem
             // 
-            this.test4ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.test1ToolStripMenuItem,
-            this.test2ToolStripMenuItem,
-            this.test3ToolStripMenuItem1});
-            this.test4ToolStripMenuItem.Name = "test4ToolStripMenuItem";
-            this.test4ToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.test4ToolStripMenuItem.Text = "Test 4";
+            this.sérieB400ToolStripMenuItem.Name = "sérieB400ToolStripMenuItem";
+            this.sérieB400ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB400ToolStripMenuItem.Text = "Série B400";
             // 
-            // test1ToolStripMenuItem
+            // sérieB450ToolStripMenuItem
             // 
-            this.test1ToolStripMenuItem.Name = "test1ToolStripMenuItem";
-            this.test1ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.test1ToolStripMenuItem.Text = "Test 1";
+            this.sérieB450ToolStripMenuItem.Name = "sérieB450ToolStripMenuItem";
+            this.sérieB450ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB450ToolStripMenuItem.Text = "Série B450";
             // 
-            // test2ToolStripMenuItem
+            // sérieB500ToolStripMenuItem
             // 
-            this.test2ToolStripMenuItem.Name = "test2ToolStripMenuItem";
-            this.test2ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.test2ToolStripMenuItem.Text = "Test 2";
+            this.sérieB500ToolStripMenuItem.Name = "sérieB500ToolStripMenuItem";
+            this.sérieB500ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB500ToolStripMenuItem.Text = "Série B500";
             // 
-            // test3ToolStripMenuItem1
+            // sérieB550ToolStripMenuItem
             // 
-            this.test3ToolStripMenuItem1.Name = "test3ToolStripMenuItem1";
-            this.test3ToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
-            this.test3ToolStripMenuItem1.Text = "Test 3";
+            this.sérieB550ToolStripMenuItem.Name = "sérieB550ToolStripMenuItem";
+            this.sérieB550ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB550ToolStripMenuItem.Text = "Série B550";
             // 
-            // menuStrip3
+            // sérieB600ToolStripMenuItem
             // 
-            this.menuStrip3.BackColor = System.Drawing.Color.Gainsboro;
-            this.menuStrip3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.menuStrip3.Location = new System.Drawing.Point(0, 80);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(299, 24);
-            this.menuStrip3.TabIndex = 10;
-            this.menuStrip3.Text = "menuStrip3";
-            this.menuStrip3.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip3_ItemClicked);
+            this.sérieB600ToolStripMenuItem.Name = "sérieB600ToolStripMenuItem";
+            this.sérieB600ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB600ToolStripMenuItem.Text = "Série B600";
+            // 
+            // sérieB650ToolStripMenuItem
+            // 
+            this.sérieB650ToolStripMenuItem.Name = "sérieB650ToolStripMenuItem";
+            this.sérieB650ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB650ToolStripMenuItem.Text = "Série B650";
+            // 
+            // sérieB700ToolStripMenuItem
+            // 
+            this.sérieB700ToolStripMenuItem.Name = "sérieB700ToolStripMenuItem";
+            this.sérieB700ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB700ToolStripMenuItem.Text = "Série B700";
+            // 
+            // sérieB750ToolStripMenuItem
+            // 
+            this.sérieB750ToolStripMenuItem.Name = "sérieB750ToolStripMenuItem";
+            this.sérieB750ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB750ToolStripMenuItem.Text = "Série B750";
+            // 
+            // BancsCompactToolStripMenuItem
+            // 
+            this.BancsCompactToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sérieC1ToolStripMenuItem,
+            this.sérieC20ToolStripMenuItem,
+            this.sérieC50ToolStripMenuItem,
+            this.sérieC60ToolStripMenuItem,
+            this.sérieC100ToolStripMenuItem,
+            this.sérieC125ToolStripMenuItem,
+            this.sérieC150ToolStripMenuItem,
+            this.sérieC500ToolStripMenuItem,
+            this.sérieC550ToolStripMenuItem,
+            this.série600ToolStripMenuItem2,
+            this.série700ToolStripMenuItem2,
+            this.série750ToolStripMenuItem1});
+            this.BancsCompactToolStripMenuItem.Name = "BancsCompactToolStripMenuItem";
+            this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsCompactToolStripMenuItem.Text = "Bancs Compact";
+            // 
+            // sérieC1ToolStripMenuItem
+            // 
+            this.sérieC1ToolStripMenuItem.Name = "sérieC1ToolStripMenuItem";
+            this.sérieC1ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC1ToolStripMenuItem.Text = "Série C1";
+            // 
+            // sérieC20ToolStripMenuItem
+            // 
+            this.sérieC20ToolStripMenuItem.Name = "sérieC20ToolStripMenuItem";
+            this.sérieC20ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC20ToolStripMenuItem.Text = "Série C20";
+            // 
+            // sérieC50ToolStripMenuItem
+            // 
+            this.sérieC50ToolStripMenuItem.Name = "sérieC50ToolStripMenuItem";
+            this.sérieC50ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC50ToolStripMenuItem.Text = "Série C50";
+            // 
+            // sérieC60ToolStripMenuItem
+            // 
+            this.sérieC60ToolStripMenuItem.Name = "sérieC60ToolStripMenuItem";
+            this.sérieC60ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC60ToolStripMenuItem.Text = "Série C60";
+            // 
+            // sérieC100ToolStripMenuItem
+            // 
+            this.sérieC100ToolStripMenuItem.Name = "sérieC100ToolStripMenuItem";
+            this.sérieC100ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC100ToolStripMenuItem.Text = "Série C100";
+            // 
+            // sérieC125ToolStripMenuItem
+            // 
+            this.sérieC125ToolStripMenuItem.Name = "sérieC125ToolStripMenuItem";
+            this.sérieC125ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC125ToolStripMenuItem.Text = "Série C125";
+            // 
+            // sérieC150ToolStripMenuItem
+            // 
+            this.sérieC150ToolStripMenuItem.Name = "sérieC150ToolStripMenuItem";
+            this.sérieC150ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC150ToolStripMenuItem.Text = "Série C150";
+            // 
+            // sérieC500ToolStripMenuItem
+            // 
+            this.sérieC500ToolStripMenuItem.Name = "sérieC500ToolStripMenuItem";
+            this.sérieC500ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC500ToolStripMenuItem.Text = "Série C500";
+            // 
+            // sérieC550ToolStripMenuItem
+            // 
+            this.sérieC550ToolStripMenuItem.Name = "sérieC550ToolStripMenuItem";
+            this.sérieC550ToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.sérieC550ToolStripMenuItem.Text = "Série C550";
+            // 
+            // série600ToolStripMenuItem2
+            // 
+            this.série600ToolStripMenuItem2.Name = "série600ToolStripMenuItem2";
+            this.série600ToolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
+            this.série600ToolStripMenuItem2.Text = "Série C600";
+            // 
+            // série700ToolStripMenuItem2
+            // 
+            this.série700ToolStripMenuItem2.Name = "série700ToolStripMenuItem2";
+            this.série700ToolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
+            this.série700ToolStripMenuItem2.Text = "Série C700";
+            // 
+            // série750ToolStripMenuItem1
+            // 
+            this.série750ToolStripMenuItem1.Name = "série750ToolStripMenuItem1";
+            this.série750ToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.série750ToolStripMenuItem1.Text = "Série C750";
+            // 
+            // BarreDePenderieToolStripMenuItem
+            // 
+            this.BarreDePenderieToolStripMenuItem.Name = "BarreDePenderieToolStripMenuItem";
+            this.BarreDePenderieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BarreDePenderieToolStripMenuItem.Text = "Barre de Penderie";
+            // 
+            // casiersBancsToolStripMenuItem
+            // 
+            this.casiersBancsToolStripMenuItem.Name = "casiersBancsToolStripMenuItem";
+            this.casiersBancsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.casiersBancsToolStripMenuItem.Text = "Casiers Bancs";
+            this.casiersBancsToolStripMenuItem.Click += new System.EventHandler(this.CasiersBancsToolStripMenuItem_Click);
             // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 104);
+            this.ClientSize = new System.Drawing.Size(273, 103);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DocTitle);
             this.Controls.Add(this.MaterialComboBox);
             this.Controls.Add(this.ModelComboBox);
             this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.menuStrip3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(1470, 0);
@@ -364,31 +503,49 @@ namespace DcadToolBar
         private System.Windows.Forms.Label DocTitle;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem bambinoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PoignéeCarréeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PoignéeLuneToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStrip3;
-        private System.Windows.Forms.ToolStripMenuItem poignée1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem poignée2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem test3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
-        private System.Windows.Forms.ToolStripMenuItem test4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem test1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem test2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem test3ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem PoignéeOvaleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem PoignéeRondeToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem poteauToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem PoignéeTriangleRéfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CloakRoomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CasiersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BancsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CasiersInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casierDiploToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caiserhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casierZToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casiersAgroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casierZToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem casierHToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem casierMétalliquesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem armoiresCollectivesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BancsBoisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB50ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB100ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB150ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB200ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB250ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB300ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB350ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB400ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB450ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB500ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB550ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB600ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB650ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB700ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB750ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BancsCompactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC20ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC50ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC60ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC125ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC500ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC550ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem série600ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem série700ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem série750ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sérieC100ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC150ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BarreDePenderieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casiersBancsToolStripMenuItem;
     }
 }
