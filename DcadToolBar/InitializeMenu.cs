@@ -54,6 +54,8 @@ namespace DcadToolBar
                 //{"PtSimple", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Equipement\plan_toilette_simple.d3m"},
                 //{"PtEnfant", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Equipement\plan_toilette_enfant.d3m"},
                 //{"Bc60", @"C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\tmp\Basic CAD/Banc_C60.d3m"},
+                {"CasierHDiplo", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h.d3m"},
+                {"CasierZDiplo", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_z.d3m"},
                 {"CasierHBanc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc.d3m"},
             };
 

@@ -58,7 +58,7 @@
     <Compile Include="NewDocForm.Designer.cs">
       <DependentUpon>NewDocForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProcessChecker.cs" />
+    <Compile Include="ProcessTools.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolBarForm.cs">

@@ -34,12 +34,13 @@ namespace DcadToolBar
             this.MaterialComboBox = new System.Windows.Forms.ComboBox();
             this.DocTitle = new System.Windows.Forms.Label();
             this.UpdateButton = new System.Windows.Forms.Button();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.macroMenuStrip = new System.Windows.Forms.MenuStrip();
             this.CloakRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CasiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierDiploToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.caiserhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casierhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casiersBancsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casiersAgroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierZToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.casierHToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,13 +79,12 @@ namespace DcadToolBar
             this.série700ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.série750ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarreDePenderieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.casiersBancsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip2.SuspendLayout();
+            this.macroMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // ModelComboBox
             // 
-            this.ModelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ModelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ModelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ModelComboBox.Enabled = false;
             this.ModelComboBox.FormattingEnabled = true;
@@ -98,7 +98,7 @@ namespace DcadToolBar
             "Hauzeo",
             "Bambino",
             "Exéléo"});
-            this.ModelComboBox.Location = new System.Drawing.Point(139, 28);
+            this.ModelComboBox.Location = new System.Drawing.Point(168, 28);
             this.ModelComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModelComboBox.Name = "ModelComboBox";
             this.ModelComboBox.Size = new System.Drawing.Size(121, 24);
@@ -106,7 +106,7 @@ namespace DcadToolBar
             // 
             // MaterialComboBox
             // 
-            this.MaterialComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.MaterialComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaterialComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialComboBox.Enabled = false;
             this.MaterialComboBox.FormattingEnabled = true;
@@ -114,7 +114,7 @@ namespace DcadToolBar
             "Nylon",
             "Aluminium",
             "Inox"});
-            this.MaterialComboBox.Location = new System.Drawing.Point(139, 59);
+            this.MaterialComboBox.Location = new System.Drawing.Point(168, 59);
             this.MaterialComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaterialComboBox.Name = "MaterialComboBox";
             this.MaterialComboBox.Size = new System.Drawing.Size(121, 24);
@@ -134,7 +134,7 @@ namespace DcadToolBar
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
-            this.UpdateButton.Location = new System.Drawing.Point(246, 1);
+            this.UpdateButton.Location = new System.Drawing.Point(275, 1);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(24, 23);
@@ -142,19 +142,19 @@ namespace DcadToolBar
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // menuStrip2
+            // macroMenuStrip
             // 
-            this.menuStrip2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.macroMenuStrip.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.macroMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.macroMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CloakRoomToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(9, 28);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip2.Size = new System.Drawing.Size(189, 24);
-            this.menuStrip2.TabIndex = 9;
-            this.menuStrip2.Text = "menuStrip2";
+            this.macroMenuStrip.Location = new System.Drawing.Point(9, 28);
+            this.macroMenuStrip.Name = "macroMenuStrip";
+            this.macroMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.macroMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.macroMenuStrip.Size = new System.Drawing.Size(69, 24);
+            this.macroMenuStrip.TabIndex = 9;
+            this.macroMenuStrip.Text = "menuStrip2";
             // 
             // CloakRoomToolStripMenuItem
             // 
@@ -182,23 +182,32 @@ namespace DcadToolBar
             // casierDiploToolStripMenuItem
             // 
             this.casierDiploToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.caiserhToolStripMenuItem,
+            this.casierhToolStripMenuItem,
             this.casierZToolStripMenuItem});
             this.casierDiploToolStripMenuItem.Name = "casierDiploToolStripMenuItem";
             this.casierDiploToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.casierDiploToolStripMenuItem.Text = "Casiers Diplo";
             // 
-            // caiserhToolStripMenuItem
+            // casierhToolStripMenuItem
             // 
-            this.caiserhToolStripMenuItem.Name = "caiserhToolStripMenuItem";
-            this.caiserhToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.caiserhToolStripMenuItem.Text = "Casier h";
+            this.casierhToolStripMenuItem.Name = "casierhToolStripMenuItem";
+            this.casierhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.casierhToolStripMenuItem.Text = "Casier h";
+            this.casierhToolStripMenuItem.Click += new System.EventHandler(this.CasierhToolStripMenuItem_Click);
             // 
             // casierZToolStripMenuItem
             // 
             this.casierZToolStripMenuItem.Name = "casierZToolStripMenuItem";
-            this.casierZToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.casierZToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.casierZToolStripMenuItem.Text = "Casier z";
+            this.casierZToolStripMenuItem.Click += new System.EventHandler(this.CasierZToolStripMenuItem_Click);
+            // 
+            // casiersBancsToolStripMenuItem
+            // 
+            this.casiersBancsToolStripMenuItem.Name = "casiersBancsToolStripMenuItem";
+            this.casiersBancsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.casiersBancsToolStripMenuItem.Text = "Casiers Bancs";
+            this.casiersBancsToolStripMenuItem.Click += new System.EventHandler(this.CasiersBancsToolStripMenuItem_Click);
             // 
             // casiersAgroToolStripMenuItem
             // 
@@ -212,13 +221,13 @@ namespace DcadToolBar
             // casierZToolStripMenuItem1
             // 
             this.casierZToolStripMenuItem1.Name = "casierZToolStripMenuItem1";
-            this.casierZToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.casierZToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.casierZToolStripMenuItem1.Text = "Casier z";
             // 
             // casierHToolStripMenuItem1
             // 
             this.casierHToolStripMenuItem1.Name = "casierHToolStripMenuItem1";
-            this.casierHToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.casierHToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
             this.casierHToolStripMenuItem1.Text = "Casier h";
             // 
             // casierMétalliquesToolStripMenuItem
@@ -268,103 +277,103 @@ namespace DcadToolBar
             this.sérieB700ToolStripMenuItem,
             this.sérieB750ToolStripMenuItem});
             this.BancsBoisToolStripMenuItem.Name = "BancsBoisToolStripMenuItem";
-            this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.BancsBoisToolStripMenuItem.Text = "Bancs Bois";
             // 
             // sérieB1ToolStripMenuItem
             // 
             this.sérieB1ToolStripMenuItem.Name = "sérieB1ToolStripMenuItem";
-            this.sérieB1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB1ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB1ToolStripMenuItem.Text = "Série B1";
             // 
             // sérieB50ToolStripMenuItem
             // 
             this.sérieB50ToolStripMenuItem.Name = "sérieB50ToolStripMenuItem";
-            this.sérieB50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB50ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB50ToolStripMenuItem.Text = "Série B50";
             // 
             // sérieB100ToolStripMenuItem
             // 
             this.sérieB100ToolStripMenuItem.Name = "sérieB100ToolStripMenuItem";
-            this.sérieB100ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB100ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB100ToolStripMenuItem.Text = "Série B100";
             // 
             // sérieB150ToolStripMenuItem
             // 
             this.sérieB150ToolStripMenuItem.Name = "sérieB150ToolStripMenuItem";
-            this.sérieB150ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB150ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB150ToolStripMenuItem.Text = "Série B150";
             // 
             // sérieB200ToolStripMenuItem
             // 
             this.sérieB200ToolStripMenuItem.Name = "sérieB200ToolStripMenuItem";
-            this.sérieB200ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB200ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB200ToolStripMenuItem.Text = "Série B200";
             // 
             // sérieB250ToolStripMenuItem
             // 
             this.sérieB250ToolStripMenuItem.Name = "sérieB250ToolStripMenuItem";
-            this.sérieB250ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB250ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB250ToolStripMenuItem.Text = "Série B250";
             // 
             // sérieB300ToolStripMenuItem
             // 
             this.sérieB300ToolStripMenuItem.Name = "sérieB300ToolStripMenuItem";
-            this.sérieB300ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB300ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB300ToolStripMenuItem.Text = "Série B300";
             // 
             // sérieB350ToolStripMenuItem
             // 
             this.sérieB350ToolStripMenuItem.Name = "sérieB350ToolStripMenuItem";
-            this.sérieB350ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB350ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB350ToolStripMenuItem.Text = "Série B350";
             // 
             // sérieB400ToolStripMenuItem
             // 
             this.sérieB400ToolStripMenuItem.Name = "sérieB400ToolStripMenuItem";
-            this.sérieB400ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB400ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB400ToolStripMenuItem.Text = "Série B400";
             // 
             // sérieB450ToolStripMenuItem
             // 
             this.sérieB450ToolStripMenuItem.Name = "sérieB450ToolStripMenuItem";
-            this.sérieB450ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB450ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB450ToolStripMenuItem.Text = "Série B450";
             // 
             // sérieB500ToolStripMenuItem
             // 
             this.sérieB500ToolStripMenuItem.Name = "sérieB500ToolStripMenuItem";
-            this.sérieB500ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB500ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB500ToolStripMenuItem.Text = "Série B500";
             // 
             // sérieB550ToolStripMenuItem
             // 
             this.sérieB550ToolStripMenuItem.Name = "sérieB550ToolStripMenuItem";
-            this.sérieB550ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB550ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB550ToolStripMenuItem.Text = "Série B550";
             // 
             // sérieB600ToolStripMenuItem
             // 
             this.sérieB600ToolStripMenuItem.Name = "sérieB600ToolStripMenuItem";
-            this.sérieB600ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB600ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB600ToolStripMenuItem.Text = "Série B600";
             // 
             // sérieB650ToolStripMenuItem
             // 
             this.sérieB650ToolStripMenuItem.Name = "sérieB650ToolStripMenuItem";
-            this.sérieB650ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB650ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB650ToolStripMenuItem.Text = "Série B650";
             // 
             // sérieB700ToolStripMenuItem
             // 
             this.sérieB700ToolStripMenuItem.Name = "sérieB700ToolStripMenuItem";
-            this.sérieB700ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB700ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB700ToolStripMenuItem.Text = "Série B700";
             // 
             // sérieB750ToolStripMenuItem
             // 
             this.sérieB750ToolStripMenuItem.Name = "sérieB750ToolStripMenuItem";
-            this.sérieB750ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB750ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.sérieB750ToolStripMenuItem.Text = "Série B750";
             // 
             // BancsCompactToolStripMenuItem
@@ -383,7 +392,7 @@ namespace DcadToolBar
             this.série700ToolStripMenuItem2,
             this.série750ToolStripMenuItem1});
             this.BancsCompactToolStripMenuItem.Name = "BancsCompactToolStripMenuItem";
-            this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.BancsCompactToolStripMenuItem.Text = "Bancs Compact";
             // 
             // sérieC1ToolStripMenuItem
@@ -464,34 +473,27 @@ namespace DcadToolBar
             this.BarreDePenderieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BarreDePenderieToolStripMenuItem.Text = "Barre de Penderie";
             // 
-            // casiersBancsToolStripMenuItem
-            // 
-            this.casiersBancsToolStripMenuItem.Name = "casiersBancsToolStripMenuItem";
-            this.casiersBancsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.casiersBancsToolStripMenuItem.Text = "Casiers Bancs";
-            this.casiersBancsToolStripMenuItem.Click += new System.EventHandler(this.CasiersBancsToolStripMenuItem_Click);
-            // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 103);
+            this.ClientSize = new System.Drawing.Size(302, 91);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DocTitle);
             this.Controls.Add(this.MaterialComboBox);
             this.Controls.Add(this.ModelComboBox);
-            this.Controls.Add(this.menuStrip2);
+            this.Controls.Add(this.macroMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(1470, 0);
+            this.Location = new System.Drawing.Point(1430, 0);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ToolBarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Informations";
             this.TopMost = true;
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.macroMenuStrip.ResumeLayout(false);
+            this.macroMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,13 +504,13 @@ namespace DcadToolBar
         private System.Windows.Forms.ComboBox MaterialComboBox;
         private System.Windows.Forms.Label DocTitle;
         private System.Windows.Forms.Button UpdateButton;
-        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.MenuStrip macroMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem CloakRoomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CasiersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BancsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CasiersInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casierDiploToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem caiserhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casierhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casierZToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casiersAgroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casierZToolStripMenuItem1;

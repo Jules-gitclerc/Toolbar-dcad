@@ -44,6 +44,7 @@ namespace DcadToolBar
             Load += ToolBarForm_Load;
             Closed += ToolBarForm_Closed;
             FormClosing += ToolBarForm_FormClosing;
+            Activated += ToolBarForm_Activated;
 
             InitDictionaries();
 
@@ -76,6 +77,13 @@ namespace DcadToolBar
                 cp.ExStyle |= 0x80;
                 return cp;
             }
+        }
+
+        private void ToolBarForm_Activated(object sender, EventArgs e)
+        {
+            if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width &&
+                MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
+                CloakRoomToolStripMenuItem.ShowDropDown();
         }
 
         private void ToolBarForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -434,6 +442,16 @@ namespace DcadToolBar
         private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LaunchMacro("CasierHBanc");
+        }
+
+        private void CasierhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("CasierHDiplo");
+        }
+
+        private void CasierZToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("CasierZDiplo");
         }
     }
 }
