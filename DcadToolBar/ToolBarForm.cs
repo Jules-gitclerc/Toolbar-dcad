@@ -509,5 +509,15 @@ namespace DcadToolBar
         {
             LaunchMacro("CasierZDiplo");
         }
+
+        private void casiersBancCompactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("CasiersBancCompact");
+        }
+
+        private void sérieC50ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BancCompact50");
+        }
     }
 }
