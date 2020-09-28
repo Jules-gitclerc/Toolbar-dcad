@@ -33,7 +33,6 @@ namespace DcadToolBar
             this.ModelComboBox = new System.Windows.Forms.ComboBox();
             this.MaterialComboBox = new System.Windows.Forms.ComboBox();
             this.DocTitle = new System.Windows.Forms.Label();
-            this.UpdateButton = new System.Windows.Forms.Button();
             this.macroMenuStrip = new System.Windows.Forms.MenuStrip();
             this.CloakRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CasiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +78,10 @@ namespace DcadToolBar
             this.série700ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.série750ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.BarreDePenderieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatePictureBox = new System.Windows.Forms.PictureBox();
+            this.UpdateButton = new System.Windows.Forms.Button();
             this.macroMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ModelComboBox
@@ -130,18 +132,6 @@ namespace DcadToolBar
             this.DocTitle.TabIndex = 6;
             this.DocTitle.Text = "no document";
             // 
-            // UpdateButton
-            // 
-            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
-            this.UpdateButton.Location = new System.Drawing.Point(275, 1);
-            this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UpdateButton.Name = "UpdateButton";
-            this.UpdateButton.Size = new System.Drawing.Size(24, 23);
-            this.UpdateButton.TabIndex = 7;
-            this.UpdateButton.UseVisualStyleBackColor = true;
-            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
-            // 
             // macroMenuStrip
             // 
             this.macroMenuStrip.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -176,7 +166,7 @@ namespace DcadToolBar
             this.casierMétalliquesToolStripMenuItem,
             this.armoiresCollectivesToolStripMenuItem});
             this.CasiersToolStripMenuItem.Name = "CasiersToolStripMenuItem";
-            this.CasiersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.CasiersToolStripMenuItem.Text = "Casiers";
             // 
             // casierDiploToolStripMenuItem
@@ -191,14 +181,14 @@ namespace DcadToolBar
             // casierhToolStripMenuItem
             // 
             this.casierhToolStripMenuItem.Name = "casierhToolStripMenuItem";
-            this.casierhToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.casierhToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.casierhToolStripMenuItem.Text = "Casier h";
             this.casierhToolStripMenuItem.Click += new System.EventHandler(this.CasierhToolStripMenuItem_Click);
             // 
             // casierZToolStripMenuItem
             // 
             this.casierZToolStripMenuItem.Name = "casierZToolStripMenuItem";
-            this.casierZToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.casierZToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.casierZToolStripMenuItem.Text = "Casier z";
             this.casierZToolStripMenuItem.Click += new System.EventHandler(this.CasierZToolStripMenuItem_Click);
             // 
@@ -245,7 +235,7 @@ namespace DcadToolBar
             // CasiersInfoToolStripMenuItem
             // 
             this.CasiersInfoToolStripMenuItem.Name = "CasiersInfoToolStripMenuItem";
-            this.CasiersInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.CasiersInfoToolStripMenuItem.Text = "Casiers informatisé";
             // 
             // BancsToolStripMenuItem
@@ -254,7 +244,7 @@ namespace DcadToolBar
             this.BancsBoisToolStripMenuItem,
             this.BancsCompactToolStripMenuItem});
             this.BancsToolStripMenuItem.Name = "BancsToolStripMenuItem";
-            this.BancsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.BancsToolStripMenuItem.Text = "Bancs";
             // 
             // BancsBoisToolStripMenuItem
@@ -470,14 +460,38 @@ namespace DcadToolBar
             // BarreDePenderieToolStripMenuItem
             // 
             this.BarreDePenderieToolStripMenuItem.Name = "BarreDePenderieToolStripMenuItem";
-            this.BarreDePenderieToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BarreDePenderieToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.BarreDePenderieToolStripMenuItem.Text = "Barre de Penderie";
+            // 
+            // updatePictureBox
+            // 
+            this.updatePictureBox.Image = global::DcadToolBar.Properties.Resources.Red_Circle_small__svg;
+            this.updatePictureBox.Location = new System.Drawing.Point(289, 1);
+            this.updatePictureBox.Name = "updatePictureBox";
+            this.updatePictureBox.Size = new System.Drawing.Size(10, 10);
+            this.updatePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.updatePictureBox.TabIndex = 10;
+            this.updatePictureBox.TabStop = false;
+            this.updatePictureBox.Visible = false;
+            // 
+            // UpdateButton
+            // 
+            this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
+            this.UpdateButton.Location = new System.Drawing.Point(272, 4);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(24, 23);
+            this.UpdateButton.TabIndex = 7;
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 91);
+            this.Controls.Add(this.updatePictureBox);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DocTitle);
             this.Controls.Add(this.MaterialComboBox);
@@ -494,6 +508,7 @@ namespace DcadToolBar
             this.TopMost = true;
             this.macroMenuStrip.ResumeLayout(false);
             this.macroMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,5 +564,6 @@ namespace DcadToolBar
         private System.Windows.Forms.ToolStripMenuItem sérieC150ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BarreDePenderieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casiersBancsToolStripMenuItem;
+        private System.Windows.Forms.PictureBox updatePictureBox;
     }
 }

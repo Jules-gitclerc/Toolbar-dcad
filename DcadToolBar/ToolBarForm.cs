@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -15,6 +16,7 @@ using System.Windows.Forms;
 using DesignCAD;
 using Microsoft.VisualBasic;
 using Application = DesignCAD.Application;
+using File = System.IO.File;
 
 namespace DcadToolBar
 {
@@ -36,6 +38,10 @@ namespace DcadToolBar
         private Thread _docChangeThread;
         private bool _isShown;
         private DocumentsManager DocsManager { get; set; }
+        private string _pathLocalApp;
+        private string _pathServApp;
+        private string _fileNameApp;
+        private string _dirNameApp;
 
         public ToolBarForm()
         {
@@ -45,6 +51,11 @@ namespace DcadToolBar
             Closed += ToolBarForm_Closed;
             FormClosing += ToolBarForm_FormClosing;
             Activated += ToolBarForm_Activated;
+
+            _fileNameApp = ConfigurationManager.AppSettings["FileNameApp"];
+            _dirNameApp = ConfigurationManager.AppSettings["DirNameApp"];
+            _pathServApp = ConfigurationManager.AppSettings["pathServApp"];
+            _pathLocalApp = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + _dirNameApp);
 
             InitDictionaries();
 
@@ -59,8 +70,6 @@ namespace DcadToolBar
             _threadClosing?.Abort();
             _threadClosing = new Thread(WaitForClosing);
         }
-
-        // ============ Events handlers =============
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -79,11 +88,17 @@ namespace DcadToolBar
             }
         }
 
+        // ============ Events handlers =============
+
         private void ToolBarForm_Activated(object sender, EventArgs e)
         {
             if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width &&
                 MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
                 CloakRoomToolStripMenuItem.ShowDropDown();
+            if (NeedUpdate() == false && updatePictureBox.Visible == false)
+                updatePictureBox.Visible = false;
+            else if (NeedUpdate() && updatePictureBox.Visible)
+                updatePictureBox.Visible = true;
         }
 
         private void ToolBarForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -187,6 +202,7 @@ namespace DcadToolBar
 
             while (App == null)
             {
+                Thread.Sleep(1000);
                 if (!ProcessTools.CheckProcByName("DcP10")) continue;
                 try
                 {
@@ -231,6 +247,7 @@ namespace DcadToolBar
         {
             while (ProcessTools.CheckProcWithPid(_appPid))                 // TODO Add something which detects if window is minimized or not
             {
+                Thread.Sleep(500);
                 if (IsDesignCADActive() || ActiveForm == this)
                 {
                     if (_isShown == false)
@@ -259,6 +276,7 @@ namespace DcadToolBar
         {
             while (ProcessTools.CheckProcWithPid(_appPid))
             {
+                Thread.Sleep(500);
                 if (!IsDesignCADActive()) continue;
                 if (App.ActiveDocument == null)
                 {
@@ -269,6 +287,44 @@ namespace DcadToolBar
                     DocsManager.SetActiveDoc();
                 }
             }
+        }
+
+        private bool NeedUpdate()
+        {
+            if (!File.Exists(Path.Combine(_pathLocalApp, _fileNameApp)))
+                return true;
+            if (!File.Exists(Path.Combine(_pathServApp, _fileNameApp)))
+                return false;
+            var VersionServ = FileVersionInfo.GetVersionInfo(Path.Combine(_pathServApp, _fileNameApp));
+            var VersionLocal = FileVersionInfo.GetVersionInfo(Path.Combine(_pathLocalApp, _fileNameApp));
+
+            int MajorServ = VersionServ.ProductMajorPart;
+            int MinorServ = VersionServ.ProductMinorPart;
+            int BuildServ = VersionServ.ProductBuildPart;
+            int RevServ = VersionServ.ProductPrivatePart;
+
+            int MajorLocal = VersionLocal.ProductMajorPart;
+            int MinorLocal = VersionLocal.ProductMinorPart;
+            int BuildLocal = VersionLocal.ProductBuildPart;
+            int RevLocal = VersionLocal.ProductPrivatePart;
+
+            if (MajorServ > MajorLocal)
+            {
+                return true;
+            }
+            if (MajorServ == MajorLocal && MinorServ > MinorLocal)
+            {
+                return true;
+            }
+            if (MajorServ == MajorLocal && MinorServ == MinorLocal && BuildServ > BuildLocal)
+            {
+                return true;
+            }
+            if (MajorServ == MajorLocal && MinorServ == MinorLocal && BuildServ == BuildLocal && RevServ > RevLocal)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
