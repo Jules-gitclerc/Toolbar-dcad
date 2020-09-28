@@ -102,7 +102,7 @@
   <ItemGroup>
     <COMReference Include="DesignCAD">
       <Guid>{DD0F69E1-1E0D-4064-94FA-2ED7ADC72C5D}</Guid>
-      <VersionMajor>21</VersionMajor>
+      <VersionMajor>23</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
