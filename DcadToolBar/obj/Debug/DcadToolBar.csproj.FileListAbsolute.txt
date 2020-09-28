@@ -12,7 +12,6 @@ C:\Users\UBE03\source\repos\DcadToolBar\DcadToolBar\obj\Debug\Interop.DesignCAD.
 C:\Users\UBE03\source\repos\DcadToolBar\DcadToolBar\obj\Debug\DcadToolBar.csproj.ResolveComReference.cache
 C:\Users\UBE03\source\repos\DcadToolBar\DcadToolBar\obj\Debug\DcadToolBar.NewDocForm.resources
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.csprojAssemblyReference.cache
-C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.csproj.ResolveComReference.cache
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.NewDocForm.resources
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.Properties.Resources.resources
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.ToolBarForm.resources
@@ -23,7 +22,6 @@ C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.pdb
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\bin\Debug\DcadToolBar.exe.config
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\bin\Debug\DcadToolBar.exe
 C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\bin\Debug\DcadToolBar.pdb
-C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\Interop.DesignCAD.dll
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.exe.config
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.exe
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.pdb

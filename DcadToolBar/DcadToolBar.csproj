@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.DesignCAD">
+      <HintPath>\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Interface\Interop.DesignCAD.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -99,17 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\green_refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="DesignCAD">
-      <Guid>{DD0F69E1-1E0D-4064-94FA-2ED7ADC72C5D}</Guid>
-      <VersionMajor>23</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Red_Circle%28small%29.svg.png" />

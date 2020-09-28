@@ -41,6 +41,7 @@ namespace DcadToolBar
             this.casierhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casiersBancsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.casiersBancCompactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casiersAgroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierZToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.casierHToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,8 +52,9 @@ namespace DcadToolBar
             this.BancsBoisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BancsCompactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sérieC50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.casiersBancCompactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatePictureBox = new System.Windows.Forms.PictureBox();
             this.macroMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ModelComboBox
@@ -107,7 +109,7 @@ namespace DcadToolBar
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
-            this.UpdateButton.Location = new System.Drawing.Point(275, 1);
+            this.UpdateButton.Location = new System.Drawing.Point(273, 3);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(24, 23);
@@ -125,7 +127,7 @@ namespace DcadToolBar
             this.macroMenuStrip.Name = "macroMenuStrip";
             this.macroMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.macroMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.macroMenuStrip.Size = new System.Drawing.Size(189, 24);
+            this.macroMenuStrip.Size = new System.Drawing.Size(69, 24);
             this.macroMenuStrip.TabIndex = 9;
             this.macroMenuStrip.Text = "menuStrip2";
             // 
@@ -149,7 +151,7 @@ namespace DcadToolBar
             this.casierMétalliquesToolStripMenuItem,
             this.armoiresCollectivesToolStripMenuItem});
             this.CasiersToolStripMenuItem.Name = "CasiersToolStripMenuItem";
-            this.CasiersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.CasiersToolStripMenuItem.Text = "Casiers";
             // 
             // casierDiploToolStripMenuItem
@@ -181,6 +183,13 @@ namespace DcadToolBar
             this.casiersBancsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.casiersBancsToolStripMenuItem.Text = "Casiers Bancs";
             this.casiersBancsToolStripMenuItem.Click += new System.EventHandler(this.CasiersBancsToolStripMenuItem_Click);
+            // 
+            // casiersBancCompactToolStripMenuItem
+            // 
+            this.casiersBancCompactToolStripMenuItem.Name = "casiersBancCompactToolStripMenuItem";
+            this.casiersBancCompactToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.casiersBancCompactToolStripMenuItem.Text = "Casiers Banc Compact";
+            this.casiersBancCompactToolStripMenuItem.Click += new System.EventHandler(this.CasiersBancCompactToolStripMenuItem_Click);
             // 
             // casiersAgroToolStripMenuItem
             // 
@@ -218,7 +227,7 @@ namespace DcadToolBar
             // CasiersInfoToolStripMenuItem
             // 
             this.CasiersInfoToolStripMenuItem.Name = "CasiersInfoToolStripMenuItem";
-            this.CasiersInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CasiersInfoToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.CasiersInfoToolStripMenuItem.Text = "Casiers informatisé";
             // 
             // BancsToolStripMenuItem
@@ -227,13 +236,13 @@ namespace DcadToolBar
             this.BancsBoisToolStripMenuItem,
             this.BancsCompactToolStripMenuItem});
             this.BancsToolStripMenuItem.Name = "BancsToolStripMenuItem";
-            this.BancsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.BancsToolStripMenuItem.Text = "Bancs";
             // 
             // BancsBoisToolStripMenuItem
             // 
             this.BancsBoisToolStripMenuItem.Name = "BancsBoisToolStripMenuItem";
-            this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.BancsBoisToolStripMenuItem.Text = "Bancs Bois";
             // 
             // BancsCompactToolStripMenuItem
@@ -241,28 +250,32 @@ namespace DcadToolBar
             this.BancsCompactToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sérieC50ToolStripMenuItem});
             this.BancsCompactToolStripMenuItem.Name = "BancsCompactToolStripMenuItem";
-            this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.BancsCompactToolStripMenuItem.Text = "Bancs Compact";
             // 
             // sérieC50ToolStripMenuItem
             // 
             this.sérieC50ToolStripMenuItem.Name = "sérieC50ToolStripMenuItem";
-            this.sérieC50ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieC50ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.sérieC50ToolStripMenuItem.Text = "Série C50";
-            this.sérieC50ToolStripMenuItem.Click += new System.EventHandler(this.sérieC50ToolStripMenuItem_Click);
+            this.sérieC50ToolStripMenuItem.Click += new System.EventHandler(this.SérieC50ToolStripMenuItem_Click);
             // 
-            // casiersBancCompactToolStripMenuItem
+            // updatePictureBox
             // 
-            this.casiersBancCompactToolStripMenuItem.Name = "casiersBancCompactToolStripMenuItem";
-            this.casiersBancCompactToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.casiersBancCompactToolStripMenuItem.Text = "Casiers Banc Compact";
-            this.casiersBancCompactToolStripMenuItem.Click += new System.EventHandler(this.casiersBancCompactToolStripMenuItem_Click);
+            this.updatePictureBox.Image = global::DcadToolBar.Properties.Resources.Red_Circle_small__svg;
+            this.updatePictureBox.Location = new System.Drawing.Point(291, 0);
+            this.updatePictureBox.Name = "updatePictureBox";
+            this.updatePictureBox.Size = new System.Drawing.Size(10, 10);
+            this.updatePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.updatePictureBox.TabIndex = 10;
+            this.updatePictureBox.TabStop = false;
             // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(302, 91);
+            this.Controls.Add(this.updatePictureBox);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.DocTitle);
             this.Controls.Add(this.MaterialComboBox);
@@ -279,6 +292,7 @@ namespace DcadToolBar
             this.TopMost = true;
             this.macroMenuStrip.ResumeLayout(false);
             this.macroMenuStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +321,6 @@ namespace DcadToolBar
         private System.Windows.Forms.ToolStripMenuItem sérieC50ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casiersBancsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem casiersBancCompactToolStripMenuItem;
+        private System.Windows.Forms.PictureBox updatePictureBox;
     }
 }
