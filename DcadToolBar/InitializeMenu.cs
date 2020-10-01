@@ -58,7 +58,8 @@ namespace DcadToolBar
                 {"CasierZDiplo", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_z.d3m"},
                 {"CasierHBanc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc.d3m"},
                 {"CasiersBancCompact", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc_compact.d3m"},
-                {"BancCompact50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_Compact_50_60.d3m"}
+                {"BancCompact50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_Compact_50_60.d3m"},
+                {"BancCompact1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C1.d3m"}
             };
 
             return newDict;

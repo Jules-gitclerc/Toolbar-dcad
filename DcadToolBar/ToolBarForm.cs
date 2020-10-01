@@ -519,5 +519,10 @@ namespace DcadToolBar
         {
             LaunchMacro("BancCompact50");
         }
+
+        private void sérieC1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("BancCompact1");
+        }
     }
 }

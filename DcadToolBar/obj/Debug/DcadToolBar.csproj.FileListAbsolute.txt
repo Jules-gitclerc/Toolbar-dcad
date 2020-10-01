@@ -26,8 +26,6 @@ C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.exe.c
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.exe
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\bin\Debug\DcadToolBar.pdb
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.csprojAssemblyReference.cache
-C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\Interop.DesignCAD.dll
-C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.csproj.ResolveComReference.cache
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.NewDocForm.resources
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.Properties.Resources.resources
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.ToolBarForm.resources
