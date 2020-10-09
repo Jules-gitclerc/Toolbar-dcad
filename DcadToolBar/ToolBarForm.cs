@@ -524,5 +524,10 @@ namespace DcadToolBar
         {
             LaunchMacro("BancCompact1");
         }
+
+        private void lisseC100ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LaunchMacro("Lisse100");
+        }
     }
 }
