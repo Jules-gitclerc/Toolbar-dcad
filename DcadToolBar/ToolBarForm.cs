@@ -24,6 +24,9 @@ namespace DcadToolBar
     {
         [DllImport("user32.dll")]
         static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll")]
+        static extern bool GetWindowRect(IntPtr hWnd, out Rectangle lpRect);
         private Application App;
         public string Model;
         public string Material;
@@ -42,6 +45,7 @@ namespace DcadToolBar
         private string _pathServApp;
         private string _fileNameApp;
         private string _dirNameApp;
+        private Palet paletForm;
 
         public ToolBarForm()
         {
@@ -139,6 +143,8 @@ namespace DcadToolBar
         private void ToolBarForm_Load(object sender, EventArgs e)
         {
             Hide();
+            paletForm = new Palet();
+            paletForm.Show();
             _isShown = false;
             ModelComboBox.SelectedIndexChanged -= ModelComboBox_SelectedIndexChanged;
             MaterialComboBox.SelectedIndexChanged -= MaterialComboBox_SelectedIndexChanged;
@@ -261,6 +267,13 @@ namespace DcadToolBar
                         Hide();
                     _isShown = false;
                 }
+
+                var allProcesses = Process.GetProcesses();
+                IntPtr? hWnd = allProcesses.FirstOrDefault(process => process.ProcessName == "DcP10")
+                    .MainWindowHandle;
+                GetWindowRect(hWnd.Value, out Rectangle r);
+                Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
+                Debug.WriteLine("r.left : " + r.Left + " | r.Width : " + r.Width + " | calcul : " + (r.Left + r.Width / 2 + r.Width / 4));
             }
             Hide();
             _isShown = false;
