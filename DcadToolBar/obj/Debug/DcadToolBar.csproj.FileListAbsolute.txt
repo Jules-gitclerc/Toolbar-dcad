@@ -34,3 +34,4 @@ C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.cspro
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.exe
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.pdb
 C:\Users\UBE03\source\repos\Toolbar-dcad\DcadToolBar\obj\Debug\DcadToolBar.Palet.resources
+C:\Users\DevKalysse\Desktop\C#_Jules_Clerc\DcadToolBar\obj\Debug\DcadToolBar.Palet.resources

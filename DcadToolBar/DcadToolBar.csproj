@@ -78,6 +78,7 @@
     <Compile Include="ToolBarForm.Designer.cs">
       <DependentUpon>ToolBarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowTools.cs" />
     <EmbeddedResource Include="NewDocForm.resx">
       <DependentUpon>NewDocForm.cs</DependentUpon>
     </EmbeddedResource>

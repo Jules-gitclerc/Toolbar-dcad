@@ -22,11 +22,6 @@ namespace DcadToolBar
 {
     public partial class ToolBarForm : Form
     {
-        [DllImport("user32.dll")]
-        static extern IntPtr GetForegroundWindow();
-
-        [DllImport("user32.dll")]
-        static extern bool GetWindowRect(IntPtr hWnd, out Rectangle lpRect);
         private Application App;
         public string Model;
         public string Material;
@@ -144,8 +139,8 @@ namespace DcadToolBar
         {
             Hide();
             paletForm = new Palet();
-            paletForm.Show();
             _isShown = false;
+
             ModelComboBox.SelectedIndexChanged -= ModelComboBox_SelectedIndexChanged;
             MaterialComboBox.SelectedIndexChanged -= MaterialComboBox_SelectedIndexChanged;
             ModelComboBox.SelectedItem = "Primo";
@@ -156,8 +151,14 @@ namespace DcadToolBar
             FormBorderStyle = FormBorderStyle.None;
             ShowInTaskbar = false;
             ShowIcon = false;
+
+            paletForm.ShowInTaskbar = false;
+            paletForm.ShowIcon = false;
+            paletForm.Show();
+
             if (ProcessTools.CheckProcByName("DcadToolBar"))
                 ProcessTools.KillAllProcWithName("DcadToolBar");
+
             SetTimer();
             _thread.Start();
         }
@@ -173,29 +174,6 @@ namespace DcadToolBar
         }
 
         // ============ Class methods =============
-
-        private bool IsDesignCADActive()
-        {
-            IntPtr hWnd = GetForegroundWindow();
-
-            try
-            {
-                int i = hWnd.ToInt32();
-                return i == App.HWnd;
-            }
-            catch (OverflowException e)
-            {
-                Debug.WriteLine(e);
-                long l = hWnd.ToInt64();
-                return l == App.HWnd;
-            }
-            catch
-            {
-                //unused
-            }
-
-            return false;
-        }
 
         /// <summary>
         /// This function should be used only with a new thread.
@@ -251,29 +229,33 @@ namespace DcadToolBar
 
         private void WaitForClosing()
         {
-            while (ProcessTools.CheckProcWithPid(_appPid))                 // TODO Add something which detects if window is minimized or not
+            while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 Thread.Sleep(500);
-                if (IsDesignCADActive() || ActiveForm == this)
+                if (WindowTools.IsDesignCADActive(App) || ActiveForm == this)
                 {
                     if (_isShown == false)
+                    {
                         Show();
+                        paletForm.Show();
+                    }
+
                     _isShown = true;
                 }
 
-                else if (IsDesignCADActive() == false)
+                else if (WindowTools.IsDesignCADActive(App) == false)
                 {
                     if (_isShown)
+                    {
                         Hide();
+                        paletForm.Hide();
+                    }
+
                     _isShown = false;
                 }
 
-                var allProcesses = Process.GetProcesses();
-                IntPtr? hWnd = allProcesses.FirstOrDefault(process => process.ProcessName == "DcP10")
-                    .MainWindowHandle;
-                GetWindowRect(hWnd.Value, out Rectangle r);
+                Rectangle r = WindowTools.GetWindowRect("DcP10");
                 Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
-                Debug.WriteLine("r.left : " + r.Left + " | r.Width : " + r.Width + " | calcul : " + (r.Left + r.Width / 2 + r.Width / 4));
             }
             Hide();
             _isShown = false;
@@ -290,7 +272,7 @@ namespace DcadToolBar
             while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 Thread.Sleep(500);
-                if (!IsDesignCADActive()) continue;
+                if (!WindowTools.IsDesignCADActive(App)) continue;
                 if (App.ActiveDocument == null)
                 {
                     DocTitle.Text = "no document";
@@ -507,6 +489,8 @@ namespace DcadToolBar
                 WindowStyle = ProcessWindowStyle.Hidden
             });
         }
+
+        // ============ Macro launchers =============
 
         private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e)
         {
