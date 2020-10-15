@@ -83,6 +83,16 @@ namespace DcadToolBar.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap paletcolor {
+            get {
+                object obj = ResourceManager.GetObject("paletcolor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Red_Circle_small__svg {
             get {
                 object obj = ResourceManager.GetObject("Red_Circle(small).svg", resourceCulture);
