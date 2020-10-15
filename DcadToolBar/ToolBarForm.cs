@@ -45,6 +45,7 @@ namespace DcadToolBar
         public ToolBarForm()
         {
             InitializeComponent();
+            paletForm = new Palet();
             CheckForIllegalCrossThreadCalls = false;
             Load += ToolBarForm_Load;
             Closed += ToolBarForm_Closed;
@@ -70,12 +71,23 @@ namespace DcadToolBar
             _threadClosing = new Thread(WaitForClosing);
         }
 
+        /// <summary>
+        /// Close the form when pressing escape key.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData != Keys.Escape) return base.ProcessCmdKey(ref msg, keyData);
             Close();
             return true;
         }
+
+        /// <summary>
+        /// To disable the form from the alt + tab menu.
+        /// </summary>
 
         protected override CreateParams CreateParams
         {
@@ -138,7 +150,6 @@ namespace DcadToolBar
         private void ToolBarForm_Load(object sender, EventArgs e)
         {
             Hide();
-            paletForm = new Palet();
             _isShown = false;
 
             ModelComboBox.SelectedIndexChanged -= ModelComboBox_SelectedIndexChanged;
@@ -212,6 +223,7 @@ namespace DcadToolBar
                         _docChangeThread = new Thread(ActiveDocChangesWatcher);
                         _docChangeThread.Start();
                         Show();
+                        paletForm.Show();
                         _isShown = true;
                     }
                 }
@@ -232,7 +244,7 @@ namespace DcadToolBar
             while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 Thread.Sleep(500);
-                if (WindowTools.IsDesignCADActive(App) || ActiveForm == this)
+                if (WindowTools.IsDesignCADActive(App) || ActiveForm == this || ActiveForm == paletForm)
                 {
                     if (_isShown == false)
                     {
@@ -256,8 +268,10 @@ namespace DcadToolBar
 
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
                 Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
+                paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
             Hide();
+            paletForm.Hide();
             _isShown = false;
             DocsManager = null;
             App = null;

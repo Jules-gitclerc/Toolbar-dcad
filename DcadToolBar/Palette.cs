@@ -16,5 +16,20 @@ namespace DcadToolBar
         {
             InitializeComponent();
         }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x80;
+                return cp;
+            }
+        }
+
+        private void Palet_Load(object sender, EventArgs e)
+        {
+            Size = new Size(22, 118);
+        }
     }
 }

@@ -104,11 +104,12 @@
             this.Controls.Add(this.ColorBlue);
             this.Controls.Add(this.colorRed);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(500, 500);
+            this.Location = new System.Drawing.Point(-10000, -10000);
             this.Name = "Palet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Palette";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Palet_Load);
             this.ResumeLayout(false);
 
         }
