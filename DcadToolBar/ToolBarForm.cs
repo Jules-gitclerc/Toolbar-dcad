@@ -506,39 +506,15 @@ namespace DcadToolBar
 
         // ============ Macro launchers =============
 
-        private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("CasierHBanc");
-        }
-
-        private void CasierhToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("CasierHDiplo");
-        }
-
-        private void CasierZToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("CasierZDiplo");
-        }
-
-        private void CasiersBancCompactToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("CasiersBancCompact");
-        }
-
-        private void SérieC50ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BancCompact50");
-        }
-
-        private void sérieC1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("BancCompact1");
-        }
-
-        private void lisseC100ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LaunchMacro("Lisse100");
-        }
+        private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasierHBanc");
+        private void CasierhToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasierHDiplo");
+        private void CasierZToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasierZDiplo");
+        private void CasiersBancCompactToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasiersBancCompact");
+        private void SérieC50ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact50");
+        private void sérieC1ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact1");
+        private void lisseC100ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("Lisse100");
+        private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
+        private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
+        
     }
 }
