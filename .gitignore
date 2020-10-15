@@ -1,6 +1,4 @@
 .vs/
-gitlab
-tmp
 DcadToolBar/obj/
 DcadToolBar/bin/
 ToolBarUpdater/obj/
