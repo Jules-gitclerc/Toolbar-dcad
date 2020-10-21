@@ -30,8 +30,10 @@ namespace DcadToolBar
         public static Rectangle GetWindowRect(string processName)
         {
             var allProcesses = Process.GetProcesses();
-            IntPtr? hWnd = allProcesses.FirstOrDefault(process => process.ProcessName == processName)
+            IntPtr? hWnd = allProcesses.FirstOrDefault(process => process.ProcessName == processName)?
                 .MainWindowHandle;
+            if (hWnd == null)
+                return new Rectangle(0, 0, 0, 0);
             GetWindowRect(hWnd.Value, out LPRECT r);
 
             Rectangle rect = new Rectangle(new Point(r.Left, r.Top), new Size(Math.Abs(r.Right - r.Left), Math.Abs(r.Bottom - r.Top)));

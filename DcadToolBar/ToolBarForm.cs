@@ -245,6 +245,7 @@ namespace DcadToolBar
             while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 Thread.Sleep(500);
+                if (App == null) break;
                 if (WindowTools.IsDesignCADActive(App) || ActiveForm == this || ActiveForm == paletForm)
                 {
                     if (_isShown == false)
@@ -267,10 +268,12 @@ namespace DcadToolBar
                     _isShown = false;
                 }
 
-                Rectangle r = WindowTools.GetWindowRect("DcP10");
+                if (App == null) break;
+                Rectangle r = WindowTools.GetWindowRect("DcP10"); // BUG When closing app
                 Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
                 paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
+
             Hide();
             paletForm.Hide();
             _isShown = false;
@@ -287,6 +290,7 @@ namespace DcadToolBar
             while (ProcessTools.CheckProcWithPid(_appPid))
             {
                 Thread.Sleep(500);
+                if (App == null) break;
                 if (!WindowTools.IsDesignCADActive(App)) continue;
                 if (App.ActiveDocument == null)
                 {

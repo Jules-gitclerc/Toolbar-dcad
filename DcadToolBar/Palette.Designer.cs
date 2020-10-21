@@ -59,7 +59,7 @@
             // 
             // colorRed
             // 
-            this.colorRed.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.colorRed.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.colorRed.BackColor = System.Drawing.Color.Red;
             this.colorRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colorRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,7 +74,7 @@
             // 
             // ColorBlue
             // 
-            this.ColorBlue.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorBlue.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorBlue.BackColor = System.Drawing.Color.Blue;
             this.ColorBlue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorBlue.Location = new System.Drawing.Point(2, 142);
@@ -88,7 +88,7 @@
             // 
             // ColorGreen
             // 
-            this.ColorGreen.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorGreen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorGreen.BackColor = System.Drawing.Color.Lime;
             this.ColorGreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorGreen.Location = new System.Drawing.Point(2, 239);
@@ -102,7 +102,7 @@
             // 
             // ColorBlack
             // 
-            this.ColorBlack.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorBlack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorBlack.BackColor = System.Drawing.Color.Black;
             this.ColorBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorBlack.Location = new System.Drawing.Point(2, 113);
@@ -116,7 +116,7 @@
             // 
             // palletButton
             // 
-            this.palletButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.palletButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.palletButton.BackColor = System.Drawing.Color.Transparent;
             this.palletButton.BackgroundImage = global::DcadToolBar.Properties.Resources.paletcolor;
             this.palletButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -132,7 +132,7 @@
             // 
             // ColorMaroon
             // 
-            this.ColorMaroon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorMaroon.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorMaroon.BackColor = System.Drawing.Color.Maroon;
             this.ColorMaroon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorMaroon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,7 +148,7 @@
             // 
             // ColorLightBlue
             // 
-            this.ColorLightBlue.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorLightBlue.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorLightBlue.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ColorLightBlue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorLightBlue.Location = new System.Drawing.Point(2, 142);
@@ -163,7 +163,7 @@
             // 
             // Ep10Button
             // 
-            this.Ep10Button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Ep10Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Ep10Button.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Ep10Button.Enabled = false;
             this.Ep10Button.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
@@ -180,6 +180,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1, 5);
             this.label1.Name = "label1";
@@ -189,6 +190,7 @@
             // 
             // Separator1
             // 
+            this.Separator1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Separator1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Separator1.Location = new System.Drawing.Point(3, 42);
             this.Separator1.Name = "Separator1";
@@ -197,6 +199,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Location = new System.Drawing.Point(3, 85);
             this.label2.Name = "label2";
@@ -205,6 +208,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1, 47);
             this.label3.Name = "label3";
@@ -214,7 +218,7 @@
             // 
             // Ep13Button
             // 
-            this.Ep13Button.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Ep13Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Ep13Button.BackColor = System.Drawing.SystemColors.Control;
             this.Ep13Button.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.Ep13Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -229,7 +233,7 @@
             // 
             // ColorBlueHole
             // 
-            this.ColorBlueHole.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorBlueHole.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorBlueHole.BackColor = System.Drawing.Color.Blue;
             this.ColorBlueHole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorBlueHole.Location = new System.Drawing.Point(2, 186);
@@ -243,7 +247,7 @@
             // 
             // ColorPeach
             // 
-            this.ColorPeach.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorPeach.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorPeach.BackColor = System.Drawing.Color.PeachPuff;
             this.ColorPeach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorPeach.Location = new System.Drawing.Point(2, 208);
@@ -257,7 +261,7 @@
             // 
             // ColorGray
             // 
-            this.ColorGray.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorGray.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorGray.BackColor = System.Drawing.Color.SlateGray;
             this.ColorGray.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorGray.Location = new System.Drawing.Point(2, 186);
@@ -272,7 +276,7 @@
             // 
             // ColorLightGray
             // 
-            this.ColorLightGray.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ColorLightGray.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ColorLightGray.BackColor = System.Drawing.Color.LightGray;
             this.ColorLightGray.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ColorLightGray.Location = new System.Drawing.Point(2, 208);
@@ -287,6 +291,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Location = new System.Drawing.Point(3, 136);
             this.label4.Name = "label4";
@@ -295,6 +300,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(3, 232);
             this.label5.Name = "label5";
@@ -303,7 +309,7 @@
             // 
             // Lay15Green
             // 
-            this.Lay15Green.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay15Green.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay15Green.BackColor = System.Drawing.Color.Green;
             this.Lay15Green.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay15Green.Location = new System.Drawing.Point(2, 261);
@@ -317,7 +323,7 @@
             // 
             // Lay16Green
             // 
-            this.Lay16Green.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay16Green.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay16Green.BackColor = System.Drawing.Color.PaleGreen;
             this.Lay16Green.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay16Green.Location = new System.Drawing.Point(2, 283);
@@ -331,7 +337,7 @@
             // 
             // Lay21Green
             // 
-            this.Lay21Green.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay21Green.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay21Green.BackColor = System.Drawing.Color.OliveDrab;
             this.Lay21Green.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay21Green.Location = new System.Drawing.Point(2, 393);
@@ -345,7 +351,7 @@
             // 
             // Lay20Green
             // 
-            this.Lay20Green.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay20Green.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay20Green.BackColor = System.Drawing.Color.Green;
             this.Lay20Green.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay20Green.Location = new System.Drawing.Point(2, 371);
@@ -359,7 +365,7 @@
             // 
             // Lay19Green
             // 
-            this.Lay19Green.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay19Green.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay19Green.BackColor = System.Drawing.Color.Lime;
             this.Lay19Green.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay19Green.Location = new System.Drawing.Point(2, 349);
@@ -373,7 +379,7 @@
             // 
             // Lay18Purple
             // 
-            this.Lay18Purple.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay18Purple.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay18Purple.BackColor = System.Drawing.Color.Magenta;
             this.Lay18Purple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay18Purple.Location = new System.Drawing.Point(2, 327);
@@ -387,7 +393,7 @@
             // 
             // Lay17Purple
             // 
-            this.Lay17Purple.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay17Purple.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay17Purple.BackColor = System.Drawing.Color.DarkMagenta;
             this.Lay17Purple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay17Purple.Location = new System.Drawing.Point(2, 305);
@@ -401,7 +407,7 @@
             // 
             // Lay22Tomato
             // 
-            this.Lay22Tomato.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.Lay22Tomato.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Lay22Tomato.BackColor = System.Drawing.Color.Tomato;
             this.Lay22Tomato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Lay22Tomato.Location = new System.Drawing.Point(2, 415);
