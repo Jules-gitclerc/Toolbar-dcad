@@ -26,6 +26,13 @@ namespace DcadToolBar
             LayerVal = 0;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData != Keys.Escape) return base.ProcessCmdKey(ref msg, keyData);
+            Close();
+            return true;
+        }
+
         private void ColorButton_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
