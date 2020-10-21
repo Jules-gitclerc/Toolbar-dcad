@@ -60,7 +60,6 @@ namespace DcadToolBar
         {
             DcDocs = GetAppDocuments();
 
-            Debug.WriteLine(DcDocs.Count);
             if (DcDocs.Count < 1) return false;
             ActiveDoc = App.ActiveDocument;
 

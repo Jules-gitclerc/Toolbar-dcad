@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseColor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseColor.Designer.cs">
+      <DependentUpon>ChooseColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="DcDocument.cs" />
     <Compile Include="DocumentsManager.cs" />
     <Compile Include="InitializeMenu.cs" />
@@ -79,6 +85,9 @@
       <DependentUpon>ToolBarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowTools.cs" />
+    <EmbeddedResource Include="ChooseColor.resx">
+      <DependentUpon>ChooseColor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewDocForm.resx">
       <DependentUpon>NewDocForm.cs</DependentUpon>
     </EmbeddedResource>

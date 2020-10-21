@@ -208,6 +208,7 @@ namespace DcadToolBar
                         if (App.ActiveDocument == null) continue;
                         isFound = true;
                         DocsManager = new DocumentsManager(App);
+                        paletForm.DocManager = DocsManager;
                         DocsManager.RaiseDialogBoxEvent += DocsManager_RaiseDialogBoxEvent;
                         DocsManager.RaiseLaunchMacrosEvent += DocsManager_RaiseLaunchMacrosEvent;
                         DocsManager.SetActiveDoc();
@@ -515,6 +516,6 @@ namespace DcadToolBar
         private void lisseC100ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("Lisse100");
         private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
         private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
-        
+        private void sérieC500ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact500");
     }
 }
