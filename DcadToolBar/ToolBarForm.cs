@@ -521,5 +521,7 @@ namespace DcadToolBar
         private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
         private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
         private void sérieC500ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact500");
+        private void sérieC550ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro(("BancCompact550"));
+        private void sérieC700ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro(("BancCompact700"));
     }
 }
