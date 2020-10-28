@@ -37,7 +37,8 @@ namespace DcadToolBar
             GetWindowRect(hWnd.Value, out LPRECT r);
 
             Rectangle rect = new Rectangle(new Point(r.Left, r.Top), new Size(Math.Abs(r.Right - r.Left), Math.Abs(r.Bottom - r.Top)));
-
+            if (rect.Width < 500)
+                return new Rectangle(new Point(-10000, -10000), new Size(Math.Abs(r.Right - r.Left), Math.Abs(r.Bottom - r.Top)));
             return rect;
         }
 

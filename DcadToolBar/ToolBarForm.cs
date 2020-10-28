@@ -269,7 +269,7 @@ namespace DcadToolBar
                 }
 
                 if (App == null) break;
-                Rectangle r = WindowTools.GetWindowRect("DcP10"); // BUG When closing app
+                Rectangle r = WindowTools.GetWindowRect("DcP10");
                 Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
                 paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
