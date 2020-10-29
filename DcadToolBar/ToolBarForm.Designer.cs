@@ -64,6 +64,7 @@ namespace DcadToolBar
             this.updatePictureBox = new System.Windows.Forms.PictureBox();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.sérieB50ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sérieB450ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.macroMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -243,7 +244,8 @@ namespace DcadToolBar
             // 
             this.BancsBoisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sérieB1ToolStripMenuItem,
-            this.sérieB50ToolStripMenuItem});
+            this.sérieB50ToolStripMenuItem,
+            this.sérieB450ToolStripMenuItem});
             this.BancsBoisToolStripMenuItem.Name = "BancsBoisToolStripMenuItem";
             this.BancsBoisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BancsBoisToolStripMenuItem.Text = "Bancs Bois";
@@ -368,6 +370,13 @@ namespace DcadToolBar
             this.sérieB50ToolStripMenuItem.Text = "Série B50";
             this.sérieB50ToolStripMenuItem.Click += new System.EventHandler(this.sérieB50ToolStripMenuItem_Click);
             // 
+            // sérieB450ToolStripMenuItem
+            // 
+            this.sérieB450ToolStripMenuItem.Name = "sérieB450ToolStripMenuItem";
+            this.sérieB450ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieB450ToolStripMenuItem.Text = "Série B450";
+            this.sérieB450ToolStripMenuItem.Click += new System.EventHandler(this.sérieB450ToolStripMenuItem_Click);
+            // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -431,5 +440,6 @@ namespace DcadToolBar
         private System.Windows.Forms.ToolStripMenuItem sérieC600ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sérieB1ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sérieB50ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieB450ToolStripMenuItem;
     }
 }
