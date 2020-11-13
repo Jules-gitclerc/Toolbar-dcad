@@ -70,6 +70,12 @@ namespace DcadToolBar
                 {"BancBoisB1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B1.d3m"},
                 {"BancBoisB50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B50.d3m"},
                 {"BancBoisB450", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B450.d3m"},
+                {"ReperageFacade", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_facade.d3m"},
+                {"ReperageRefend", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_refend.d3m"},
+                {"AjusterRefend", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_refend.d3m"},
+                {"FacadeD", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_d.d3m"},
+                {"FacadeK", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_k.d3m"},
+                {"FacadeL", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_l.d3m"},
             };
 
             return newDict;

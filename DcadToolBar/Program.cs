@@ -23,8 +23,9 @@ namespace DcadToolBar
             }
             catch (Exception e)
             {
-                File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\ToolBarDcad\toolbar_log.txt", new List<string>
+                File.AppendAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\ToolBarDcad\toolbar_log.txt", new List<string>
                 {
+                    "[" + DateTime.Now + "] ",
                     e.Message,
                     e.StackTrace
                 });

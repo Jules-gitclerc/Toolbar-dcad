@@ -106,6 +106,9 @@ namespace DcadToolBar
             if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width &&
                 MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
                 CloakRoomToolStripMenuItem.ShowDropDown();
+            if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width + cabineToolStripMenuItem.Size.Width &&
+                MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
+                cabineToolStripMenuItem.ShowDropDown();
             if (NeedUpdate() == false && updatePictureBox.Visible == false)
                 updatePictureBox.Visible = false;
             else if (NeedUpdate() && updatePictureBox.Visible)
@@ -527,6 +530,11 @@ namespace DcadToolBar
         private void sérieB1ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB1");
         private void sérieB50ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB50");
         private void sérieB450ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB450");
-
+        private void reperageFaçadeToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageFacade");
+        private void facadeKToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeK");
+        private void facadeDToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeD");
+        private void facadeLToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeL");
+        private void reperageRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageRefend");
+        private void ajusterRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterRefend");
     }
 }
