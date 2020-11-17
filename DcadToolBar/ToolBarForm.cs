@@ -521,8 +521,6 @@ namespace DcadToolBar
         private void SérieC50ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact50");
         private void sérieC1ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact1");
         private void lisseC100ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("Lisse100");
-        //private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
-        //private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
         private void sérieC500ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact500");
         private void sérieC550ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact550");
         private void sérieC700ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact700");
@@ -536,5 +534,7 @@ namespace DcadToolBar
         private void facadeLToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeL");
         private void reperageRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageRefend");
         private void ajusterRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterRefend");
+        private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
+        private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
     }
 }
