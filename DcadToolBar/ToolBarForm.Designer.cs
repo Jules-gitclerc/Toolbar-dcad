@@ -137,7 +137,7 @@ namespace DcadToolBar
             this.macroMenuStrip.Name = "macroMenuStrip";
             this.macroMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.macroMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.macroMenuStrip.Size = new System.Drawing.Size(245, 24);
+            this.macroMenuStrip.Size = new System.Drawing.Size(125, 24);
             this.macroMenuStrip.TabIndex = 9;
             this.macroMenuStrip.Text = "menuStrip2";
             // 
@@ -438,6 +438,7 @@ namespace DcadToolBar
             // 
             // updatePictureBox
             // 
+            this.updatePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.updatePictureBox.Image = global::DcadToolBar.Properties.Resources.Red_Circle_small__svg;
             this.updatePictureBox.Location = new System.Drawing.Point(291, 0);
             this.updatePictureBox.Name = "updatePictureBox";
