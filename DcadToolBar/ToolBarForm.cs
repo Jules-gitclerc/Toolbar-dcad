@@ -35,6 +35,7 @@ namespace DcadToolBar
         private Thread _threadClosing;
         private Thread _docChangeThread;
         private bool _isShown;
+        private ToolTip _refendToolTip;
         private DocumentsManager DocsManager { get; set; }
         private string _pathLocalApp;
         private string _pathServApp;
@@ -46,6 +47,7 @@ namespace DcadToolBar
         {
             InitializeComponent();
             paletForm = new Palet();
+            _refendToolTip = new ToolTip();
             CheckForIllegalCrossThreadCalls = false;
             Load += ToolBarForm_Load;
             Closed += ToolBarForm_Closed;
@@ -103,12 +105,11 @@ namespace DcadToolBar
 
         private void ToolBarForm_Activated(object sender, EventArgs e)
         {
-            if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width &&
-                MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
-                CloakRoomToolStripMenuItem.ShowDropDown();
-            if (MousePosition.X > macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width && MousePosition.X < macroMenuStrip.PointToScreen(Point.Empty).X + CloakRoomToolStripMenuItem.Size.Width + cabineToolStripMenuItem.Size.Width &&
-                MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y && MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y + CloakRoomToolStripMenuItem.Size.Height)
-                cabineToolStripMenuItem.ShowDropDown();
+            ToolStripMenuItem item = FindMenuItem();
+
+            if (item.Text != "null")
+                item.ShowDropDown();
+
             if (NeedUpdate() == false && updatePictureBox.Visible == false)
                 updatePictureBox.Visible = false;
             else if (NeedUpdate() && updatePictureBox.Visible)
@@ -188,6 +189,38 @@ namespace DcadToolBar
         }
 
         // ============ Class methods =============
+
+        /// <summary>
+        /// Finds the corresponding <see cref="ToolStripMenuItem"/> which is located under the cursor. Returns an empty one with "null" as text.
+        /// </summary>
+        /// <returns></returns>
+
+        public ToolStripMenuItem FindMenuItem()
+        {
+            Dictionary<int, ToolStripMenuItem> MenuItemLeftBound = new Dictionary<int, ToolStripMenuItem>
+            {
+                {0, new ToolStripMenuItem("null")},
+                {macroMenuStrip.PointToScreen(Point.Empty).X, outilsKalysseToolStripMenuItem},
+                {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width, CloakRoomToolStripMenuItem},
+                {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width + CloakRoomToolStripMenuItem.Size.Width, cabineToolStripMenuItem},
+                {macroMenuStrip.PointToScreen(Point.Empty).X + macroMenuStrip.Size.Width, new ToolStripMenuItem("null")},
+            };
+
+            if (MousePosition.Y < macroMenuStrip.PointToScreen(Point.Empty).Y || MousePosition.Y > macroMenuStrip.PointToScreen(Point.Empty).Y + macroMenuStrip.Size.Height)
+                return new ToolStripMenuItem("null");
+
+            ToolStripMenuItem item = MenuItemLeftBound[0];
+
+            for (int i = 0; i < macroMenuStrip.PointToScreen(Point.Empty).X + macroMenuStrip.Width; i++)
+            {
+                if (MenuItemLeftBound.ContainsKey(i))
+                    item = MenuItemLeftBound[i];
+                if (i >= MousePosition.X)
+                    return item;
+            }
+
+            return new ToolStripMenuItem("null");
+        }
 
         /// <summary>
         /// This function should be used only with a new thread.
@@ -273,7 +306,7 @@ namespace DcadToolBar
 
                 if (App == null) break;
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
-                Location = new Point(r.Left + r.Width / 2 + r.Width / 4, r.Top + 15);
+                Location = new Point(r.Left + r.Width / 2 + r.Width / 6, r.Top + 15);
                 paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
 
@@ -473,7 +506,6 @@ namespace DcadToolBar
 
         private void ModelComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine(ModelComboBox.SelectedItem.ToString());
             LaunchMacro(ModelComboBox.SelectedItem.ToString());
         }
 
@@ -512,6 +544,59 @@ namespace DcadToolBar
             });
         }
 
+        private void outilsKalysseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            outilsKalysseToolStripMenuItem.ShowDropDown();
+        }
+
+        private void CloakRoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CloakRoomToolStripMenuItem.ShowDropDown();
+        }
+
+        private void cabineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cabineToolStripMenuItem.ShowDropDown();
+        }
+
+        private void RefendButton_MouseLeave(object sender, EventArgs e) => _refendToolTip.Hide(this);
+
+        private void RagButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend A Gauche", this, new Point(RagButton.Location.X - RagButton.Size.Width, RagButton.Location.Y - RagButton.Size.Height));
+        }
+
+        private void RadButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend A Droit", this, new Point(RadButton.Location.X - RadButton.Size.Width, RadButton.Location.Y - RadButton.Size.Height));
+        }
+
+        private void RbButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend B", this, new Point(RbButton.Location.X - RbButton.Size.Width, RbButton.Location.Y - RbButton.Size.Height));
+        }
+
+        private void RcgButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend C Gauche", this, new Point(RcgButton.Location.X - RcgButton.Size.Width, RcgButton.Location.Y - RcgButton.Size.Height));
+        }
+
+        private void RcdButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend C Droit", this, new Point(RcdButton.Location.X - RcdButton.Size.Width, RcdButton.Location.Y - RcdButton.Size.Height));
+        }
+
+        private void RcButton_MouseEnter(object sender, EventArgs e)
+        {
+            Activate();
+            _refendToolTip.Show("Refend C", this, new Point(RcButton.Location.X - RcButton.Size.Width, RcButton.Location.Y - RcButton.Size.Height));
+        }
+
         // ============ Macro launchers =============
 
         private void CasiersBancsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasierHBanc");
@@ -536,5 +621,24 @@ namespace DcadToolBar
         private void facadeLToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeL");
         private void reperageRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageRefend");
         private void ajusterRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterRefend");
+        private void cartoucheToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CartoucheK");
+        private void façadeToolStripMenuItem1_Click(object sender, EventArgs e) => LaunchMacro("CotationF");
+        private void bandeauToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CotationB");
+        private void axeToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CotationA");
+        private void eclaterSélectionToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("EclaterSelection");
+        private void outilCoucheToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("OutilCouche");
+        private void afficherLesAttributsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AfficherAttr");
+        private void masquerLesAttributsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("MasquerAttr");
+        private void poserAttributToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjouterAttr");
+        private void changerAttributsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ChangerAttr");
+        private void chercherUnAttributToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ChercherAttr");
+        private void multiplierUnAttributToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("MultiplierAttr");
+        private void supprimerAttributsToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("SupprimerAttr");
+        private void RagButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRag");
+        private void RadButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRad");
+        private void RbButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRb");
+        private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRcg");
+        private void RcdButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRcd");
+        private void RcButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRc");
     }
 }

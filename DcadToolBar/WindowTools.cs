@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DesignCAD;
 using Microsoft.VisualBasic;
+using Microsoft.Win32;
 using Application = DesignCAD.Application;
 
 namespace DcadToolBar
@@ -18,6 +19,8 @@ namespace DcadToolBar
         static extern bool GetWindowRect(IntPtr hWnd, out LPRECT lpRect);
         [DllImport("user32.dll")]
         static extern IntPtr GetForegroundWindow();
+        [DllImport("user32.dll")]
+        public static extern int GetSystemMetrics(int nIndex);
 
         private struct LPRECT
         {
@@ -63,6 +66,13 @@ namespace DcadToolBar
             }
 
             return false;
+        }
+
+        public static void PrintFullScreenBounds()
+        {
+            int width = GetSystemMetrics(0);
+            int height = GetSystemMetrics(1);
+            Debug.WriteLine(width + " " + height);
         }
     }
 }
