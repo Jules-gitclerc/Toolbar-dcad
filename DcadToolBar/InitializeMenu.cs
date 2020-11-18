@@ -67,6 +67,7 @@ namespace DcadToolBar
                 {"BancCompact550", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C550.d3m"}, 
                 {"BancCompact700", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C700.d3m"},
                 {"BancCompact600", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C600.d3m"},
+                {"BancCompact750", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C750.d3m"},
                 {"BancBoisB1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B1.d3m"},
                 {"BancBoisB50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B50.d3m"},
                 {"BancBoisB450", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B450.d3m"},

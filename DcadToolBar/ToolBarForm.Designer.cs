@@ -74,6 +74,7 @@ namespace DcadToolBar
             this.ajusterRefendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePictureBox = new System.Windows.Forms.PictureBox();
             this.UpdateButton = new System.Windows.Forms.Button();
+            this.sérieC750ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.macroMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.updatePictureBox)).BeginInit();
             this.SuspendLayout();
@@ -290,8 +291,9 @@ namespace DcadToolBar
             this.sérieC60ToolStripMenuItem,
             this.sérieC500ToolStripMenuItem,
             this.sérieC550ToolStripMenuItem,
+            this.sérieC600ToolStripMenuItem,
             this.sérieC700ToolStripMenuItem,
-            this.sérieC600ToolStripMenuItem});
+            this.sérieC750ToolStripMenuItem});
             this.BancsCompactToolStripMenuItem.Name = "BancsCompactToolStripMenuItem";
             this.BancsCompactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.BancsCompactToolStripMenuItem.Text = "Bancs Compact";
@@ -461,6 +463,13 @@ namespace DcadToolBar
             this.UpdateButton.UseVisualStyleBackColor = true;
             this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
+            // sérieC750ToolStripMenuItem
+            // 
+            this.sérieC750ToolStripMenuItem.Name = "sérieC750ToolStripMenuItem";
+            this.sérieC750ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sérieC750ToolStripMenuItem.Text = "Série C750";
+            this.sérieC750ToolStripMenuItem.Click += new System.EventHandler(this.sérieC750ToolStripMenuItem_Click);
+            // 
             // ToolBarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -534,5 +543,6 @@ namespace DcadToolBar
         private System.Windows.Forms.ToolStripMenuItem refendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reperageRefendToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ajusterRefendToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sérieC750ToolStripMenuItem;
     }
 }

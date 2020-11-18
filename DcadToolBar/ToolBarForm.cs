@@ -536,5 +536,6 @@ namespace DcadToolBar
         private void ajusterRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterRefend");
         private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
         private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
+        private void sérieC750ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact750");
     }
 }
