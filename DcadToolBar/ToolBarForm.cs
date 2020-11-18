@@ -110,9 +110,14 @@ namespace DcadToolBar
             if (item.Text != "null")
                 item.ShowDropDown();
 
-            if (NeedUpdate() == false && updatePictureBox.Visible == false)
+            Debug.WriteLine(NeedUpdate());
+
+            if (NeedUpdate() == false)
+            {
                 updatePictureBox.Visible = false;
-            else if (NeedUpdate() && updatePictureBox.Visible)
+                updatePictureBox.BringToFront();
+            }
+            else if (NeedUpdate())
                 updatePictureBox.Visible = true;
         }
 
@@ -306,7 +311,7 @@ namespace DcadToolBar
 
                 if (App == null) break;
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
-                Location = new Point(r.Left + r.Width / 2 + r.Width / 6, r.Top + 15);
+                Location = new Point(r.Left + r.Width / 2 + r.Width / 5 + 40, r.Top + 15);
                 paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
 

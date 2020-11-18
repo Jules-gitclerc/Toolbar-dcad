@@ -133,22 +133,22 @@
     <None Include="Resources\paletcolor.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RAG.jpg" />
+    <None Include="Resources\RAD.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RAD.JPG" />
+    <None Include="Resources\RAG.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RCG.JPG" />
+    <None Include="Resources\RB.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RCD.JPG" />
+    <None Include="Resources\RCG.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RB.JPG" />
+    <None Include="Resources\RCD.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RC.JPG" />
+    <None Include="Resources\RC.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
