@@ -51,6 +51,7 @@ namespace DcadToolBar
             this.chercherUnAttributToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.multiplierUnAttributToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supprimerAttributsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changerLaNatureDesMatériauxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloakRoomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CasiersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.casierDiploToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,11 +81,16 @@ namespace DcadToolBar
             this.sérieC600ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sérieC700ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sérieC750ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.equipementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pareDoucheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dosÀDosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cabineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FaçadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facadeKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facadeDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facadeLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajusterFaçadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reperageFaçadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reperageRefendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +123,7 @@ namespace DcadToolBar
             "Hauzeo",
             "Bambino",
             "Exéléo"});
-            this.ModelComboBox.Location = new System.Drawing.Point(256, 28);
+            this.ModelComboBox.Location = new System.Drawing.Point(334, 28);
             this.ModelComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModelComboBox.Name = "ModelComboBox";
             this.ModelComboBox.Size = new System.Drawing.Size(121, 24);
@@ -133,7 +139,7 @@ namespace DcadToolBar
             "Nylon",
             "Aluminium",
             "Inox"});
-            this.MaterialComboBox.Location = new System.Drawing.Point(256, 59);
+            this.MaterialComboBox.Location = new System.Drawing.Point(334, 59);
             this.MaterialComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaterialComboBox.Name = "MaterialComboBox";
             this.MaterialComboBox.Size = new System.Drawing.Size(121, 24);
@@ -156,12 +162,13 @@ namespace DcadToolBar
             this.macroMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outilsKalysseToolStripMenuItem,
             this.CloakRoomToolStripMenuItem,
+            this.equipementToolStripMenuItem,
             this.cabineToolStripMenuItem});
-            this.macroMenuStrip.Location = new System.Drawing.Point(9, 28);
+            this.macroMenuStrip.Location = new System.Drawing.Point(9, 23);
             this.macroMenuStrip.Name = "macroMenuStrip";
             this.macroMenuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.macroMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.macroMenuStrip.Size = new System.Drawing.Size(216, 24);
+            this.macroMenuStrip.Size = new System.Drawing.Size(299, 24);
             this.macroMenuStrip.TabIndex = 9;
             this.macroMenuStrip.Text = "menuStrip2";
             // 
@@ -172,7 +179,8 @@ namespace DcadToolBar
             this.cotationToolStripMenuItem,
             this.eclaterSélectionToolStripMenuItem,
             this.outilCoucheToolStripMenuItem,
-            this.attributsToolStripMenuItem});
+            this.attributsToolStripMenuItem,
+            this.changerLaNatureDesMatériauxToolStripMenuItem});
             this.outilsKalysseToolStripMenuItem.Name = "outilsKalysseToolStripMenuItem";
             this.outilsKalysseToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.outilsKalysseToolStripMenuItem.Text = "Outils Kalysse";
@@ -181,7 +189,7 @@ namespace DcadToolBar
             // cartoucheToolStripMenuItem
             // 
             this.cartoucheToolStripMenuItem.Name = "cartoucheToolStripMenuItem";
-            this.cartoucheToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.cartoucheToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.cartoucheToolStripMenuItem.Text = "Cartouche";
             this.cartoucheToolStripMenuItem.Click += new System.EventHandler(this.cartoucheToolStripMenuItem_Click);
             // 
@@ -192,7 +200,7 @@ namespace DcadToolBar
             this.bandeauToolStripMenuItem,
             this.axeToolStripMenuItem});
             this.cotationToolStripMenuItem.Name = "cotationToolStripMenuItem";
-            this.cotationToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.cotationToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.cotationToolStripMenuItem.Text = "Cotation";
             // 
             // façadeToolStripMenuItem1
@@ -219,14 +227,14 @@ namespace DcadToolBar
             // eclaterSélectionToolStripMenuItem
             // 
             this.eclaterSélectionToolStripMenuItem.Name = "eclaterSélectionToolStripMenuItem";
-            this.eclaterSélectionToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.eclaterSélectionToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.eclaterSélectionToolStripMenuItem.Text = "Eclater Sélection";
             this.eclaterSélectionToolStripMenuItem.Click += new System.EventHandler(this.eclaterSélectionToolStripMenuItem_Click);
             // 
             // outilCoucheToolStripMenuItem
             // 
             this.outilCoucheToolStripMenuItem.Name = "outilCoucheToolStripMenuItem";
-            this.outilCoucheToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.outilCoucheToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.outilCoucheToolStripMenuItem.Text = "Outil Couche";
             this.outilCoucheToolStripMenuItem.Click += new System.EventHandler(this.outilCoucheToolStripMenuItem_Click);
             // 
@@ -241,7 +249,7 @@ namespace DcadToolBar
             this.multiplierUnAttributToolStripMenuItem,
             this.supprimerAttributsToolStripMenuItem});
             this.attributsToolStripMenuItem.Name = "attributsToolStripMenuItem";
-            this.attributsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.attributsToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.attributsToolStripMenuItem.Text = "Attributs";
             // 
             // afficherLesAttributsToolStripMenuItem
@@ -292,6 +300,13 @@ namespace DcadToolBar
             this.supprimerAttributsToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.supprimerAttributsToolStripMenuItem.Text = "Supprimer attributs";
             this.supprimerAttributsToolStripMenuItem.Click += new System.EventHandler(this.supprimerAttributsToolStripMenuItem_Click);
+            // 
+            // changerLaNatureDesMatériauxToolStripMenuItem
+            // 
+            this.changerLaNatureDesMatériauxToolStripMenuItem.Name = "changerLaNatureDesMatériauxToolStripMenuItem";
+            this.changerLaNatureDesMatériauxToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.changerLaNatureDesMatériauxToolStripMenuItem.Text = "Changer la nature des matériaux";
+            this.changerLaNatureDesMatériauxToolStripMenuItem.Click += new System.EventHandler(this.changerLaNatureDesMatériauxToolStripMenuItem_Click);
             // 
             // CloakRoomToolStripMenuItem
             // 
@@ -520,6 +535,37 @@ namespace DcadToolBar
             this.sérieC750ToolStripMenuItem.Text = "Série C750";
             this.sérieC750ToolStripMenuItem.Click += new System.EventHandler(this.sérieC750ToolStripMenuItem_Click);
             // 
+            // equipementToolStripMenuItem
+            // 
+            this.equipementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pareDoucheToolStripMenuItem});
+            this.equipementToolStripMenuItem.Name = "equipementToolStripMenuItem";
+            this.equipementToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.equipementToolStripMenuItem.Text = "Equipement";
+            // 
+            // pareDoucheToolStripMenuItem
+            // 
+            this.pareDoucheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.simpleToolStripMenuItem,
+            this.dosÀDosToolStripMenuItem});
+            this.pareDoucheToolStripMenuItem.Name = "pareDoucheToolStripMenuItem";
+            this.pareDoucheToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.pareDoucheToolStripMenuItem.Text = "Pare douche";
+            // 
+            // simpleToolStripMenuItem
+            // 
+            this.simpleToolStripMenuItem.Name = "simpleToolStripMenuItem";
+            this.simpleToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.simpleToolStripMenuItem.Text = "Simple";
+            this.simpleToolStripMenuItem.Click += new System.EventHandler(this.simpleToolStripMenuItem_Click);
+            // 
+            // dosÀDosToolStripMenuItem
+            // 
+            this.dosÀDosToolStripMenuItem.Name = "dosÀDosToolStripMenuItem";
+            this.dosÀDosToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.dosÀDosToolStripMenuItem.Text = "Dos à dos";
+            this.dosÀDosToolStripMenuItem.Click += new System.EventHandler(this.dosÀDosToolStripMenuItem_Click);
+            // 
             // cabineToolStripMenuItem
             // 
             this.cabineToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -536,6 +582,7 @@ namespace DcadToolBar
             this.facadeKToolStripMenuItem,
             this.facadeDToolStripMenuItem,
             this.facadeLToolStripMenuItem,
+            this.ajusterFaçadeToolStripMenuItem,
             this.reperageFaçadeToolStripMenuItem});
             this.FaçadeToolStripMenuItem.Name = "FaçadeToolStripMenuItem";
             this.FaçadeToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
@@ -561,6 +608,13 @@ namespace DcadToolBar
             this.facadeLToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.facadeLToolStripMenuItem.Text = "Façade L";
             this.facadeLToolStripMenuItem.Click += new System.EventHandler(this.facadeLToolStripMenuItem_Click);
+            // 
+            // ajusterFaçadeToolStripMenuItem
+            // 
+            this.ajusterFaçadeToolStripMenuItem.Name = "ajusterFaçadeToolStripMenuItem";
+            this.ajusterFaçadeToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.ajusterFaçadeToolStripMenuItem.Text = "Ajuster façade";
+            this.ajusterFaçadeToolStripMenuItem.Click += new System.EventHandler(this.ajusterFaçadeToolStripMenuItem_Click);
             // 
             // reperageFaçadeToolStripMenuItem
             // 
@@ -594,12 +648,11 @@ namespace DcadToolBar
             // 
             // RcButton
             // 
-            this.RcButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RcButton.BackColor = System.Drawing.Color.Black;
             this.RcButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RcButton.BackgroundImage")));
             this.RcButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RcButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RcButton.Location = new System.Drawing.Point(189, 59);
+            this.RcButton.Location = new System.Drawing.Point(189, 55);
             this.RcButton.Name = "RcButton";
             this.RcButton.Size = new System.Drawing.Size(30, 30);
             this.RcButton.TabIndex = 16;
@@ -610,12 +663,11 @@ namespace DcadToolBar
             // 
             // RbButton
             // 
-            this.RbButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RbButton.BackColor = System.Drawing.Color.Black;
             this.RbButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RbButton.BackgroundImage")));
             this.RbButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RbButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RbButton.Location = new System.Drawing.Point(81, 59);
+            this.RbButton.Location = new System.Drawing.Point(81, 55);
             this.RbButton.Name = "RbButton";
             this.RbButton.Size = new System.Drawing.Size(30, 30);
             this.RbButton.TabIndex = 15;
@@ -626,12 +678,11 @@ namespace DcadToolBar
             // 
             // RcdButton
             // 
-            this.RcdButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RcdButton.BackColor = System.Drawing.Color.Black;
             this.RcdButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RcdButton.BackgroundImage")));
             this.RcdButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RcdButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RcdButton.Location = new System.Drawing.Point(153, 59);
+            this.RcdButton.Location = new System.Drawing.Point(153, 55);
             this.RcdButton.Name = "RcdButton";
             this.RcdButton.Size = new System.Drawing.Size(30, 30);
             this.RcdButton.TabIndex = 14;
@@ -642,12 +693,11 @@ namespace DcadToolBar
             // 
             // RcgButton
             // 
-            this.RcgButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RcgButton.BackColor = System.Drawing.Color.Black;
             this.RcgButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RcgButton.BackgroundImage")));
             this.RcgButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RcgButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RcgButton.Location = new System.Drawing.Point(117, 59);
+            this.RcgButton.Location = new System.Drawing.Point(117, 55);
             this.RcgButton.Name = "RcgButton";
             this.RcgButton.Size = new System.Drawing.Size(30, 30);
             this.RcgButton.TabIndex = 13;
@@ -658,12 +708,11 @@ namespace DcadToolBar
             // 
             // RadButton
             // 
-            this.RadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RadButton.BackColor = System.Drawing.Color.Black;
             this.RadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RadButton.BackgroundImage")));
             this.RadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RadButton.Location = new System.Drawing.Point(45, 59);
+            this.RadButton.Location = new System.Drawing.Point(45, 55);
             this.RadButton.Name = "RadButton";
             this.RadButton.Size = new System.Drawing.Size(30, 30);
             this.RadButton.TabIndex = 12;
@@ -674,12 +723,11 @@ namespace DcadToolBar
             // 
             // RagButton
             // 
-            this.RagButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RagButton.BackColor = System.Drawing.Color.Black;
             this.RagButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RagButton.BackgroundImage")));
             this.RagButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RagButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RagButton.Location = new System.Drawing.Point(9, 59);
+            this.RagButton.Location = new System.Drawing.Point(9, 55);
             this.RagButton.Name = "RagButton";
             this.RagButton.Size = new System.Drawing.Size(30, 30);
             this.RagButton.TabIndex = 11;
@@ -692,7 +740,7 @@ namespace DcadToolBar
             // 
             this.updatePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.updatePictureBox.Image = global::DcadToolBar.Properties.Resources.Red_Circle_small__svg;
-            this.updatePictureBox.Location = new System.Drawing.Point(379, 0);
+            this.updatePictureBox.Location = new System.Drawing.Point(457, 0);
             this.updatePictureBox.Name = "updatePictureBox";
             this.updatePictureBox.Size = new System.Drawing.Size(10, 10);
             this.updatePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -703,7 +751,7 @@ namespace DcadToolBar
             // 
             this.UpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UpdateButton.Image = global::DcadToolBar.Properties.Resources.green_refresh;
-            this.UpdateButton.Location = new System.Drawing.Point(361, 3);
+            this.UpdateButton.Location = new System.Drawing.Point(439, 3);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(24, 23);
@@ -715,7 +763,7 @@ namespace DcadToolBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 97);
+            this.ClientSize = new System.Drawing.Size(468, 109);
             this.Controls.Add(this.RcButton);
             this.Controls.Add(this.RbButton);
             this.Controls.Add(this.RcdButton);
@@ -812,5 +860,11 @@ namespace DcadToolBar
         private System.Windows.Forms.Button RcButton;
         private System.Windows.Forms.ToolStripMenuItem sérieC750ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lisseC100ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem equipementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pareDoucheToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem simpleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dosÀDosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajusterFaçadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changerLaNatureDesMatériauxToolStripMenuItem;
     }
 }

@@ -74,6 +74,7 @@ namespace DcadToolBar
                 {"ReperageFacade", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_facade.d3m"},
                 {"ReperageRefend", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_refend.d3m"},
                 {"AjusterRefend", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_refend.d3m"},
+                {"AjusterFacade", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_facade.d3m"},
                 {"FacadeD", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_d.d3m"},
                 {"FacadeK", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_k.d3m"},
                 {"FacadeL", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_l.d3m"},
@@ -96,6 +97,9 @@ namespace DcadToolBar
                 {"PoserRcg", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cpg.d3m"},
                 {"PoserRcd", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cpd.d3m"},
                 {"PoserRc", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_c.d3m"},
+                {"PareDoucheSimple", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche.d3m"},
+                {"PareDoucheDosADos", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche_dad.d3m"},
+                {"ChangerMateriau", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\material_swap.d3m"},
             };
 
             return newDict;

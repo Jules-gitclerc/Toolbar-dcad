@@ -110,8 +110,6 @@ namespace DcadToolBar
             if (item.Text != "null")
                 item.ShowDropDown();
 
-            Debug.WriteLine(NeedUpdate());
-
             if (NeedUpdate() == false)
             {
                 updatePictureBox.Visible = false;
@@ -207,7 +205,8 @@ namespace DcadToolBar
                 {0, new ToolStripMenuItem("null")},
                 {macroMenuStrip.PointToScreen(Point.Empty).X, outilsKalysseToolStripMenuItem},
                 {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width, CloakRoomToolStripMenuItem},
-                {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width + CloakRoomToolStripMenuItem.Size.Width, cabineToolStripMenuItem},
+                {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width + CloakRoomToolStripMenuItem.Size.Width, equipementToolStripMenuItem},
+                {macroMenuStrip.PointToScreen(Point.Empty).X + outilsKalysseToolStripMenuItem.Size.Width + CloakRoomToolStripMenuItem.Size.Width + equipementToolStripMenuItem.Size.Width, cabineToolStripMenuItem},
                 {macroMenuStrip.PointToScreen(Point.Empty).X + macroMenuStrip.Size.Width, new ToolStripMenuItem("null")},
             };
 
@@ -311,7 +310,7 @@ namespace DcadToolBar
 
                 if (App == null) break;
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
-                Location = new Point(r.Left + r.Width / 2 + r.Width / 5 + 40, r.Top + 15);
+                Location = new Point(r.Left + r.Width / 2 + r.Width / 5 - 40, r.Top + 5);
                 paletForm.Location = new Point(r.Right - paletForm.Size.Width - 10, r.Bottom - paletForm.Size.Height - 50);
             }
 
@@ -624,6 +623,7 @@ namespace DcadToolBar
         private void facadeLToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeL");
         private void reperageRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageRefend");
         private void ajusterRefendToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterRefend");
+        private void ajusterFaçadeToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("AjusterFacade");
         private void cartoucheToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CartoucheK");
         private void façadeToolStripMenuItem1_Click(object sender, EventArgs e) => LaunchMacro("CotationF");
         private void bandeauToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CotationB");
@@ -646,5 +646,8 @@ namespace DcadToolBar
         private void sérieC20ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
         private void sérieC60ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
         private void sérieC750ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact750");
+        private void simpleToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("PareDoucheSimple");
+        private void dosÀDosToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("PareDoucheDosADos");
+        private void changerLaNatureDesMatériauxToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ChangerMateriau");
     }
 }
