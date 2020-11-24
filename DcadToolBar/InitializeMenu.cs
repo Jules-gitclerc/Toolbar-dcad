@@ -100,6 +100,7 @@ namespace DcadToolBar
                 {"PareDoucheSimple", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche.d3m"},
                 {"PareDoucheDosADos", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche_dad.d3m"},
                 {"ChangerMateriau", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\material_swap.d3m"},
+                {"LisseCompactC150", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Lisse_C150.d3m"}
             };
 
             return newDict;

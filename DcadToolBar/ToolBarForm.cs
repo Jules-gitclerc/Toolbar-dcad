@@ -649,5 +649,6 @@ namespace DcadToolBar
         private void simpleToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("PareDoucheSimple");
         private void dosÀDosToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("PareDoucheDosADos");
         private void changerLaNatureDesMatériauxToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ChangerMateriau");
+        private void sérieC150ToolStripMenuItem_Click(object sender, EventArgs e) => LaunchMacro("LisseCompactC150");
     }
 }
