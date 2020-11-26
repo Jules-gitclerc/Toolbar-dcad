@@ -1,0 +1,94 @@
+﻿<Window x:Class="ToolBarDcad.Pallet"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToolBarDcad"
+        mc:Ignorable="d"
+        Title="Pallet" Height="398" Width="22" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False">
+	<Window.Resources>
+		<Style x:Key="FocusVisual">
+			<Setter Property="Control.Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+		<SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+		<SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+		<SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+		<SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+		<SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+		<SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+		<SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+		<SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+		<Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+			<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+			<Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+			<Setter Property="BorderBrush" Value="Red"/>
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="Padding" Value="1"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+						<Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+							<ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsDefaulted" Value="true">
+								<Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+							</Trigger>
+							<Trigger Property="IsMouseOver" Value="true">
+								<Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+							</Trigger>
+							<Trigger Property="IsPressed" Value="true">
+								<Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="false">
+								<Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+								<Setter Property="BorderBrush" TargetName="border" Value="Lime"/>
+								<Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="0,2,0,0" Content="10" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep10Button" Background="#FFEAEAEA" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 10mm" ToolTipService.ShowOnDisabled="True"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,25,2,0" Content="13" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep13Button" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 13mm" ToolTipService.ShowOnDisabled="True"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,45,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,50,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="PalletButton" ToolTip="Palette">
+			<Image Source="Icones/paletcolor.png"/>
+		</Button>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,73,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Black" Name="ColorBlack" ToolTip="1"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,93,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,98,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlue" ToolTip="10"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,121,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Red" Name="ColorRed" ToolTip="12"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,144,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlueHole" ToolTip="24"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,167,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PeachPuff" Name="ColorPeach" ToolTip="25"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,98,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="CornflowerBlue" Visibility="Hidden" Name="ColorLightBlue" ToolTip="11"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,121,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Maroon" Visibility="Hidden" Name="ColorMaroon" ToolTip="13"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,144,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="SlateGray" Visibility="Hidden" Name="ColorGray" ToolTip="26"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,167,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="LightGray" Visibility="Hidden" Name="ColorLightGray" ToolTip="27"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,187,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,192,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="ColorGreen" ToolTip="14"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,215,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay15Green" ToolTip="15"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,238,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PaleGreen" Name="Lay16Green" ToolTip="16"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,261,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="DarkMagenta" Name="Lay17Purple" ToolTip="17"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,284,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Magenta" Name="Lay18Purple" ToolTip="18"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,307,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="Lay19Green" ToolTip="19"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,330,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay20Green" ToolTip="20"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,353,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="OliveDrab" Name="Lay21Green" ToolTip="21"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,376,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Tomato" Name="Lay22Tomato" ToolTip="22"/>
+	</Grid>
+</Window>

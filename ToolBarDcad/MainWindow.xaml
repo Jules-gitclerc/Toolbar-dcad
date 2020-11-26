@@ -1,0 +1,138 @@
+﻿<Window x:Class="ToolBarDcad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToolBarDcad"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="93" Width="486" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
+	<Grid Height="93" VerticalAlignment="Top">
+		<Menu Width="278" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
+			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
+				<MenuItem Header="Cartouche" Padding="0" Margin="0" Click="CartoucheMenuItem_Click"/>
+				<MenuItem Header="Cotation">
+					<MenuItem Header="Façade" Click="CotationFacadeMenuItem_Click"/>
+					<MenuItem Header="Bandeau" Click="CotationBandeauMenuItem_Click"/>
+					<MenuItem Header="Axe" Click="CotationAxeMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Eclater Sélection" Click="EclaterSelectionMenuItem_Click"/>
+				<MenuItem Header="Outil Couche" Click="OutilCoucheMenuItem_Click"/>
+				<MenuItem Header="Attributs">
+					<MenuItem Header="Afficher les attributs" Click="AfficherAttrMenuItem_Click"/>
+					<MenuItem Header="Masquer les attributs" Click="MasquerAttrMenuItem_Click"/>
+					<MenuItem Header="Poser attribut" Click="PoserAttrMenuItem_Click"/>
+					<MenuItem Header="Changer attributs" Click="ChangerAttrMenuItem_Click"/>
+					<MenuItem Header="Chercher un attribut" Click="ChercherAttrMenuItem_Click"/>
+					<MenuItem Header="Multiplier un attribut" Click="MultiplierAttrMenuItem_Click"/>
+					<MenuItem Header="Supprimer attributs" Click="SupprimerAttrMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Changer la nature des matériaux" Click="ChangerMatMenuItem_Click"/>
+			</MenuItem>
+			<MenuItem Header="Vestiaire">
+				<MenuItem Header="Casiers">
+					<MenuItem Header="Casiers Diplo">
+						<MenuItem Header="Casiers H" Click="CasierDiploHMenuItem_Click"/>
+						<MenuItem Header="Casiers Z" Click="CasierDiploZMenuItem_Click"/>
+					</MenuItem>
+					<MenuItem Header="Casiers Banc Bois" Click="CasierBBMenuItem_Click"></MenuItem>
+					<MenuItem Header="Casiers Banc Compact" Click="CasierBCMenuItem_Click"></MenuItem>
+					<MenuItem Header="Casiers Agro">
+						<MenuItem Header="Casiers H"/>
+						<MenuItem Header="Casiers Z"/>
+					</MenuItem>
+					<MenuItem Header="Casiers Métalliques"></MenuItem>
+					<MenuItem Header="Armoires Collectives"></MenuItem>
+				</MenuItem>
+				<MenuItem Header="Casiers informatisés"></MenuItem>
+				<MenuItem Header="Bancs et Lisses">
+					<MenuItem Header="Bois">
+						<MenuItem Header="Série B1" Click="SerieB1MenuItem_Click"/>
+						<MenuItem Header="Série B50" Click="SerieB50MenuItem_Click"/>
+						<MenuItem Header="Série B450" Click="SerieB450MenuItem_Click"/>
+					</MenuItem>
+					<MenuItem Header="Compact">
+						<MenuItem Header="Série C1" Click="SerieC1MenuItem_Click"/>
+						<MenuItem Header="Série C20" Click="SerieC20MenuItem_Click"/>
+						<MenuItem Header="Série C50" Click="SerieC50MenuItem_Click"/>
+						<MenuItem Header="Série C60" Click="SerieC60MenuItem_Click"/>
+						<MenuItem Header="Série C100" Click="SerieC100MenuItem_Click"/>
+						<MenuItem Header="Série C150" Click="SerieC150MenuItem_Click"/>
+						<MenuItem Header="Série C500" Click="SerieC500MenuItem_Click"/>
+						<MenuItem Header="Série C550" Click="SerieC550MenuItem_Click"/>
+						<MenuItem Header="Série C600" Click="SerieC600MenuItem_Click"/>
+						<MenuItem Header="Série C700" Click="SerieC700MenuItem_Click"/>
+						<MenuItem Header="Série C750" Click="SerieC750MenuItem_Click"/>
+					</MenuItem>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Equipement">
+				<MenuItem Header="Pare douche">
+					<MenuItem Header="Simple" Click="PareDoucheSimpleMenuItem_Click"/>
+					<MenuItem Header="Dos à dos" Click="PareDoucheDosADosMenuItem_Click"/>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Cabine">
+				<MenuItem Header="Façade">
+					<MenuItem Header="Façade K" Click="FacadeKMenuItem_Click"/>
+					<MenuItem Header="Façade D" Click="FacadeDMenuItem_Click"/>
+					<MenuItem Header="Façade L" Click="FacadeLMenuItem_Click"/>
+					<MenuItem Header="Ajuster façade" Click="AjusterFacadeMenuItem_Click"/>
+					<MenuItem Header="Repérage façade" Click="RepererFacadeMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Refend">
+					<MenuItem Header="Ajuster refend" Click="AjusterRefendMenuItem_Click"/>
+					<MenuItem Header="Repérage refend" Click="RepererRefendMenuItem_Click"/>
+				</MenuItem>
+			</MenuItem>
+		</Menu>
+		<Label Content="Pas de document" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" FontStyle="Italic" Name="DocTitle" Margin="4,3,0,0"/>
+		<ComboBox Margin="0,30,40,0" VerticalAlignment="Top" Width="70" Name="ModelComboBox" HorizontalAlignment="Right">
+			<ComboBoxItem Content="Primo" />
+			<ComboBoxItem Content="Primo exel" />
+			<ComboBoxItem Content="Duo" />
+			<ComboBoxItem Content="Duo exel" />
+			<ComboBoxItem Content="Brio" />
+			<ComboBoxItem Content="Brio exel" />
+			<ComboBoxItem Content="Hauzeo" />
+			<ComboBoxItem Content="Bambino" />
+			<ComboBoxItem Content="Exéléo" />
+		</ComboBox>
+		<ComboBox Margin="0,60,40,0" VerticalAlignment="Top" Width="70" Name="MaterialComboBox" HorizontalAlignment="Right">
+			<ComboBoxItem Content="Nylon" />
+			<ComboBoxItem Content="Aluminium" />
+			<ComboBoxItem Content="Inox" />
+		</ComboBox>
+		<Button HorizontalAlignment="Right" Margin="0,7,7,0" VerticalAlignment="Top" Width="24" Height="24" ToolTip="Mise à jour" Click="UpdateButton_Click">
+			<Image Source="Icones/green_refresh.png"/>
+		</Button>
+		<Image Source="Icones/Red_Circle(small).svg.png" Width="10" Height="10" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden" Name="UpdateImage"/>
+		<Button HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Gauche" Click="RagButton_Click">
+			<Image Source="Icones/RAG.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="40,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Droit" Click="RadButton_Click">
+			<Image Source="Icones/RAD.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="70,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend B" Click="RbButton_Click">
+			<Image Source="Icones/RB.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="100,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Gauche" Click="RcgButton_Click">
+			<Image Source="Icones/RCG.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="130,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Droit" Click="RcdButton_Click">
+			<Image Source="Icones/RCD.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="160,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C" Click="RcButton_Click">
+			<Image Source="Icones/RC.ico"/>
+		</Button>
+		<Button Content="10" HorizontalAlignment="Left" Margin="190,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere10_Click"/>
+		<Button Content="12" HorizontalAlignment="Left" Margin="220,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12_Click"/>
+		<Button Content="12P" HorizontalAlignment="Left" Margin="250,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12P_Click"/>
+		<Button Content="14" HorizontalAlignment="Left" Margin="280,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere14_Click"/>
+		<Button HorizontalAlignment="Left" Margin="310,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Pied" Click="PoserPied_Click">
+			<Image Source="Icones/Pied.ico"/>
+		</Button>
+		<Button HorizontalAlignment="Left" Margin="340,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Kit 3 chapes" Click="PoserChape_Click">
+			<Image Source="Icones/Chape.ico"/>
+		</Button>
+	</Grid>
+</Window>

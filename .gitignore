@@ -1,7 +1,4 @@
 .vs/
-DcadToolBar/obj/
-DcadToolBar/bin/
-DcadToolBar/.vs/
-ToolBarUpdater/obj/
-ToolBarUpdater/bin/
-ToolBarUpdater/.vs/
+ToolBarDcad/obj/
+ToolBarDcad/bin/
+ToolBarDcad/.vs/
