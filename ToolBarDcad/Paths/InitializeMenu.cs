@@ -86,6 +86,7 @@ namespace ToolBarDcad.Paths
                 {"Repere12", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.12.d3m"},
                 {"Repere12P", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.12P.d3m"},
                 {"Repere14", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.14.d3m"},
+                {"LisseCompactC150", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Bancs\Lisse_C150.d3m"},
             };
 
             return newDict;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="93" Width="486" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
+        Title="MainWindow" Height="93" Width="464" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
 	<Grid Height="93" VerticalAlignment="Top">
 		<Menu Width="278" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
 			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
@@ -85,8 +85,8 @@
 				</MenuItem>
 			</MenuItem>
 		</Menu>
-		<Label Content="Pas de document" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" FontStyle="Italic" Name="DocTitle" Margin="4,3,0,0"/>
-		<ComboBox Margin="0,30,40,0" VerticalAlignment="Top" Width="70" Name="ModelComboBox" HorizontalAlignment="Right">
+		<Label Content="Pas de document" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" FontStyle="Italic" Name="DocTitle" Margin="4,3,0,0"/>
+		<ComboBox Margin="0,32,5,0" VerticalAlignment="Top" Width="86" Name="ModelComboBox" HorizontalAlignment="Right">
 			<ComboBoxItem Content="Primo" />
 			<ComboBoxItem Content="Primo exel" />
 			<ComboBoxItem Content="Duo" />
@@ -97,12 +97,12 @@
 			<ComboBoxItem Content="Bambino" />
 			<ComboBoxItem Content="Exéléo" />
 		</ComboBox>
-		<ComboBox Margin="0,60,40,0" VerticalAlignment="Top" Width="70" Name="MaterialComboBox" HorizontalAlignment="Right">
+		<ComboBox Margin="0,61,5,0" VerticalAlignment="Top" Width="86" Name="MaterialComboBox" HorizontalAlignment="Right">
 			<ComboBoxItem Content="Nylon" />
 			<ComboBoxItem Content="Aluminium" />
 			<ComboBoxItem Content="Inox" />
 		</ComboBox>
-		<Button HorizontalAlignment="Right" Margin="0,7,7,0" VerticalAlignment="Top" Width="24" Height="24" ToolTip="Mise à jour" Click="UpdateButton_Click">
+		<Button HorizontalAlignment="Right" Margin="0,4,4,0" VerticalAlignment="Top" Width="24" Height="24" ToolTip="Mise à jour" Click="UpdateButton_Click">
 			<Image Source="Icones/green_refresh.png"/>
 		</Button>
 		<Image Source="Icones/Red_Circle(small).svg.png" Width="10" Height="10" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden" Name="UpdateImage"/>
@@ -124,15 +124,15 @@
 		<Button HorizontalAlignment="Left" Margin="160,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C" Click="RcButton_Click">
 			<Image Source="Icones/RC.ico"/>
 		</Button>
-		<Button Content="10" HorizontalAlignment="Left" Margin="190,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere10_Click"/>
-		<Button Content="12" HorizontalAlignment="Left" Margin="220,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12_Click"/>
-		<Button Content="12P" HorizontalAlignment="Left" Margin="250,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12P_Click"/>
-		<Button Content="14" HorizontalAlignment="Left" Margin="280,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere14_Click"/>
-		<Button HorizontalAlignment="Left" Margin="310,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Pied" Click="PoserPied_Click">
+		<Button Content="10" HorizontalAlignment="Left" Margin="190,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere10_Click" Name="Repere0"/>
+		<Button Content="12" HorizontalAlignment="Left" Margin="220,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12_Click" Name="Repere2"/>
+		<Button Content="12P" HorizontalAlignment="Left" Margin="250,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12P_Click" Name="Repere2P"/>
+		<Button Content="14" HorizontalAlignment="Left" Margin="280,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere14_Click" Name="Repere4"/>
+		<Button HorizontalAlignment="Left" Margin="310,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Pied" Click="PoserPied_Click" Name="FootButton">
 			<Image Source="Icones/Pied.ico"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="340,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Kit 3 chapes" Click="PoserChape_Click">
-			<Image Source="Icones/Chape.ico"/>
+		<Button HorizontalAlignment="Left" Margin="340,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Kit 3 chapes" Click="PoserChape_Click" Name="ChapButton">
+			<Image Source="Icones/Chape.ico" Name="ChapIcon"/>
 		</Button>
 	</Grid>
 </Window>

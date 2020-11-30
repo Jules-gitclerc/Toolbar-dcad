@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="Nouveau document" Height="170" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Icones/NewDoc.ico">
+        Title="Nouveau document" Height="170" Width="200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Icones/NewDoc.ico" Topmost="True">
 	<Grid>
 		<ComboBox Margin="0,20,0,0" VerticalAlignment="Top" Width="120" Name="CabinCombo">
             <ComboBoxItem Content="Primo" />

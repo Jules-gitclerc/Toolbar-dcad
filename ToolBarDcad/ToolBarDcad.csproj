@@ -142,9 +142,6 @@
     <Resource Include="Icones\Red_Circle%28small%29.svg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icones\RAD.ico" />
-    <Resource Include="Icones\RAG.ico" />
-    <Resource Include="Icones\RB.ico" />
     <Resource Include="Icones\RCD.ico" />
     <Resource Include="Icones\RCG.ico" />
   </ItemGroup>
@@ -156,6 +153,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icones\Pied.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\RAD.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\RAG.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\RB.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\Chape_bambino.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

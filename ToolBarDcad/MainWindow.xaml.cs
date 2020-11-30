@@ -17,10 +17,12 @@ using ToolBarDcad.Paths;
 using ToolBarDcad.Tools;
 using Microsoft.VisualBasic;
 using System.Drawing;
+using System.Windows.Media.Imaging;
 using Rectangle = System.Drawing.Rectangle;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
 using Application = DesignCAD.Application;
+using Image = System.Drawing.Image;
 
 namespace ToolBarDcad
 {
@@ -87,7 +89,8 @@ namespace ToolBarDcad
             _appPid = App.ProcessId;
 
             ReadFile(@"C:\KalysseDesignCAD\model_config.txt");
-            ChangeProperties();
+            Dispatcher.BeginInvoke((Action)ToggleIcons);
+            Dispatcher.BeginInvoke((Action)ChangeProperties);
 
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -217,6 +220,7 @@ namespace ToolBarDcad
                 if (_stopRead == false)
                 {
                     ReadFile(@"C:\KalysseDesignCAD\model_config.txt");
+                    Dispatcher.BeginInvoke((Action)ToggleIcons);
                     Dispatcher.BeginInvoke((Action)ChangeProperties);
                 }
             }
@@ -353,6 +357,117 @@ namespace ToolBarDcad
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message + Environment.NewLine + e.StackTrace);
+            }
+        }
+
+        public void ToggleIcons()
+        {
+            if (Model == "primo exel" || Model == "duo exel" || Model == "exeleo")
+            {
+                ChapButton.ToolTip = new ToolTip
+                {
+                    Content = "Kit 4 chapes"
+                };
+            }
+            else if (Model == "brio")
+            {
+                ChapButton.ToolTip = new ToolTip
+                {
+                    Content = "Repère 50"
+                };
+            }
+            else if (Model == "brio exel")
+            {
+                ChapButton.ToolTip = new ToolTip
+                {
+                    Content = "Repère 60"
+                };
+            }
+            else if (Model == "hauzeo")
+            {
+                ChapButton.ToolTip = new ToolTip
+                {
+                    Content = "Repère 70"
+                };
+            }
+            else
+            {
+                ChapButton.ToolTip = new ToolTip
+                {
+                    Content = "Kit 3 chapes"
+                };
+            }
+            if (Model == "bambino")
+                ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape_bambino.ico", UriKind.Relative));
+            else
+                ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape.ico", UriKind.Relative));
+
+            FootButton.ToolTip = new ToolTip
+            {
+                Content = "Pied " + Material
+            };
+
+            ChangeProfileButtons(Model);
+        }
+
+        public void ChangeProfileButtons(string model)
+        {
+            switch (model)
+            {
+                case "primo":
+                    Repere0.Content = "10";
+                    Repere2.Content = "12";
+                    Repere2P.Content = "12P";
+                    Repere4.Content = "14";
+                    break;
+                case "primo exel":
+                    Repere0.Content = "20";
+                    Repere2.Content = "22";
+                    Repere2P.Content = "22P";
+                    Repere4.Content = "24";
+                    break;
+                case "duo":
+                    Repere0.Content = "30";
+                    Repere2.Content = "32";
+                    Repere2P.Content = "32P";
+                    Repere4.Content = "34";
+                    break;
+                case "duo exel":
+                    Repere0.Content = "40";
+                    Repere2.Content = "42";
+                    Repere2P.Content = "42P";
+                    Repere4.Content = "44";
+                    break;
+                case "brio":
+                    Repere0.Content = "50";
+                    Repere2.Content = "52";
+                    Repere2P.Content = "52P";
+                    Repere4.Content = "54";
+                    break;
+                case "brio exel":
+                    Repere0.Content = "60";
+                    Repere2.Content = "62";
+                    Repere2P.Content = "62P";
+                    Repere4.Content = "64";
+                    break;
+                case "hauzeo":
+                    Repere0.Content = "70";
+                    Repere2.Content = "72";
+                    Repere2P.Content = "72P";
+                    Repere4.Content = "74";
+                    break;
+                case "exeleo":
+                    Repere0.Content = "80";
+                    Repere2.Content = "82";
+                    Repere2P.Content = "82P";
+                    Repere4.Content = "84";
+                    break;
+                case "bambino":
+                    Repere0.Content = "90";
+                    Repere2.Content = "92";
+                    Repere2P.Content = "92P";
+                    Repere4.Content = "94";
+                    break;
             }
         }
 
@@ -493,6 +608,8 @@ namespace ToolBarDcad
             if (e.Type != MaterialType.NullMaterial)
                 LaunchMacro(MacroTools.MaterialToString(e.Type));
         }
+
+        // Macro launchers
 
         private void CartoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CartoucheK");
         private void CasierBBMenuItem_Click(object sender, EventArgs e) => LaunchMacro("CasierHBanc");
