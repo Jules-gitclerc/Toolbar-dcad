@@ -363,50 +363,23 @@ namespace ToolBarDcad
         public void ToggleIcons()
         {
             if (Model == "primo exel" || Model == "duo exel" || Model == "exeleo")
-            {
-                ChapButton.ToolTip = new ToolTip
-                {
-                    Content = "Kit 4 chapes"
-                };
-            }
+                ChapButton.ToolTip = new ToolTip {Content = "Kit 4 chapes"};
             else if (Model == "brio")
-            {
-                ChapButton.ToolTip = new ToolTip
-                {
-                    Content = "Repère 50"
-                };
-            }
+                ChapButton.ToolTip = new ToolTip {Content = "Repère 50"};
             else if (Model == "brio exel")
-            {
-                ChapButton.ToolTip = new ToolTip
-                {
-                    Content = "Repère 60"
-                };
-            }
+                ChapButton.ToolTip = new ToolTip {Content = "Repère 60"};
             else if (Model == "hauzeo")
-            {
-                ChapButton.ToolTip = new ToolTip
-                {
-                    Content = "Repère 70"
-                };
-            }
+                ChapButton.ToolTip = new ToolTip {Content = "Repère 70"};
             else
-            {
-                ChapButton.ToolTip = new ToolTip
-                {
-                    Content = "Kit 3 chapes"
-                };
-            }
+                ChapButton.ToolTip = new ToolTip {Content = "Kit 3 chapes"};
             if (Model == "bambino")
                 ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape_bambino.ico", UriKind.Relative));
             else
                 ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape.ico", UriKind.Relative));
 
-            FootButton.ToolTip = new ToolTip
-            {
-                Content = "Pied " + Material
-            };
+            FootButton.ToolTip = new ToolTip {Content = "Pied " + Material};
 
+            ChangeRefendButtons(Model);
             ChangeProfileButtons(Model);
         }
 
@@ -468,6 +441,30 @@ namespace ToolBarDcad
                     Repere2P.Content = "92P";
                     Repere4.Content = "94";
                     break;
+            }
+        }
+
+        public void ChangeRefendButtons(string model)
+        {
+            if (model == "exeleo")
+            {
+                RcIcon.Source = new BitmapImage(new Uri(@"/Icones/Feuillures ext.ico", UriKind.Relative));
+                RagButton.ToolTip = new ToolTip {Content = "Feuillure intérieure gauche"};
+                RadButton.ToolTip = new ToolTip {Content = "Feuillure intérieure droite"};
+                RbButton.ToolTip = new ToolTip {Content = "Feuillures intérieures"};
+                RcgButton.ToolTip = new ToolTip {Content = "Feuillure extérieure gauche"};
+                RcdButton.ToolTip = new ToolTip {Content = "Feuillure extérieure droite" };
+                RcButton.ToolTip = new ToolTip {Content = "Feuillures extérieures" };
+            }
+            else
+            {
+                RcIcon.Source = new BitmapImage(new Uri(@"/Icones/RC.ico", UriKind.Relative));
+                RagButton.ToolTip = new ToolTip { Content = "Refend A Gauche" };
+                RadButton.ToolTip = new ToolTip { Content = "Refend A Droit" };
+                RbButton.ToolTip = new ToolTip { Content = "Refend B" };
+                RcgButton.ToolTip = new ToolTip { Content = "Refend C Gauche" };
+                RcdButton.ToolTip = new ToolTip { Content = "Refend C Droit" };
+                RcButton.ToolTip = new ToolTip { Content = "Refend C" };
             }
         }
 
@@ -646,12 +643,6 @@ namespace ToolBarDcad
         private void MultiplierAttrMenuItem_Click(object sender, EventArgs e) => LaunchMacro("MultiplierAttr");
         private void SupprimerAttrMenuItem_Click(object sender, EventArgs e) => LaunchMacro("SupprimerAttr");
         private void ChangerMatMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ChangerMateriau");
-        private void RagButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRag");
-        private void RadButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRad");
-        private void RbButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRb");
-        private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRcg");
-        private void RcdButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRcd");
-        private void RcButton_Click(object sender, EventArgs e) => LaunchMacro("PoserRc");
         private void SerieC20MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact20");
         private void SerieC60MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact60");
         private void SerieC750MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact750");
@@ -664,5 +655,52 @@ namespace ToolBarDcad
         private void Repere12_Click(object sender, EventArgs e) => LaunchMacro("Repere12");
         private void Repere12P_Click(object sender, EventArgs e) => LaunchMacro("Repere12P");
         private void Repere14_Click(object sender, EventArgs e) => LaunchMacro("Repere14");
+        private void PoseLongeronsCollectifMenuItem_Click(object sender, EventArgs e) => LaunchMacro("LongeronsCollectifs");
+        private void Serr001MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr001");
+        private void Serr006MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr006");
+        private void Serr015MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr015");
+
+        private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
+        private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
+        private void RbButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfi" : "PoserRb");
+        private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfeg" : "PoserRcg");
+        private void RcdButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfed" : "PoserRcd");
+        private void RcButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfe" : "PoserRc");
+
+        private void AC12CL900MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "12CL900" });
+            LaunchMacro("ArmoiresCollectives");
+        }
+
+        private void AC16CL1200MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "16CL1200" });
+            LaunchMacro("ArmoiresCollectives");
+        }
+
+        private void AC20CL1500MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "20CL1500" });
+            LaunchMacro("ArmoiresCollectives");
+        }
+
+        private void AC15CL900MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "15CL900" });
+            LaunchMacro("ArmoiresCollectives");
+        }
+
+        private void AC20CL1200MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "20CL1200" });
+            LaunchMacro("ArmoiresCollectives");
+        }
+
+        private void AC25FiveCL1500MenuItem_Click(object sender, EventArgs e)
+        {
+            File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
+            LaunchMacro("ArmoiresCollectives");
+        }
     }
 }

@@ -136,9 +136,6 @@
     <Resource Include="Icones\NewDoc.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icones\green_refresh.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icones\Red_Circle%28small%29.svg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icones\Chape_bambino.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\green_refresh.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icones\Feuillures ext.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

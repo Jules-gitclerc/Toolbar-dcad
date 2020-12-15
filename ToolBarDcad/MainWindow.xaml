@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="93" Width="464" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
+        Title="MainWindow" Height="93" Width="464" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
 	<Grid Height="93" VerticalAlignment="Top">
 		<Menu Width="278" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
 			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
@@ -41,10 +41,27 @@
 						<MenuItem Header="Casiers Z"/>
 					</MenuItem>
 					<MenuItem Header="Casiers Métalliques"></MenuItem>
-					<MenuItem Header="Armoires Collectives"></MenuItem>
 				</MenuItem>
 				<MenuItem Header="Casiers informatisés"></MenuItem>
-				<MenuItem Header="Bancs et Lisses">
+				<MenuItem Header="Armoires Collectives">
+					<MenuItem Header="H4">
+						<MenuItem Header="12CL900 - 12 cases EA 300" Click="AC12CL900MenuItem_Click"/>
+						<MenuItem Header="16CL1200 - 16 cases EA 300" Click="AC16CL1200MenuItem_Click"/>
+						<MenuItem Header="20CL1500 - 20 cases EA 300" Click="AC20CL1500MenuItem_Click"/>
+					</MenuItem>
+					<MenuItem Header="H5">
+						<MenuItem Header="15CL900 - 15 cases EA 300" Click="AC15CL900MenuItem_Click"/>
+						<MenuItem Header="20CL1200 - 20 cases EA 300" Click="AC20CL1200MenuItem_Click"/>
+						<MenuItem Header="25CL1500 - 25 cases EA 300" Click="AC25FiveCL1500MenuItem_Click"/>
+				</MenuItem>
+					<MenuItem Header="Pose longerons" Click="PoseLongeronsCollectifMenuItem_Click"/>
+				<MenuItem Header="Pose serrure">
+						<MenuItem Header="209.001 - Serrure monnayeur" Click="Serr001MenuItem_Click"/>
+						<MenuItem Header="209.006 - Serrure batteuse piston" Click="Serr006MenuItem_Click"/>
+						<MenuItem Header="209.015 - Serrure cadenassable" Click="Serr015MenuItem_Click"/>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Bancs et Lisses">
 					<MenuItem Header="Bois">
 						<MenuItem Header="Série B1" Click="SerieB1MenuItem_Click"/>
 						<MenuItem Header="Série B50" Click="SerieB50MenuItem_Click"/>
@@ -103,26 +120,26 @@
 			<ComboBoxItem Content="Inox" />
 		</ComboBox>
 		<Button HorizontalAlignment="Right" Margin="0,4,4,0" VerticalAlignment="Top" Width="24" Height="24" ToolTip="Mise à jour" Click="UpdateButton_Click">
-			<Image Source="Icones/green_refresh.png"/>
+			<Image Source="Icones/green_refresh.ico"/>
 		</Button>
 		<Image Source="Icones/Red_Circle(small).svg.png" Width="10" Height="10" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden" Name="UpdateImage"/>
-		<Button HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Gauche" Click="RagButton_Click">
-			<Image Source="Icones/RAG.ico"/>
+		<Button HorizontalAlignment="Left" Margin="10,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Gauche" Click="RagButton_Click" Name="RagButton">
+			<Image Source="Icones/RAG.ico" Name="RagIcon"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="40,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Droit" Click="RadButton_Click">
-			<Image Source="Icones/RAD.ico"/>
+		<Button HorizontalAlignment="Left" Margin="40,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend A Droit" Click="RadButton_Click" Name="RadButton">
+			<Image Source="Icones/RAD.ico" Name="RadIcon"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="70,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend B" Click="RbButton_Click">
-			<Image Source="Icones/RB.ico"/>
+		<Button HorizontalAlignment="Left" Margin="70,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend B" Click="RbButton_Click" Name="RbButton">
+			<Image Source="Icones/RB.ico" Name="RbIcon"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="100,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Gauche" Click="RcgButton_Click">
-			<Image Source="Icones/RCG.ico"/>
+		<Button HorizontalAlignment="Left" Margin="100,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Gauche" Click="RcgButton_Click" Name="RcgButton">
+			<Image Source="Icones/RCG.ico" Name="RcgIcon"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="130,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Droit" Click="RcdButton_Click">
-			<Image Source="Icones/RCD.ico"/>
+		<Button HorizontalAlignment="Left" Margin="130,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C Droit" Click="RcdButton_Click" Name="RcdButton">
+			<Image Source="Icones/RCD.ico" Name="RcdIcon"/>
 		</Button>
-		<Button HorizontalAlignment="Left" Margin="160,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C" Click="RcButton_Click">
-			<Image Source="Icones/RC.ico"/>
+		<Button HorizontalAlignment="Left" Margin="160,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" ToolTip="Refend C" Click="RcButton_Click" Name="RcButton">
+			<Image Source="Icones/RC.ico" Name="RcIcon"/>
 		</Button>
 		<Button Content="10" HorizontalAlignment="Left" Margin="190,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere10_Click" Name="Repere0"/>
 		<Button Content="12" HorizontalAlignment="Left" Margin="220,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" Click="Repere12_Click" Name="Repere2"/>

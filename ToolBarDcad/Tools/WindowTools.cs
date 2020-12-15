@@ -122,13 +122,13 @@ namespace ToolBarDcad.Tools
             try
             {
                 int i = hWnd.ToInt32();
-                return i == app.HWnd;
+                return i == app?.HWnd;
             }
             catch (OverflowException e)
             {
                 Debug.WriteLine(e.Message + Environment.NewLine + e.StackTrace);
                 long l = hWnd.ToInt64();
-                return l == app.HWnd;
+                return l == app?.HWnd;
             }
             catch (Exception ex)
             {

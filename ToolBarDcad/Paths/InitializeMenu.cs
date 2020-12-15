@@ -77,6 +77,12 @@ namespace ToolBarDcad.Paths
                 {"PoserRcg", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cpg.d3m"},
                 {"PoserRcd", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cpd.d3m"},
                 {"PoserRc", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_c.d3m"},
+                {"PoserRcfig", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfig.d3m"},
+                {"PoserRcfid", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfid.d3m"},
+                {"PoserRcfi", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfi.d3m"},
+                {"PoserRcfeg", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfeg.d3m"},
+                {"PoserRcfed", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfed.d3m"},
+                {"PoserRcfe", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\macros_symboles\refend_cfe.d3m"},
                 {"PareDoucheSimple", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche.d3m"},
                 {"PareDoucheDosADos", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Equipement\pare_douche_dad.d3m"},
                 {"ChangerMateriau", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\material_swap.d3m"},
@@ -87,6 +93,11 @@ namespace ToolBarDcad.Paths
                 {"Repere12P", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.12P.d3m"},
                 {"Repere14", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.14.d3m"},
                 {"LisseCompactC150", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Bancs\Lisse_C150.d3m"},
+                {"ArmoiresCollectives", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\armoires_collectives.d3m"},
+                {"LongeronsCollectifs", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\longerons_collectif.d3m"},
+                {"PoseSerr001", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_001.d3m"},
+                {"PoseSerr006", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_006.d3m"},
+                {"PoseSerr015", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_015.d3m"},
             };
 
             return newDict;

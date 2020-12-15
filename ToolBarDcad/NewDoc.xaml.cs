@@ -47,6 +47,7 @@ namespace ToolBarDcad
             CabinCombo.SelectedIndex = 0;
             MaterialCombo.SelectedIndex = 0;
             Activate();
+            Focus();
         }
 
         private void CabinCombo_SelectionChanged(object sender, SelectionChangedEventArgs e) => CabinModel = (e.AddedItems[0] as ComboBoxItem)?.Content.ToString();

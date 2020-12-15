@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="Pallet" Height="398" Width="22" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False">
+        Title="Pallet" Height="398" Width="22" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" ShowInTaskbar="False">
 	<Window.Resources>
 		<Style x:Key="FocusVisual">
 			<Setter Property="Control.Template">
