@@ -76,6 +76,13 @@ namespace ToolBarDcad
 
         // ============ BackgroundWorkers =============
 
+        /// <summary>
+        /// Handles the end of the Worker thread, when DesignCAD instance is found. It will create a new <see cref="DocumentsManager"/>, will display the Main Window with the <see cref="Pallet"/>,
+        /// and will start 2 new background workers.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             DocsManager = new DocumentsManager(App);
@@ -110,6 +117,12 @@ namespace ToolBarDcad
             Debug.WriteLine("Run worker completed");
         }
 
+        /// <summary>
+        /// Loops until a DesignCAD instance is found.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             bool isFound = false;
@@ -136,6 +149,12 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Handles the end of the WaitWorker thread, when DesignCAD is closed. It will hide the Main Window with the <see cref="Pallet"/>, and start a BackgroundWorker.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Worker_WaitRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Dispatcher.BeginInvoke((Action)Hide);
@@ -152,6 +171,12 @@ namespace ToolBarDcad
 
             Debug.WriteLine("WaitRunWorker completed");
         }
+
+        /// <summary>
+        /// Loops until DesignCAD is closed. Sets the menu position in relation with DesignCAD position.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void Worker_DoWaitWork(object sender, DoWorkEventArgs e)
         {
@@ -226,10 +251,22 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Handles the end of the DocWorker thread.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void DocWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Debug.WriteLine("DocWorker completed.");
         }
+
+        /// <summary>
+        /// Loops until DesignCAD is closed. Looks constantly for a new document to be opened.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void DocWorker_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -262,6 +299,11 @@ namespace ToolBarDcad
         }
 
         // ============ Class methods =============
+
+        /// <summary>
+        /// Looks if the software needs to be updated thanks to the .exe version.
+        /// </summary>
+        /// <returns></returns>
 
         private bool NeedUpdate()
         {
@@ -300,6 +342,10 @@ namespace ToolBarDcad
             }
             return false;
         }
+
+        /// <summary>
+        /// Initialize the dictionnaries used to launch the macros.
+        /// </summary>
 
         private void InitDictionaries()
         {
@@ -360,6 +406,10 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Changes icons depending on which model or material is selected.
+        /// </summary>
+
         public void ToggleIcons()
         {
             if (Model == "primo exel" || Model == "duo exel" || Model == "exeleo")
@@ -382,6 +432,11 @@ namespace ToolBarDcad
             ChangeRefendButtons(Model);
             ChangeProfileButtons(Model);
         }
+
+        /// <summary>
+        /// Changes the profile button's texts according to the model selected.
+        /// </summary>
+        /// <param name="model"></param>
 
         public void ChangeProfileButtons(string model)
         {
@@ -444,6 +499,11 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Changes refend's icons path if exeleo model is selected.
+        /// </summary>
+        /// <param name="model"></param>
+
         public void ChangeRefendButtons(string model)
         {
             if (model == "exeleo")
@@ -468,6 +528,11 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Changes the selected model and material in the <see cref="ModelComboBox"/> and the <see cref="MaterialComboBox"/> according to the <see cref="Model"/>
+        /// and <see cref="Material"/> properties.
+        /// </summary>
+
         private void ChangeProperties()
         {
             try
@@ -487,6 +552,11 @@ namespace ToolBarDcad
                 MaterialComboBox.SelectionChanged += MaterialComboBox_SelectionChanged;
             }
         }
+
+        /// <summary>
+        /// This method will try to run a macro in the current document. If it fails, display error messages based on the <see cref="DocumentsManager.RunMacroOnActiveDoc"/> return value.
+        /// </summary>
+        /// <param name="macroName"></param>
 
         private void LaunchMacro(string macroName)
         {
@@ -745,6 +815,22 @@ namespace ToolBarDcad
         private void AjoutFondCabineMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjoutFondCabine");
         private void AjoutFondAngleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjoutFondAngle");
         private void FondRepererRefendMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FondRepererRefend");
+        private void LogoAccesPriveMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoAccesPrive");
+        private void LogoBebeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoBebe");
+        private void LogoDoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoDouche");
+        private void LogoEnfantMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoEnfant");
+        private void LogoFamilleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFamille");
+        private void LogoFemmeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFemme");
+        private void LogoHommeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoHomme");
+        private void LogoLavaboMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLavabo");
+        private void LogoLaverieMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLaverie");
+        private void LogoLocalTechMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLocalTech");
+        private void LogoPmrMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPmr");
+        private void LogoPoubelleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPoubelle");
+        private void LogoUrinoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoUrinoir");
+        private void LogoVestiaireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVestiaire");
+        private void LogoVidoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVidoir");
+        private void LogoWCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoWC");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
@@ -788,22 +874,5 @@ namespace ToolBarDcad
             File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
             LaunchMacro("ArmoiresCollectives");
         }
-
-        private void LogoAccesPriveMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoAccesPrive");
-        private void LogoBebeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoBebe");
-        private void LogoDoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoDouche");
-        private void LogoEnfantMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoEnfant");
-        private void LogoFamilleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFamille");
-        private void LogoFemmeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFemme");
-        private void LogoHommeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoHomme");
-        private void LogoLavaboMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLavabo");
-        private void LogoLaverieMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLaverie");
-        private void LogoLocalTechMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLocalTech");
-        private void LogoPmrMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPmr");
-        private void LogoPoubelleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPoubelle");
-        private void LogoUrinoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoUrinoir");
-        private void LogoVestiaireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVestiaire");
-        private void LogoVidoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVidoir");
-        private void LogoWCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoWC");
     }
 }
