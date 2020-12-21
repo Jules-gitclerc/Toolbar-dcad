@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="93" Width="464" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
+        Title="MainWindow" Height="93" Width="600" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
 	<Grid Height="93" VerticalAlignment="Top">
-		<Menu Width="278" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
+		<Menu Width="470" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
 			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
 				<MenuItem Header="Cartouche" Padding="0" Margin="0" Click="CartoucheMenuItem_Click"/>
 				<MenuItem Header="Cotation">
@@ -41,6 +41,8 @@
 						<MenuItem Header="Casiers Z"/>
 					</MenuItem>
 					<MenuItem Header="Casiers Métalliques"></MenuItem>
+					<MenuItem Header="Pose longerons" Click="PoseLongeronsCollectifMenuItem_Click"/>
+					<MenuItem Header="Barre de penderie" Click="BarrePenderieMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Casiers informatisés"></MenuItem>
 				<MenuItem Header="Armoires Collectives">
@@ -53,15 +55,15 @@
 						<MenuItem Header="15CL900 - 15 cases EA 300" Click="AC15CL900MenuItem_Click"/>
 						<MenuItem Header="20CL1200 - 20 cases EA 300" Click="AC20CL1200MenuItem_Click"/>
 						<MenuItem Header="25CL1500 - 25 cases EA 300" Click="AC25FiveCL1500MenuItem_Click"/>
-				</MenuItem>
+					</MenuItem>
 					<MenuItem Header="Pose longerons" Click="PoseLongeronsCollectifMenuItem_Click"/>
-				<MenuItem Header="Pose serrure">
+					<MenuItem Header="Pose serrure">
 						<MenuItem Header="209.001 - Serrure monnayeur" Click="Serr001MenuItem_Click"/>
 						<MenuItem Header="209.006 - Serrure batteuse piston" Click="Serr006MenuItem_Click"/>
 						<MenuItem Header="209.015 - Serrure cadenassable" Click="Serr015MenuItem_Click"/>
+					</MenuItem>
 				</MenuItem>
-			</MenuItem>
-			<MenuItem Header="Bancs et Lisses">
+				<MenuItem Header="Bancs et Lisses">
 					<MenuItem Header="Bois">
 						<MenuItem Header="Série B1" Click="SerieB1MenuItem_Click"/>
 						<MenuItem Header="Série B50" Click="SerieB50MenuItem_Click"/>
@@ -82,11 +84,128 @@
 					</MenuItem>
 				</MenuItem>
 			</MenuItem>
+			<MenuItem Header="Blocs Portes">
+				<MenuItem Header="BP C17 - Sans compensation" Click="BpC17ScMenuItem_Click"/>
+				<MenuItem Header="BP C17 - C18 - Avec compensation" Click="BpC17C18AcMenuItem_Click"/>
+				<MenuItem Header="BP C13" Click="BpC13MenuItem_Click"/>
+				<MenuItem Header="BP Batis bois" Click="BpBbMenuItem_Click"/>
+				<MenuItem Header="BP Va et viens" Click="BpVevMenuItem_Click"/>
+				<MenuItem Header="BP Coulissant" Click="BpcMenuItem_Click"/>
+			</MenuItem>
+			<MenuItem Header="Accessoires">
+				<MenuItem Header="Serrure Batteuse Piston Ronis" Click="PoseSerrurePistonMenuItem_Click"/>
+				<MenuItem Header="Patères">
+					<MenuItem Header="Patère px10" Click="PaterePx10MenuItem_Click"/>
+					<MenuItem Header="Patère px13" Click="PaterePx13MenuItem_Click"/>
+					<MenuItem Header="Patère sur mur" Click="PatereMurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée PMR 300">
+					<MenuItem Header="Poignée maintient 300 px10" Click="PM300Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 300 px13" Click="PM300Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 300 sur mur" Click="PM300MurMenuItem_Click"/>
+					<MenuItem Header="Poignée 300 Mur" Click="P300MurMenuItem_Click"/>
+					<MenuItem Header="Poignée 300 Panneau" Click="P300PanneauMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée PMR 400">
+					<MenuItem Header="Poignée maintient 400 px10" Click="PM400Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 400 px13" Click="PM400Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 400 sur mur" Click="PM400MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée PMR 500">
+					<MenuItem Header="Poignée maintient 500 px10" Click="PM500Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 500 px13" Click="PM500Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 500 sur mur" Click="PM500MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée PMR 600">
+					<MenuItem Header="Poignée maintient 600 px10" Click="PM600Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 600 px13" Click="PM600Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 600 sur mur" Click="PM600MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée PMR 135°">
+					<MenuItem Header="Poignée maintient 135° px10" Click="PPmr135Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 135° px13" Click="PPmr135Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient 135° sur mur" Click="PPmr135MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Poignée relevable L.850">
+					<MenuItem Header="Poignée maintient relevable px10" Click="PrL850Px10MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient relevable px13" Click="PrL850Px13MenuItem_Click"/>
+					<MenuItem Header="Poignée maintient relevable sur mur" Click="PrL850MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Siège douche">
+					<MenuItem Header="Siège douche px10" Click="SiegePx10MenuItem_Click"/>
+					<MenuItem Header="Siège douche px13" Click="SiegePx13MenuItem_Click"/>
+					<MenuItem Header="Siège douche sur mur" Click="SiegeMurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Miroir 600x400">
+					<MenuItem Header="Miroir 600x400 px10" Click="MiroirPx10MenuItem_Click"/>
+					<MenuItem Header="Miroir 600x400 px13" Click="MiroirPx13MenuItem_Click"/>
+					<MenuItem Header="Miroir 600x400 sur mur" Click="MiroirMurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Miroir Ø 600">
+					<MenuItem Header="Miroir Ø 600 px10" Click="Miroir600Px10MenuItem_Click"/>
+					<MenuItem Header="Miroir Ø 600 px13" Click="Miroir600Px13MenuItem_Click"/>
+					<MenuItem Header="Miroir Ø 600 sur mur" Click="Miroir600MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Miroir Ø 400">
+					<MenuItem Header="Miroir Ø 400 px10" Click="Miroir400Px10MenuItem_Click"/>
+					<MenuItem Header="Miroir Ø 400 px13" Click="Miroir400Px13MenuItem_Click"/>
+					<MenuItem Header="Miroir Ø 400 sur mur" Click="Miroir400MurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Porte savon">
+					<MenuItem Header="Porte savon compact" Click="PorteSavonCompactMenuItem_Click"/>
+					<MenuItem Header="Porte savon px10" Click="PorteSavonPx10MenuItem_Click"/>
+					<MenuItem Header="Porte savon px13" Click="PorteSavonPx13MenuItem_Click"/>
+					<MenuItem Header="Porte savon sur mur" Click="PorteSavonMurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Distributeur papier toilette">
+					<MenuItem Header="Distributeur papier toilette px10" Click="DistributeurPQPx10MenuItem_Click"/>
+					<MenuItem Header="Distributeur papier toilette px13" Click="DistributeurPQPx13MenuItem_Click"/>
+					<MenuItem Header="Distributeur papier toilette sur mur" Click="DistributeurPQMurMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Mitigeur">
+					<MenuItem Header="Mitigeur retombée et col de cygne (790970 + 123503)" Click="MitigeurColCygneMenuItem_Click"/>
+					<MenuItem Header="Mitigeur mecanique a douchette extractible (2211)" Click="MitigeurMecaniqueMenuItem_Click"/>
+					<MenuItem Header="Mitigeur lavabo déclenchement souple (742500)" Click="MitigeurLavaboMenuItem_Click"/>
+					<MenuItem Header="Robinet monofluide lavabo déclenchement souple (740500)" Click="RobinetLavaboMenuItem_Click"/>
+					<MenuItem Header="Robinet monofluide delabie dans retombée et col de cygne" Click="RobinetDelabieMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Bambino">
+					<MenuItem Header="Poteau bambino" Click="PoteauBambinoMenuItem_Click"/>
+					<MenuItem Header="Poignée carrée cabine bambino Ref.221.310" Click="PcRef221310MenuItem_Click"/>
+					<MenuItem Header="Poignée lune cabine bambino Ref.221.314" Click="PlRef221314MenuItem_Click"/>
+					<MenuItem Header="Poignée ovale cabine bambino Ref.221.313" Click="PoRef221313MenuItem_Click"/>
+					<MenuItem Header="Poignée ronde cabine bambino Ref.221.311" Click="PrRef221311MenuItem_Click"/>
+					<MenuItem Header="Poignée triangle cabine bambino Ref.221.312" Click="PtRef221312MenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Dispositif anti-mistral" Click="DispositifAntiMistralMenuItem_Click"/>
+				<MenuItem Header="Gache C33 sur mur" Click="GacheC33MurMenuItem_Click"/>
+			</MenuItem>
 			<MenuItem Header="Equipement">
+				<MenuItem Header="Banc cabine (prévalidation)" Click="BancCabinePreMenuItem_Click"/>
+				<MenuItem Header="Banc cabine (postvalidation)" Click="BancCabinePostMenuItem_Click"/>
 				<MenuItem Header="Pare douche">
 					<MenuItem Header="Simple" Click="PareDoucheSimpleMenuItem_Click"/>
 					<MenuItem Header="Dos à dos" Click="PareDoucheDosADosMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="Ecran" Click="EcranMenuItem_Click"/>
+				<MenuItem Header="Plan">
+					<MenuItem Header="Pt simple" Click="PtSimpleMenuItem_Click"/>
+					<MenuItem Header="Pt collectif" Click="PtCollectifMenuItem_Click"/>
+					<MenuItem Header="Plan vaisselle" Click="PlanVaisselleMenuItem_Click"/>
+					<MenuItem Header="Pt linge" Click="PtLingeMenuItem_Click"/>
+					<MenuItem Header="Pt baignoire" Click="PtBaignoireMenuItem_Click"/>
+					<MenuItem Header="Pt 1/4 cercle R700" Click="PtQuartDeCercleMenuItem_Click"/>
+					<MenuItem Header="Raccord plan 600" Click="RaccordPlan600MenuItem_Click"/>
+					<MenuItem Header="Fixation" Click="FixationMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Joue plan" Click="JouePlanMenuItem_Click"/>
+				<MenuItem Header="Ecran urinoir" Click="EcranUrinoirMenuItem_Click"/>
+				<MenuItem Header="Panneau douche centraux" Click="PanneauDoucheCentrauxMenuItem_Click"/>
+				<MenuItem Header="Panneau douche PDI" Click="PanneauDouchePDIMenuItem_Click"/>
+				<MenuItem Header="Habillage bâti support" Click="HabillageMenuItem_Click"/>
+				<MenuItem Header="Bandeau cache luminaire" Click="BandeauCacheLuminaireMenuItem_Click"/>
+				<MenuItem Header="Robinet douche fond cabine" Click="RobinetDoucheMenuItem_Click"/>
+				<MenuItem Header="Trappe poubelle fond cabine" Click="TrappePoubelleMenuItem_Click"/>
 			</MenuItem>
 			<MenuItem Header="Cabine">
 				<MenuItem Header="Façade">
@@ -100,6 +219,30 @@
 					<MenuItem Header="Ajuster refend" Click="AjusterRefendMenuItem_Click"/>
 					<MenuItem Header="Repérage refend" Click="RepererRefendMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="Fond cabines">
+					<MenuItem Header="Ajuster refend" Click="FondAjusterRefendMenuItem_Click"/>
+					<MenuItem Header="Ajout fond cabine" Click="AjoutFondCabineMenuItem_Click"/>
+					<MenuItem Header="Ajout fond angle cabine" Click="AjoutFondAngleMenuItem_Click"/>
+					<MenuItem Header="Repérer refend et fond" Click="FondRepererRefendMenuItem_Click"/>
+				</MenuItem>
+			</MenuItem>
+			<MenuItem Header="Logo">
+				<MenuItem Header="Accès privé" Click="LogoAccesPriveMenuItem_Click"/>
+				<MenuItem Header="Bébé" Click="LogoBebeMenuItem_Click"/>
+				<MenuItem Header="Douche" Click="LogoDoucheMenuItem_Click"/>
+				<MenuItem Header="Enfant" Click="LogoEnfantMenuItem_Click"/>
+				<MenuItem Header="Famille" Click="LogoFamilleMenuItem_Click"/>
+				<MenuItem Header="Femme" Click="LogoFemmeMenuItem_Click"/>
+				<MenuItem Header="Homme" Click="LogoHommeMenuItem_Click"/>
+				<MenuItem Header="Lavabo" Click="LogoLavaboMenuItem_Click"/>
+				<MenuItem Header="Laverie" Click="LogoLaverieMenuItem_Click"/>
+				<MenuItem Header="Local tech" Click="LogoLocalTechMenuItem_Click"/>
+				<MenuItem Header="PMR" Click="LogoPmrMenuItem_Click"/>
+				<MenuItem Header="Poubelle" Click="LogoPoubelleMenuItem_Click"/>
+				<MenuItem Header="Urinoir" Click="LogoUrinoirMenuItem_Click"/>
+				<MenuItem Header="Vestiaire" Click="LogoVestiaireMenuItem_Click"/>
+				<MenuItem Header="Vidoir" Click="LogoVidoirMenuItem_Click"/>
+				<MenuItem Header="WC" Click="LogoWCMenuItem_Click"/>
 			</MenuItem>
 		</Menu>
 		<Label Content="Pas de document" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" FontStyle="Italic" Name="DocTitle" Margin="4,3,0,0"/>

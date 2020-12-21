@@ -202,7 +202,7 @@ namespace ToolBarDcad
 
                 if (App == null) break;
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
-                Point location = new Point(r.Left + r.Width / 2 + r.Width / 5 - 40, r.Top + 8);
+                Point location = new Point(r.Left + r.Width / 2 + r.Width / 9, r.Top + 8);
 
                 Dispatcher.BeginInvoke((Action)(() =>
                 {
@@ -659,6 +659,92 @@ namespace ToolBarDcad
         private void Serr001MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr001");
         private void Serr006MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr006");
         private void Serr015MenuItem_Click(object sender, EventArgs e) => LaunchMacro("PoseSerr015");
+        private void BarrePenderieMenuItem_Click(object sender, EventArgs e) => LaunchMacro("BarrePenderie");
+        private void BpC17ScMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BpC17Sc");
+        private void BpC17C18AcMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BpC17C18Ac");
+        private void BpC13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BpC13");
+        private void BpBbMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BpBb");
+        private void BpVevMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BpVev");
+        private void BpcMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Bpc");
+        private void PoseSerrurePistonMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoseSerrurePiston");
+        private void PaterePx10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PaterePx10");
+        private void PaterePx13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PaterePx13");
+        private void PatereMurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PatereMur");
+        private void PM300Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM300Px10");
+        private void PM300Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM300Px13");
+        private void PM300MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM300Mur");
+        private void P300MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("P300Mur");
+        private void P300PanneauMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("P300Panneau");
+        private void PM400Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM400Px10");
+        private void PM400Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM400Px13");
+        private void PM400MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM400Mur");
+        private void PM500Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM500Px10");
+        private void PM500Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM500Px13");
+        private void PM500MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM500Mur");
+        private void PM600Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM600Px10");
+        private void PM600Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM600Px13");
+        private void PM600MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PM600Mur");
+        private void PPmr135Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PPmr135Px10");
+        private void PPmr135Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PPmr135Px13");
+        private void PPmr135MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PPmr135Mur");
+        private void PrL850Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PrL850Px10");
+        private void PrL850Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PrL850Px13");
+        private void PrL850MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PrL850Mur");
+        private void SiegePx10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("SiegePx10");
+        private void SiegePx13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("SiegePx13");
+        private void SiegeMurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("SiegeMur");
+        private void MiroirPx10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MiroirPx10");
+        private void MiroirPx13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MiroirPx13");
+        private void MiroirMurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MiroirMur");
+        private void Miroir600Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir600Px10");
+        private void Miroir600Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir600Px13");
+        private void Miroir600MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir600Mur");
+        private void Miroir400Px10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir400Px10");
+        private void Miroir400Px13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir400Px13");
+        private void Miroir400MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Miroir400Mur");
+        private void PorteSavonCompactMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteSavonCompact");
+        private void PorteSavonPx10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteSavonPx10");
+        private void PorteSavonPx13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteSavonPx13");
+        private void PorteSavonMurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteSavonMur");
+        private void DistributeurPQPx10MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("DistribPQPx10");
+        private void DistributeurPQPx13MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("DistribPQPx13");
+        private void DistributeurPQMurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("DistribPQMur");
+        private void MitigeurColCygneMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MitigeurColCygne");
+        private void MitigeurMecaniqueMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MitigeurMecanique");
+        private void MitigeurLavaboMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("MitigeurLavabo");
+        private void RobinetLavaboMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("RobinetLavabo");
+        private void RobinetDelabieMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("RobinetDelabie");
+        private void PoteauBambinoMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoP");
+        private void PcRef221310MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoPc");
+        private void PlRef221314MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoPl");
+        private void PoRef221313MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoPo");
+        private void PrRef221311MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoPr");
+        private void PtRef221312MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BambinoPt");
+        private void DispositifAntiMistralMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("DispositifAntiMistral");
+        private void GacheC33MurMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("GacheC33Mur");
+        private void BancCabinePreMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BancCabinePre");
+        private void BancCabinePostMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BancCabinePost");
+        private void EcranMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Ecran");
+        private void PtSimpleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PtSimple");
+        private void PtCollectifMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PtCollectif");
+        private void PlanVaisselleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PlanVaisselle");
+        private void PtLingeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PtLinge");
+        private void PtBaignoireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PtBaignoire");
+        private void PtQuartDeCercleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PQuartDeCercle");
+        private void RaccordPlan600MenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("RaccordPlan600");
+        private void FixationMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FixationPlan");
+        private void JouePlanMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("JouePlan");
+        private void EcranUrinoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("EcranUrinoir");
+        private void PanneauDoucheCentrauxMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PanneauDoucheCentraux");
+        private void PanneauDouchePDIMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PanneauDouchePDI");
+        private void HabillageMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("Habillage");
+        private void BandeauCacheLuminaireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("BandeauCacheLuminaire");
+        private void RobinetDoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("RobinetDouche");
+        private void TrappePoubelleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("TrappePoubelle");
+        private void FondAjusterRefendMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FondAjusterRefend");
+        private void AjoutFondCabineMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjoutFondCabine");
+        private void AjoutFondAngleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjoutFondAngle");
+        private void FondRepererRefendMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FondRepererRefend");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
@@ -702,5 +788,22 @@ namespace ToolBarDcad
             File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
             LaunchMacro("ArmoiresCollectives");
         }
+
+        private void LogoAccesPriveMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoAccesPrive");
+        private void LogoBebeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoBebe");
+        private void LogoDoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoDouche");
+        private void LogoEnfantMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoEnfant");
+        private void LogoFamilleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFamille");
+        private void LogoFemmeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoFemme");
+        private void LogoHommeMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoHomme");
+        private void LogoLavaboMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLavabo");
+        private void LogoLaverieMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLaverie");
+        private void LogoLocalTechMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoLocalTech");
+        private void LogoPmrMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPmr");
+        private void LogoPoubelleMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoPoubelle");
+        private void LogoUrinoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoUrinoir");
+        private void LogoVestiaireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVestiaire");
+        private void LogoVidoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVidoir");
+        private void LogoWCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoWC");
     }
 }
