@@ -693,6 +693,8 @@ namespace ToolBarDcad
         private void SerieB1MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB1");
         private void SerieB50MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB50");
         private void SerieB450MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB450");
+        private void SerieB500MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB500");
+        private void SerieB750MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB750");
         private void RepererFacadeMenuItem_Click(object sender, EventArgs e) => LaunchMacro("ReperageFacade");
         private void FacadeKMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeK");
         private void FacadeDMenuItem_Click(object sender, EventArgs e) => LaunchMacro("FacadeD");
@@ -831,6 +833,11 @@ namespace ToolBarDcad
         private void LogoVestiaireMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVestiaire");
         private void LogoVidoirMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoVidoir");
         private void LogoWCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoWC");
+        private void FacadeBambinoMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FacadeBambino");
+        private void PorteBambinoMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteBambino");
+        private void PoserPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserPorte");
+        private void AjusterPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjusterPorte");
+        private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");

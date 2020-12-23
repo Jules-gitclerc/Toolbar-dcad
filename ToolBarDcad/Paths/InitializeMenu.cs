@@ -43,6 +43,8 @@ namespace ToolBarDcad.Paths
                 {"MultiplierAttr", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Attributs\multiplier_attributs.d3m"},
                 {"SupprimerAttr", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Attributs\supprimer_attributs.d3m"},
                 {"ChangerMateriau", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\material_swap.d3m"},
+                {"FacadeBambino", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Facade_bambino_dxf.d3m"},
+                {"PorteBambino", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Porte_bambino_dxf.d3m"},
 
                 // Vestiaire
 
@@ -64,6 +66,8 @@ namespace ToolBarDcad.Paths
                 {"BancBoisB1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B1.d3m"},
                 {"BancBoisB50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B50.d3m"},
                 {"BancBoisB450", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B450.d3m"},
+                {"BancBoisB500", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B500.d3m"},
+                {"BancBoisB750", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B750.d3m"},
                 {"ArmoiresCollectives", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\armoires_collectives.d3m"},
                 {"LongeronsCollectifs", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\longerons_collectif.d3m"},
                 {"BarrePenderie", @"\\Serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cotation\cotation_penderie.d3m"},
@@ -176,6 +180,9 @@ namespace ToolBarDcad.Paths
                 {"AjoutFondCabine", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\ajout_fond_cabine.d3m"},
                 {"AjoutFondAngle", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\Fond_Cabine_d.d3m"},
                 {"FondRepererRefend", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\reperage_refend_fond.d3m"},
+                {"PoserPorte", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\depart_porte.d3m"},
+                {"AjusterPorte", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_porte.d3m"},
+                {"ProfilAuSol", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\profil_sol.d3m"},
 
                 // Logo
 

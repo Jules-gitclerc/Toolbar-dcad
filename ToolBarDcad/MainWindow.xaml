@@ -27,6 +27,10 @@
 					<MenuItem Header="Supprimer attributs" Click="SupprimerAttrMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Changer la nature des matériaux" Click="ChangerMatMenuItem_Click"/>
+				<MenuItem Header="Création DXF">
+					<MenuItem Header="Façade Bambino" Click="FacadeBambinoMenuItem_Click"/>
+					<MenuItem Header="Porte Bambino" Click="PorteBambinoMenuItem_Click"/>
+				</MenuItem>
 			</MenuItem>
 			<MenuItem Header="Vestiaire">
 				<MenuItem Header="Casiers">
@@ -68,6 +72,8 @@
 						<MenuItem Header="Série B1" Click="SerieB1MenuItem_Click"/>
 						<MenuItem Header="Série B50" Click="SerieB50MenuItem_Click"/>
 						<MenuItem Header="Série B450" Click="SerieB450MenuItem_Click"/>
+						<MenuItem Header="Série B500" Click="SerieB500MenuItem_Click"/>
+						<MenuItem Header="Série B750" Click="SerieB750MenuItem_Click"/>
 					</MenuItem>
 					<MenuItem Header="Compact">
 						<MenuItem Header="Série C1" Click="SerieC1MenuItem_Click"/>
@@ -219,12 +225,17 @@
 					<MenuItem Header="Ajuster refend" Click="AjusterRefendMenuItem_Click"/>
 					<MenuItem Header="Repérage refend" Click="RepererRefendMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="Porte">
+					<MenuItem Header="Poser porte" Click="PoserPorteMenuItem_Click"/>
+					<MenuItem Header="Ajuster porte" Click="AjusterPorteMenuItem_Click"/>
+				</MenuItem>
 				<MenuItem Header="Fond cabines">
 					<MenuItem Header="Ajuster refend" Click="FondAjusterRefendMenuItem_Click"/>
 					<MenuItem Header="Ajout fond cabine" Click="AjoutFondCabineMenuItem_Click"/>
 					<MenuItem Header="Ajout fond angle cabine" Click="AjoutFondAngleMenuItem_Click"/>
 					<MenuItem Header="Repérer refend et fond" Click="FondRepererRefendMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="Profil au sol" Click="ProfilAuSolMenuItem_Click"/>
 			</MenuItem>
 			<MenuItem Header="Logo">
 				<MenuItem Header="Accès privé" Click="LogoAccesPriveMenuItem_Click"/>
