@@ -236,6 +236,7 @@
 					<MenuItem Header="Repérer refend et fond" Click="FondRepererRefendMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Profil au sol" Click="ProfilAuSolMenuItem_Click"/>
+				<MenuItem Header="Poser flasque" Click="PoserFlasqueMenuItem_Click"/>
 			</MenuItem>
 			<MenuItem Header="Logo">
 				<MenuItem Header="Accès privé" Click="LogoAccesPriveMenuItem_Click"/>
@@ -305,5 +306,6 @@
 		<Button HorizontalAlignment="Left" Margin="340,0,0,8" VerticalAlignment="Bottom" Width="24" Height="24" FontWeight="Bold" FontSize="10" ToolTip="Kit 3 chapes" Click="PoserChape_Click" Name="ChapButton">
 			<Image Source="Icones/Chape.ico" Name="ChapIcon"/>
 		</Button>
+		<CheckBox Content="Reno" HorizontalAlignment="Left" Margin="442,65,0,0" VerticalAlignment="Top" Checked="RenoOptionCheckBox_OnChecked" Name="RenoOptionCheckBox"/>
 	</Grid>
 </Window>

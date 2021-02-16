@@ -17,6 +17,7 @@ using ToolBarDcad.Paths;
 using ToolBarDcad.Tools;
 using Microsoft.VisualBasic;
 using System.Drawing;
+using System.Text;
 using System.Windows.Media.Imaging;
 using Rectangle = System.Drawing.Rectangle;
 using Point = System.Drawing.Point;
@@ -676,6 +677,32 @@ namespace ToolBarDcad
                 LaunchMacro(MacroTools.MaterialToString(e.Type));
         }
 
+        private void RenoOptionCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            if (RenoOptionCheckBox.IsChecked == true)
+            {
+                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\dev\reperage_flasque.d3m";
+
+                //MenuItem item = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Cabine");
+                //MenuItem subitem = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Façade");
+                //MenuItem subsubItem = subitem?.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Repérage façade");
+                //if (subsubItem == null) return;
+                //subsubItem.Header = "";
+                //subsubItem.Header = new StringBuilder("Repérage flasque");
+            }
+            else
+            {
+                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_facade.d3m";
+
+                //MenuItem item = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Cabine");
+                //MenuItem subitem = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Façade");
+                //MenuItem subsubItem = subitem?.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Repérage flasque");
+                //if (subsubItem == null) return;
+                //subsubItem.Header = "";
+                //subsubItem.Header = new StringBuilder("Repérage façade");
+            }
+        }
+
         // Macro launchers
 
         private void CartoucheMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CartoucheK");
@@ -838,6 +865,7 @@ namespace ToolBarDcad
         private void PoserPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserPorte");
         private void AjusterPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjusterPorte");
         private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
+        private void PoserFlasqueMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserFlasque");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
