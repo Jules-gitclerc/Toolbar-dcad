@@ -578,6 +578,48 @@ namespace ToolBarDcad
             }
         }
 
+        /// <summary>
+        /// Recursivity of <see cref="FindMenuItem"/> method.
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="header"></param>
+        /// <returns></returns>
+
+        private MenuItem FindSubMenu(MenuItem menu, string header)
+        {
+            if (menu.Items.Count < 1)
+                return (null);
+            foreach (var item in menu.Items)
+            {
+                if (header == ((MenuItem) item).Header.ToString())
+                    return ((MenuItem) item);
+
+                var result = FindSubMenu((MenuItem) item, header);
+                if (result != null) 
+                    return (result);
+            }
+            return (null);
+        }
+
+        /// <summary>
+        /// Finds specific MenunItem from <see cref="MacroMenu"/> corresponding at <see cref="header"/> value.
+        /// </summary>
+        /// <param name="header"></param>
+        /// <returns></returns>
+
+        private MenuItem FindMenuItem(string header)
+        {
+            foreach (var item in MacroMenu.Items)
+            {
+                if (header == ((MenuItem)item).Header.ToString())
+                    return ((MenuItem)item);
+                var result = FindSubMenu((MenuItem)item, header);
+                if (result != null)
+                    return (result);
+            }
+            return (null);
+        }
+
         // ============ Events handlers =============
 
         // Controls
@@ -681,25 +723,34 @@ namespace ToolBarDcad
         {
             if (RenoOptionCheckBox.IsChecked == true)
             {
-                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\dev\reperage_flasque.d3m";
+                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\reperage_flasque.d3m";
 
-                //MenuItem item = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Cabine");
-                //MenuItem subitem = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Façade");
-                //MenuItem subsubItem = subitem?.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Repérage façade");
-                //if (subsubItem == null) return;
-                //subsubItem.Header = "";
-                //subsubItem.Header = new StringBuilder("Repérage flasque");
+                MenuItem item = FindMenuItem("Repérage façade");
+                if (item == null) return;
+                item.Header = "";
+                item.Header = new StringBuilder("Repérage façade reno");
+
+                MenuItem cabinItem = FindMenuItem("Cabine");
+                MenuItem flsk = new MenuItem {Header = new StringBuilder("Poser façade reno")};
+
+                flsk.Click += PoserFlasqueMenuItem_Click;
+                if (cabinItem == null) return;
+                cabinItem.Items.Insert(5, flsk);
             }
             else
             {
                 MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_facade.d3m";
 
-                //MenuItem item = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Cabine");
-                //MenuItem subitem = MacroMenu.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Façade");
-                //MenuItem subsubItem = subitem?.Items.Cast<MenuItem>().FirstOrDefault(x => x.Header.ToString() == "Repérage flasque");
-                //if (subsubItem == null) return;
-                //subsubItem.Header = "";
-                //subsubItem.Header = new StringBuilder("Repérage façade");
+                MenuItem item = FindMenuItem("Repérage façade reno");
+                if (item == null) return;
+                item.Header = "";
+                item.Header = new StringBuilder("Repérage façade");
+
+                MenuItem cabinItem = FindMenuItem("Cabine");
+                MenuItem flsk = FindMenuItem("Poser façade reno");
+
+                if (cabinItem == null) return;
+                cabinItem.Items.Remove(flsk);
             }
         }
 

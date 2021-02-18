@@ -77,8 +77,6 @@ namespace ToolBarDcad
         {
             InitializeComponent();
 
-            PreviewKeyDown += HandleEsc;
-            Closing += MainWindow_Closing;
             Loaded += Pallet_Loaded;
 
             _enabledColor = Ep13Button.Background;
@@ -144,21 +142,6 @@ namespace ToolBarDcad
             Lay21Green.Click += Lay21Green_Click;
             Lay22Tomato.Click += Lay22Tomato_Click;
             PalletButton.Click += PalletButton_Click;
-        }
-
-        public void HandleEsc(object sender, KeyEventArgs e)
-        {
-            if (e.Key != Key.Escape) return;
-            Close();
-        }
-
-        private void MainWindow_Closing(object sender, CancelEventArgs e)
-        {
-            MessageBoxResult result = MessageBox.Show("Voulez vous vraiment quitter ?", "Quitter ?",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
-            if (result == MessageBoxResult.No)
-                e.Cancel = true;
         }
 
         private void ColorRed_Click(object sender, EventArgs e) => ChangeColorAndLayer(255, 0, 0, 12);

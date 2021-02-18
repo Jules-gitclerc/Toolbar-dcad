@@ -183,7 +183,7 @@ namespace ToolBarDcad.Paths
                 {"PoserPorte", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\depart_porte.d3m"},
                 {"AjusterPorte", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_porte.d3m"},
                 {"ProfilAuSol", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\profil_sol.d3m"},
-                {"PoserFlasque", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\dev\Flasque.d3m"},
+                {"PoserFlasque", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Flasque.d3m"},
 
                 // Logo
 
