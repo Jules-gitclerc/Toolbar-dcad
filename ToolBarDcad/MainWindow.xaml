@@ -10,11 +10,6 @@
 		<Menu Width="470" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
 			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
 				<MenuItem Header="Cartouche" Padding="0" Margin="0" Click="CartoucheMenuItem_Click"/>
-				<MenuItem Header="Cotation">
-					<MenuItem Header="Façade" Click="CotationFacadeMenuItem_Click"/>
-					<MenuItem Header="Bandeau" Click="CotationBandeauMenuItem_Click"/>
-					<MenuItem Header="Axe" Click="CotationAxeMenuItem_Click"/>
-				</MenuItem>
 				<MenuItem Header="Eclater Sélection" Click="EclaterSelectionMenuItem_Click"/>
 				<MenuItem Header="Outil Couche" Click="OutilCoucheMenuItem_Click"/>
 				<MenuItem Header="Attributs">
@@ -47,6 +42,9 @@
 					<MenuItem Header="Casiers Métalliques"></MenuItem>
 					<MenuItem Header="Pose longerons" Click="PoseLongeronsCollectifMenuItem_Click"/>
 					<MenuItem Header="Barre de penderie" Click="BarrePenderieMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Cotation">
+					<MenuItem Header="Axe" Click="CotationAxeCasMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Casiers informatisés"></MenuItem>
 				<MenuItem Header="Armoires Collectives">
@@ -230,6 +228,11 @@
 				<MenuItem Header="Porte">
 					<MenuItem Header="Poser porte" Click="PoserPorteMenuItem_Click"/>
 					<MenuItem Header="Ajuster porte" Click="AjusterPorteMenuItem_Click"/>
+				</MenuItem>
+				<MenuItem Header="Cotation">
+					<MenuItem Header="Façade" Click="CotationFacadeMenuItem_Click"/>
+					<MenuItem Header="Bandeau" Click="CotationBandeauMenuItem_Click"/>
+					<MenuItem Header="Axe" Click="CotationAxeMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Fond cabines">
 					<MenuItem Header="Ajuster refend" Click="FondAjusterRefendMenuItem_Click"/>

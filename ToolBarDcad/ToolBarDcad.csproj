@@ -119,17 +119,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="DesignCAD">
-      <Guid>{DD0F69E1-1E0D-4064-94FA-2ED7ADC72C5D}</Guid>
-      <VersionMajor>21</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icones\paletcolor.png" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +157,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icones\Feuillures ext.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="DesignCAD">
+      <Guid>{60F0ED43-9485-4D76-B7A1-5C5AB9CD7EC4}</Guid>
+      <VersionMajor>26</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

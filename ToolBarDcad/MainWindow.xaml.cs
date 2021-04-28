@@ -919,8 +919,9 @@ namespace ToolBarDcad
         private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
         private void PoserFlasqueMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserFlasque");
         private void ComposeLocker_Click(object sender, RoutedEventArgs e) => LaunchMacro("ComposeLocker");
+        private void CotationAxeCasMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CotationAxeCasier");
 
-        private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
+            private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
         private void RbButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfi" : "PoserRb");
         private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfeg" : "PoserRcg");
@@ -963,7 +964,5 @@ namespace ToolBarDcad
             File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
             LaunchMacro("ArmoiresCollectives");
         }
-
-
-	}
+    }
 }

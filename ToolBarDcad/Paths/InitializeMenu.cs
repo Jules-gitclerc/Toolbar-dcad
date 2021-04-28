@@ -52,6 +52,7 @@ namespace ToolBarDcad.Paths
                 {"CasierZDiplo", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_z.d3m"},
                 {"CasierHBanc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc.d3m"},
                 {"CasiersBancCompact", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc_compact.d3m"},
+                {"CotationAxeCasier", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\cotation_axe.d3m"},
                 {"BancCompact1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C1.d3m"},
                 {"BancCompact20", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C20.d3m"},
                 {"BancCompact50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C50.d3m"},
@@ -76,6 +77,7 @@ namespace ToolBarDcad.Paths
                 {"PoseSerr006", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_006.d3m"},
                 {"PoseSerr015", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_015.d3m"},
                 {"ComposeLocker", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\locker_constructor.d3m" },
+
                 // Bloc-Portes
 
                 {"BpC17Sc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bloc Portes\bloc_porte _SC.d3m"},
