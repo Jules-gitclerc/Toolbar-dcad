@@ -65,6 +65,7 @@ namespace ToolBarDcad.Paths
                 {"BancCompact750", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C750.d3m"},
                 {"BancBoisB1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B1.d3m"},
                 {"BancBoisB50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B50.d3m"},
+                {"LissePatereB100", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Lisse_B100.d3m"},
                 {"BancBoisB450", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B450.d3m"},
                 {"BancBoisB500", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B500.d3m"},
                 {"BancBoisB750", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_B750.d3m"},
@@ -74,7 +75,7 @@ namespace ToolBarDcad.Paths
                 {"PoseSerr001", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_001.d3m"},
                 {"PoseSerr006", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_006.d3m"},
                 {"PoseSerr015", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\serrure_collectif_015.d3m"},
-
+                {"ComposeLocker", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Vestiaires\locker_constructor.d3m" },
                 // Bloc-Portes
 
                 {"BpC17Sc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bloc Portes\bloc_porte _SC.d3m"},

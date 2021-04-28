@@ -770,6 +770,7 @@ namespace ToolBarDcad
         private void SerieC600MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancCompact600");
         private void SerieB1MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB1");
         private void SerieB50MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB50");
+        private void SerieB100MenuItem_Click(object sender, EventArgs e) => LaunchMacro("LissePatereB100");
         private void SerieB450MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB450");
         private void SerieB500MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB500");
         private void SerieB750MenuItem_Click(object sender, EventArgs e) => LaunchMacro("BancBoisB750");
@@ -917,6 +918,7 @@ namespace ToolBarDcad
         private void AjusterPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjusterPorte");
         private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
         private void PoserFlasqueMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserFlasque");
+        private void ComposeLocker_Click(object sender, RoutedEventArgs e) => LaunchMacro("ComposeLocker");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
@@ -924,6 +926,7 @@ namespace ToolBarDcad
         private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfeg" : "PoserRcg");
         private void RcdButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfed" : "PoserRcd");
         private void RcButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfe" : "PoserRc");
+
 
         private void AC12CL900MenuItem_Click(object sender, EventArgs e)
         {
@@ -960,5 +963,7 @@ namespace ToolBarDcad
             File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
             LaunchMacro("ArmoiresCollectives");
         }
-    }
+
+
+	}
 }
