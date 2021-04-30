@@ -44,6 +44,7 @@
 					<MenuItem Header="Barre de penderie" Click="BarrePenderieMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Cotation">
+					<MenuItem Header="Façade" Click="CotationFacadeCasMenuItem_Click"/>
 					<MenuItem Header="Axe" Click="CotationAxeCasMenuItem_Click"/>
 				</MenuItem>
 				<MenuItem Header="Casiers informatisés"></MenuItem>
@@ -311,5 +312,6 @@
 			<Image Source="Icones/Chape.ico" Name="ChapIcon"/>
 		</Button>
 		<CheckBox Content="Reno" HorizontalAlignment="Left" Margin="442,65,0,0" VerticalAlignment="Top" Checked="RenoOptionCheckBox_OnChecked" Unchecked="RenoOptionCheckBox_OnChecked" Name="RenoOptionCheckBox"/>
+		<CheckBox Content="PNPC" HorizontalAlignment="Left" Margin="379,65,0,0" VerticalAlignment="Top" Checked="PNPCOptionCheckBox_OnChecked" Unchecked="PNPCOptionCheckBox_OnChecked" x:Name="PNPCOptionCheckBox"/>
 	</Grid>
 </Window>

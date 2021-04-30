@@ -721,8 +721,10 @@ namespace ToolBarDcad
 
         private void RenoOptionCheckBox_OnChecked(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("Reno checked handler");
             if (RenoOptionCheckBox.IsChecked == true)
             {
+                PNPCOptionCheckBox.IsChecked = false;
                 MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\reperage_flasque.d3m";
 
                 MenuItem item = FindMenuItem("Repérage façade");
@@ -751,6 +753,58 @@ namespace ToolBarDcad
 
                 if (cabinItem == null) return;
                 cabinItem.Items.Remove(flsk);
+            }
+        }
+
+        private void PNPCOptionCheckBox_OnChecked(object sender, RoutedEventArgs e)
+        {
+            if (PNPCOptionCheckBox.IsChecked == true)
+            {
+                RenoOptionCheckBox.IsChecked = false;
+                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\reperage_pnpc.d3m";
+                MacroDict["AjusterFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\banc_pnpc.d3m";
+                MacroDict["FacadeK"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_k_pnpc.d3m";
+                MacroDict["FacadeL"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_l_pnpc.d3m";
+
+                MenuItem repItem = FindMenuItem("Repérage façade");
+                if (repItem == null) return;
+                repItem.Header = "";
+                repItem.Header = new StringBuilder("Repérage façade PNPC");
+
+                MenuItem bcItem = FindMenuItem("Ajuster façade");
+                if (bcItem == null) return;
+                bcItem.Header = "";
+                bcItem.Header = new StringBuilder("Ajuster et poser banc");
+
+                MenuItem cabinItem = FindMenuItem("Cabine");
+                MenuItem cab = new MenuItem { Header = new StringBuilder("Poser cabine PNPC") };
+
+                cab.Click += PoserCabinePNPCMenuItem_Click;
+                if (cabinItem == null) return;
+                cabinItem.Items.Insert(5, cab);
+            }
+            else
+            {
+                MacroDict["ReperageFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Nouveau_reperage\reperage_facade.d3m";
+                MacroDict["AjusterFacade"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_facade.d3m";
+                MacroDict["FacadeK"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_k.d3m";
+                MacroDict["FacadeL"] = @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\facade_depart_l.d3m";
+
+                MenuItem repItem = FindMenuItem("Repérage façade PNPC");
+                if (repItem == null) return;
+                repItem.Header = "";
+                repItem.Header = new StringBuilder("Repérage façade");
+
+                MenuItem bcItem = FindMenuItem("Ajuster et poser banc");
+                if (bcItem == null) return;
+                bcItem.Header = "";
+                bcItem.Header = new StringBuilder("Ajuster façade");
+
+                MenuItem cabinItem = FindMenuItem("Cabine");
+                MenuItem cab = FindMenuItem("Poser cabine PNPC");
+
+                if (cabinItem == null) return;
+                cabinItem.Items.Remove(cab);
             }
         }
 
@@ -918,10 +972,12 @@ namespace ToolBarDcad
         private void AjusterPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjusterPorte");
         private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
         private void PoserFlasqueMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserFlasque");
+        private void PoserCabinePNPCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserCabinePNPC");
         private void ComposeLocker_Click(object sender, RoutedEventArgs e) => LaunchMacro("ComposeLocker");
         private void CotationAxeCasMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CotationAxeCasier");
+        private void CotationFacadeCasMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CotationFacadeCasier");
 
-            private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
+        private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
         private void RbButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfi" : "PoserRb");
         private void RcgButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfeg" : "PoserRcg");

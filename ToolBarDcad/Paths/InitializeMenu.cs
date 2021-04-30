@@ -53,6 +53,7 @@ namespace ToolBarDcad.Paths
                 {"CasierHBanc", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc.d3m"},
                 {"CasiersBancCompact", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\casier_h_banc_compact.d3m"},
                 {"CotationAxeCasier", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\cotation_axe.d3m"},
+                {"CotationFacadeCasier", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Vestiaires\cotation_facade.d3m"},
                 {"BancCompact1", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C1.d3m"},
                 {"BancCompact20", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C20.d3m"},
                 {"BancCompact50", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Bancs\Banc_C50.d3m"},
@@ -187,6 +188,7 @@ namespace ToolBarDcad.Paths
                 {"AjusterPorte", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\ajustement_porte.d3m"},
                 {"ProfilAuSol", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\profil_sol.d3m"},
                 {"PoserFlasque", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Flasque.d3m"},
+                {"PoserCabinePNPC", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\cabine_pnpc.d3m"},
 
                 // Logo
 
