@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ToolBarDcad.DesignCad;
 using ToolBarDcad.Tools;
+using Rectangle = System.Drawing.Rectangle;
 
 namespace ToolBarDcad
 {
@@ -27,6 +18,10 @@ namespace ToolBarDcad
         private int _currentThickness;
         private readonly Brush _enabledColor;
         private readonly Brush _disabledColor;
+        public double _posX = 0.983;
+        public double _posY = 0.578;
+        public bool _ondrag = false;
+        private double _scale = 1;
 
         public int CurrentThickness
         {
@@ -73,12 +68,13 @@ namespace ToolBarDcad
 
         // ============ Constructor =============
 
-        public Pallet()
+        public Pallet(double scale)
         {
             InitializeComponent();
 
             Loaded += Pallet_Loaded;
 
+            _scale = scale;
             _enabledColor = Ep13Button.Background;
             _disabledColor = Ep10Button.Background;
             CurrentThickness = 10;
@@ -142,6 +138,18 @@ namespace ToolBarDcad
             Lay21Green.Click += Lay21Green_Click;
             Lay22Tomato.Click += Lay22Tomato_Click;
             PalletButton.Click += PalletButton_Click;
+            MouseDown += OnMouseLeftButtonDown;
+        }
+        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _ondrag = true;
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+
+            Rectangle r = WindowTools.GetWindowRect("DcP10");
+            _posX = (Left - r.Left) / (r.Width / _scale);
+            _posY = (Top - r.Top) / (r.Height / _scale);
+            _ondrag = false;
         }
 
         private void ColorRed_Click(object sender, EventArgs e) => ChangeColorAndLayer(255, 0, 0, 12);

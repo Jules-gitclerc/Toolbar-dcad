@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="Pallet" Height="398" Width="22" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" ShowInTaskbar="False">
+        Title="Pallet" Height="420" Width="22" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" ShowInTaskbar="False">
 	<Window.Resources>
 		<Style x:Key="FocusVisual">
 			<Setter Property="Control.Template">
@@ -64,31 +64,34 @@
 		</Style>
 	</Window.Resources>
 	<Grid>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="0,2,0,0" Content="10" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep10Button" Background="#FFEAEAEA" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 10mm" ToolTipService.ShowOnDisabled="True"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,25,2,0" Content="13" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep13Button" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 13mm" ToolTipService.ShowOnDisabled="True"/>
-		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,45,2,0" Background="#FFAA9C9C"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,50,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="PalletButton" ToolTip="Palette">
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="0,26,0,0" Content="10" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep10Button" Background="#FFEAEAEA" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 10mm" ToolTipService.ShowOnDisabled="True"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,49,2,0" Content="13" FontWeight="Bold" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="Ep13Button" Style="{DynamicResource ButtonStyle1}" ToolTip="Ep. 13mm" ToolTipService.ShowOnDisabled="True"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,69,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,74,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Name="PalletButton" ToolTip="Palette">
 			<Image Source="Icones/paletcolor.png"/>
 		</Button>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,73,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Black" Name="ColorBlack" ToolTip="1"/>
-		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,93,2,0" Background="#FFAA9C9C"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,98,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlue" ToolTip="10"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,121,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Red" Name="ColorRed" ToolTip="12"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,144,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlueHole" ToolTip="24"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,167,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PeachPuff" Name="ColorPeach" ToolTip="25"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,98,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="CornflowerBlue" Visibility="Hidden" Name="ColorLightBlue" ToolTip="11"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,121,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Maroon" Visibility="Hidden" Name="ColorMaroon" ToolTip="13"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,144,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="SlateGray" Visibility="Hidden" Name="ColorGray" ToolTip="26"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,167,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="LightGray" Visibility="Hidden" Name="ColorLightGray" ToolTip="27"/>
-		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,187,2,0" Background="#FFAA9C9C"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,192,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="ColorGreen" ToolTip="14"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,215,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay15Green" ToolTip="15"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,238,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PaleGreen" Name="Lay16Green" ToolTip="16"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,261,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="DarkMagenta" Name="Lay17Purple" ToolTip="17"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,284,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Magenta" Name="Lay18Purple" ToolTip="18"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,307,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="Lay19Green" ToolTip="19"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,330,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay20Green" ToolTip="20"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,353,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="OliveDrab" Name="Lay21Green" ToolTip="21"/>
-		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,376,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Tomato" Name="Lay22Tomato" ToolTip="22"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,97,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Black" Name="ColorBlack" ToolTip="1"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,117,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,122,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlue" ToolTip="10"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,145,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Red" Name="ColorRed" ToolTip="12"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,168,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Blue" Name="ColorBlueHole" ToolTip="24"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,191,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PeachPuff" Name="ColorPeach" ToolTip="25"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,122,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="CornflowerBlue" Visibility="Hidden" Name="ColorLightBlue" ToolTip="11"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,145,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Maroon" Visibility="Hidden" Name="ColorMaroon" ToolTip="13"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,168,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="SlateGray" Visibility="Hidden" Name="ColorGray" ToolTip="26"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,191,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="LightGray" Visibility="Hidden" Name="ColorLightGray" ToolTip="27"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2,211,2,0" Background="#FFAA9C9C"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,216,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="ColorGreen" ToolTip="14"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,239,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay15Green" ToolTip="15"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,263,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="PaleGreen" Name="Lay16Green" ToolTip="16"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,285,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="DarkMagenta" Name="Lay17Purple" ToolTip="17"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,308,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Magenta" Name="Lay18Purple" ToolTip="18"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,331,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Lime" Name="Lay19Green" ToolTip="19"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,354,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Green" Name="Lay20Green" ToolTip="20"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,377,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="OliveDrab" Name="Lay21Green" ToolTip="21"/>
+		<Button Width="18" Height="18" VerticalAlignment="Top" Margin="2,400,2,0" Padding="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="10" Background="Tomato" Name="Lay22Tomato" ToolTip="22"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2.2,18,2.2,0" Background="#FFAA9C9C"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2.2,11,2.2,0" Background="#FFAA9C9C"/>
+		<Separator Width="18" Height="2" VerticalAlignment="Top" Margin="2.2,5,2.2,0" Background="#FFAA9C9C"/>
 	</Grid>
 </Window>

@@ -4,26 +4,20 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Shapes;
 using ToolBarDcad.DesignCad;
 using ToolBarDcad.Paths;
 using ToolBarDcad.Tools;
 using Microsoft.VisualBasic;
-using System.Drawing;
 using System.Text;
 using System.Windows.Media.Imaging;
 using Rectangle = System.Drawing.Rectangle;
-using Point = System.Drawing.Point;
-using Size = System.Drawing.Size;
 using Application = DesignCAD.Application;
-using Image = System.Drawing.Image;
+using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace ToolBarDcad
 {
@@ -47,6 +41,10 @@ namespace ToolBarDcad
         private readonly string _dirNameApp;
         private bool _stopRead;
         private Pallet _palletForm;
+        private double _posX = 0.649;
+        private double _posY = 0.032;
+        private bool _ondrag = false;
+        private double _scale = 1;
 
         // ============ Constructor =============
 
@@ -55,13 +53,17 @@ namespace ToolBarDcad
             InitializeComponent();
 
             PreviewKeyDown += HandleEsc;
+            MouseDown += OnMouseLeftButtonDown;
             Loaded += MainWindow_Loaded;
             Closing += MainWindow_Closing;
             Closed += MainWindow_Closed;
             Activated += MainWindow_Activated;
             Deactivated += MainWindow_Deactivated;
 
-            _palletForm = new Pallet();
+            _scale = getScalingFactor() / 96;
+            _palletForm = new Pallet(_scale);
+            _palletForm.MouseEnter += (sender, args) => Mouse.OverrideCursor = Cursors.Hand;
+            _palletForm.MouseLeave += (sender, args) => Mouse.OverrideCursor = Cursors.Arrow;
 
             _fileNameApp = ConfigurationManager.AppSettings["FileNameApp"];
             _dirNameApp = ConfigurationManager.AppSettings["DirNameApp"];
@@ -74,7 +76,6 @@ namespace ToolBarDcad
             MaterialComboBox.SelectionChanged += MaterialComboBox_SelectionChanged;
             _stopRead = false;
         }
-
         // ============ BackgroundWorkers =============
 
         /// <summary>
@@ -228,20 +229,21 @@ namespace ToolBarDcad
 
                 if (App == null) break;
                 Rectangle r = WindowTools.GetWindowRect("DcP10");
-                Point location = new Point(r.Left + r.Width / 2 + r.Width / 9, r.Top + 8);
 
-                Dispatcher.BeginInvoke((Action)(() =>
+                if (_ondrag == _palletForm._ondrag)
                 {
-                    Top = location.Y;
-                    Left = location.X;
-                }));
+                    Dispatcher.BeginInvoke((Action)(() =>
+                    {
+                        Left = (_posX * r.Width + r.Left) / _scale;
+                        Top = (_posY * r.Height + r.Top) / _scale;
+                    }));
 
-                Dispatcher.BeginInvoke((Action)(() =>
-                {
-                    Point palletLocation = new Point((int)(r.Right - _palletForm.Width - 10), (int)(r.Bottom - _palletForm.Height - 50));
-                    _palletForm.Top = palletLocation.Y;
-                    _palletForm.Left = palletLocation.X;
-                }));
+                    Dispatcher.BeginInvoke((Action)(() =>
+                    {
+                        _palletForm.Left = (_palletForm._posX * r.Width + r.Left) / _scale;
+                        _palletForm.Top = (_palletForm._posY * r.Height + r.Top) / _scale;
+                    }));
+                }
 
                 if (_stopRead == false)
                 {
@@ -251,6 +253,44 @@ namespace ToolBarDcad
                 }
             }
         }
+
+        /*
+         * 
+         * La fonction getScalingFactor() return la mise à l'echelle de l'écran (à diviser par 96 pour avoir le ratio)
+         * Exemple : 96 -> 1.00 (100%) ou 120 -> 1.25 (125%)
+         * Pour plus d'informations sur l'enum DeviceCap : http://pinvoke.net/default.aspx/gdi32/GetDeviceCaps.html
+         *
+         * 
+         */
+
+        [DllImport("gdi32.dll")]
+
+        static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
+
+        public enum DeviceCap
+        {
+            VERTSIZE = 6,
+            VERTRES = 10,
+            LOGPIXELSX = 88,
+            LOGPIXELSY = 90,
+            SCALINGFACTORX = 114,
+            DESKTOPVERTRES = 117,
+        }
+
+
+        private float getScalingFactor()
+        {
+            Graphics g = Graphics.FromHwnd(IntPtr.Zero);
+            IntPtr desktop = g.GetHdc();
+            int LogicalScreenHeight = GetDeviceCaps(desktop, (int)DeviceCap.VERTRES);
+            int PhysicalScreenHeight = GetDeviceCaps(desktop, (int)DeviceCap.DESKTOPVERTRES);
+
+            float ScreenScalingFactor = (float)(GetDeviceCaps(Graphics.FromHwnd(IntPtr.Zero).GetHdc(), (int)DeviceCap.LOGPIXELSX));
+
+            return ScreenScalingFactor;
+        }
+
+
 
         /// <summary>
         /// Handles the end of the DocWorker thread.
@@ -278,7 +318,7 @@ namespace ToolBarDcad
                 if (!WindowTools.IsDesignCADActive(App)) continue;
                 try
                 {
-                    Dispatcher.BeginInvoke((Action) (() =>
+                    Dispatcher.BeginInvoke((Action)(() =>
                     {
                         if (App.ActiveDocument == null)
                         {
@@ -414,21 +454,21 @@ namespace ToolBarDcad
         public void ToggleIcons()
         {
             if (Model == "primo exel" || Model == "duo exel" || Model == "exeleo")
-                ChapButton.ToolTip = new ToolTip {Content = "Kit 4 chapes"};
+                ChapButton.ToolTip = new ToolTip { Content = "Kit 4 chapes" };
             else if (Model == "brio")
-                ChapButton.ToolTip = new ToolTip {Content = "Repère 50"};
+                ChapButton.ToolTip = new ToolTip { Content = "Repère 50" };
             else if (Model == "brio exel")
-                ChapButton.ToolTip = new ToolTip {Content = "Repère 60"};
+                ChapButton.ToolTip = new ToolTip { Content = "Repère 60" };
             else if (Model == "hauzeo")
-                ChapButton.ToolTip = new ToolTip {Content = "Repère 70"};
+                ChapButton.ToolTip = new ToolTip { Content = "Repère 70" };
             else
-                ChapButton.ToolTip = new ToolTip {Content = "Kit 3 chapes"};
+                ChapButton.ToolTip = new ToolTip { Content = "Kit 3 chapes" };
             if (Model == "bambino")
                 ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape_bambino.ico", UriKind.Relative));
             else
                 ChapIcon.Source = new BitmapImage(new Uri(@"/Icones/Chape.ico", UriKind.Relative));
 
-            FootButton.ToolTip = new ToolTip {Content = "Pied " + Material};
+            FootButton.ToolTip = new ToolTip { Content = "Pied " + Material };
 
             ChangeRefendButtons(Model);
             ChangeProfileButtons(Model);
@@ -510,12 +550,12 @@ namespace ToolBarDcad
             if (model == "exeleo")
             {
                 RcIcon.Source = new BitmapImage(new Uri(@"/Icones/Feuillures ext.ico", UriKind.Relative));
-                RagButton.ToolTip = new ToolTip {Content = "Feuillure intérieure gauche"};
-                RadButton.ToolTip = new ToolTip {Content = "Feuillure intérieure droite"};
-                RbButton.ToolTip = new ToolTip {Content = "Feuillures intérieures"};
-                RcgButton.ToolTip = new ToolTip {Content = "Feuillure extérieure gauche"};
-                RcdButton.ToolTip = new ToolTip {Content = "Feuillure extérieure droite" };
-                RcButton.ToolTip = new ToolTip {Content = "Feuillures extérieures" };
+                RagButton.ToolTip = new ToolTip { Content = "Feuillure intérieure gauche" };
+                RadButton.ToolTip = new ToolTip { Content = "Feuillure intérieure droite" };
+                RbButton.ToolTip = new ToolTip { Content = "Feuillures intérieures" };
+                RcgButton.ToolTip = new ToolTip { Content = "Feuillure extérieure gauche" };
+                RcdButton.ToolTip = new ToolTip { Content = "Feuillure extérieure droite" };
+                RcButton.ToolTip = new ToolTip { Content = "Feuillures extérieures" };
             }
             else
             {
@@ -591,11 +631,11 @@ namespace ToolBarDcad
                 return (null);
             foreach (var item in menu.Items)
             {
-                if (header == ((MenuItem) item).Header.ToString())
-                    return ((MenuItem) item);
+                if (header == ((MenuItem)item).Header.ToString())
+                    return ((MenuItem)item);
 
-                var result = FindSubMenu((MenuItem) item, header);
-                if (result != null) 
+                var result = FindSubMenu((MenuItem)item, header);
+                if (result != null)
                     return (result);
             }
             return (null);
@@ -700,6 +740,17 @@ namespace ToolBarDcad
             if (e.Key != Key.Escape) return;
             Close();
         }
+        private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _ondrag = true;
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
+
+            Rectangle r = WindowTools.GetWindowRect("DcP10");
+            _posX = (Left - r.Left) / (r.Width / _scale);
+            _posY = (Top - r.Top) / (r.Height / _scale);
+            _ondrag = false;
+        }
 
         private void DocsManager_RaiseDialogBoxEvent(object sender, EventArgs e)
         {
@@ -733,7 +784,7 @@ namespace ToolBarDcad
                 item.Header = new StringBuilder("Repérage façade reno");
 
                 MenuItem cabinItem = FindMenuItem("Cabine");
-                MenuItem flsk = new MenuItem {Header = new StringBuilder("Poser façade reno")};
+                MenuItem flsk = new MenuItem { Header = new StringBuilder("Poser façade reno") };
 
                 flsk.Click += PoserFlasqueMenuItem_Click;
                 if (cabinItem == null) return;
