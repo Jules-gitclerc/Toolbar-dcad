@@ -189,6 +189,8 @@ namespace ToolBarDcad.Paths
                 {"ProfilAuSol", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\Cabines\profil_sol.d3m"},
                 {"PoserFlasque", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Flasque.d3m"},
                 {"PoserCabinePNPC", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\cabine_pnpc.d3m"},
+                {"AjusterCabinePNPC", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\banc_pnpc.d3m"},
+                {"RepererCabinePNPC", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\PNPC\reperage_pnpc.d3m"},
 
                 // Logo
 

@@ -241,6 +241,11 @@
 					<MenuItem Header="Ajout fond angle cabine" Click="AjoutFondAngleMenuItem_Click"/>
 					<MenuItem Header="Repérer refend et fond" Click="FondRepererRefendMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="PNPC" Visibility="Collapsed">
+					<MenuItem Header="Poser cabine PNPC" Click="PoserPNPCMenuItem_Click"/>
+					<MenuItem Header="Ajuster et poser banc PNPC" Click="AjusterPNPCMenuItem_Click"/>
+					<MenuItem Header="Repérage façade PNPC" Click="RepererPNPCMenuItem_Click"/>
+				</MenuItem>
 				<MenuItem Header="Profil au sol" Click="ProfilAuSolMenuItem_Click"/>
 			</MenuItem>
 			<MenuItem Header="Logo">
