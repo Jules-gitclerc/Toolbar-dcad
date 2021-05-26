@@ -60,7 +60,7 @@ namespace ToolBarDcad
             Activated += MainWindow_Activated;
             Deactivated += MainWindow_Deactivated;
 
-            _scale = getScalingFactor() / 96;
+            _scale = GetScalingFactor() / 96;
             _palletForm = new Pallet(_scale);
             _palletForm.MouseEnter += (sender, args) => Mouse.OverrideCursor = Cursors.Hand;
             _palletForm.MouseLeave += (sender, args) => Mouse.OverrideCursor = Cursors.Arrow;
@@ -278,7 +278,7 @@ namespace ToolBarDcad
         }
 
 
-        private float getScalingFactor()
+        private float GetScalingFactor()
         {
             Graphics g = Graphics.FromHwnd(IntPtr.Zero);
             IntPtr desktop = g.GetHdc();
