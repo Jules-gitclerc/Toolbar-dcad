@@ -243,6 +243,7 @@
 				</MenuItem>
 				<MenuItem Header="PNPC" Visibility="Collapsed">
 					<MenuItem Header="Poser cabine PNPC" Click="PoserPNPCMenuItem_Click"/>
+					<MenuItem Header="Poser cabine PNPC paumelles dos à dos" Click="PoserPNPCdosAdosMenuItem_Click"/>
 					<MenuItem Header="Ajuster et poser banc PNPC" Click="AjusterPNPCMenuItem_Click"/>
 					<MenuItem Header="Repérage façade PNPC" Click="RepererPNPCMenuItem_Click"/>
 				</MenuItem>
