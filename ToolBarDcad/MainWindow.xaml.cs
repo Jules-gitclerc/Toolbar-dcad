@@ -1001,6 +1001,7 @@ namespace ToolBarDcad
         private void CotationAxeCasMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CotationAxeCasier");
         private void CotationFacadeCasMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("CotationFacadeCasier");
         private void PoserPNPCdosAdosMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserPNPCdosAdos");
+        private void PoserRefendTerminaison_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserRefendTerminaison");
 
         private void RagButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfig" : "PoserRag");
         private void RadButton_Click(object sender, EventArgs e) => LaunchMacro(Model == "exeleo" ? "PoserRcfid" : "PoserRad");
