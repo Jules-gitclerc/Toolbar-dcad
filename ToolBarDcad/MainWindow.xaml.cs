@@ -990,6 +990,7 @@ namespace ToolBarDcad
         private void LogoWCMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("LogoWC");
         private void FacadeBambinoMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("FacadeBambino");
         private void PorteBambinoMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PorteBambino");
+        private void AnnulerReperage_Click(object sender, RoutedEventArgs e) => LaunchMacro("AnnulerReperage");
         private void PoserPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("PoserPorte");
         private void AjusterPorteMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("AjusterPorte");
         private void ProfilAuSolMenuItem_Click(object sender, RoutedEventArgs e) => LaunchMacro("ProfilAuSol");
@@ -1046,5 +1047,10 @@ namespace ToolBarDcad
             File.WriteAllLines(@"\\serv-kalysse\EDatas\Dev\Datas\Casiers\armoires_config.txt", new List<string> { "resultat:", "25CL1500" });
             LaunchMacro("ArmoiresCollectives");
         }
-    }
+
+		private void MenuItem_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }

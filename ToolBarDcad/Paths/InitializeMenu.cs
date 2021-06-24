@@ -45,6 +45,7 @@ namespace ToolBarDcad.Paths
                 {"ChangerMateriau", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\material_swap.d3m"},
                 {"FacadeBambino", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Facade_bambino_dxf.d3m"},
                 {"PorteBambino", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Cabines\Porte_bambino_dxf.d3m"},
+                {"AnnulerReperage", @"\\Serv-kalysse\be\Macros et interface\Kalysse DesignCAD\reset_reperage.d3m"},
 
                 // Vestiaire
 

@@ -26,6 +26,7 @@
 					<MenuItem Header="Façade Bambino" Click="FacadeBambinoMenuItem_Click"/>
 					<MenuItem Header="Porte Bambino" Click="PorteBambinoMenuItem_Click"/>
 				</MenuItem>
+				<MenuItem Header="Annuler repérage" Click="AnnulerReperage_Click"/>
 			</MenuItem>
 			<MenuItem Header="Vestiaire">
 				<MenuItem Header="Casiers">
