@@ -742,14 +742,20 @@ namespace ToolBarDcad
         }
         private void OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _ondrag = true;
-            base.OnMouseLeftButtonDown(e);
-            this.DragMove();
 
-            Rectangle r = WindowTools.GetWindowRect("DcP10");
-            _posX = (Left - r.Left) / (r.Width / _scale);
-            _posY = (Top - r.Top) / (r.Height / _scale);
-            _ondrag = false;
+            if (e.ChangedButton == MouseButton.Left)
+			{
+                _ondrag = true;
+
+                base.OnMouseLeftButtonDown(e);
+                this.DragMove();
+
+                Rectangle r = WindowTools.GetWindowRect("DcP10");
+                _posX = (Left - r.Left) / (r.Width / _scale);
+                _posY = (Top - r.Top) / (r.Height / _scale);
+                _ondrag = false;
+            }
+
         }
 
         private void DocsManager_RaiseDialogBoxEvent(object sender, EventArgs e)

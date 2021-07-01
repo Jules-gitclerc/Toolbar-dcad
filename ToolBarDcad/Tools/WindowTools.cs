@@ -8,7 +8,7 @@ using Application = DesignCAD.Application;
 using System.Drawing;
 using Point = System.Drawing.Point;
 using Size = System.Drawing.Size;
-
+using System.IO;
 
 namespace ToolBarDcad.Tools
 {
@@ -127,12 +127,15 @@ namespace ToolBarDcad.Tools
             catch (OverflowException e)
             {
                 Debug.WriteLine(e.Message + Environment.NewLine + e.StackTrace);
+                string log = $"{e.Message} {Environment.NewLine} {e.StackTrace}";
+
                 long l = hWnd.ToInt64();
                 return l == app?.HWnd;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
+                string log = $"{ex.Message} {Environment.NewLine} {ex.StackTrace}";
                 return false;
             }
         }
