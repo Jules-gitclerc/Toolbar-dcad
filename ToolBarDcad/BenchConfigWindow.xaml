@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="Configuration des bancs" Height="159.992" Width="808.593">
+        Title="Configuration des bancs bois" Height="159.992" Width="808.593">
 	<Grid>
 		<GroupBox Header="Patère" HorizontalAlignment="Left" Height="95" Margin="281,10,0,0" VerticalAlignment="Top" Width="236" RenderTransformOrigin="0.409,-0.052">
 			<Grid>

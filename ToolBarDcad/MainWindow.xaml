@@ -321,6 +321,6 @@
 		</Button>
 		<CheckBox Content="Reno" HorizontalAlignment="Left" Margin="442,65,0,0" VerticalAlignment="Top" Checked="RenoOptionCheckBox_OnChecked" Unchecked="RenoOptionCheckBox_OnChecked" Name="RenoOptionCheckBox"/>
 		<CheckBox Content="PNPC" HorizontalAlignment="Left" Margin="379,65,0,0" VerticalAlignment="Top" Checked="PNPCOptionCheckBox_OnChecked" Unchecked="PNPCOptionCheckBox_OnChecked" x:Name="PNPCOptionCheckBox"/>
-		<Button x:Name="BenchConfigButton" Content="Configuration Bancs" HorizontalAlignment="Left" Height="20" Margin="10,90,0,-17" VerticalAlignment="Top" Width="114" FontSize="10" Click="BenchConfigButton_Click"/>
+		<Button x:Name="BenchConfigButton" Content="Bancs Bois" HorizontalAlignment="Left" Height="20" Margin="10,90,0,-17" VerticalAlignment="Top" Width="84" FontSize="10" Click="BenchConfigButton_Click"/>
 	</Grid>
 </Window>
