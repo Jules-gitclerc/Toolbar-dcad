@@ -1058,5 +1058,10 @@ namespace ToolBarDcad
 		{
 
 		}
+
+		private void BenchConfigButton_Click(object sender, RoutedEventArgs e)
+		{
+            new BenchConfigWindow().Show();
+		}
 	}
 }

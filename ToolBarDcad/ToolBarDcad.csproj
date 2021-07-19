@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BenchConfigWindow.xaml.cs">
+      <DependentUpon>BenchConfigWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DesignCad\DcDocument.cs" />
     <Compile Include="DesignCad\DocumentsManager.cs" />
     <Compile Include="DesignCad\LaunchMacroEventArgs.cs" />
@@ -71,6 +74,10 @@
     <Compile Include="Paths\InitializeMenu.cs" />
     <Compile Include="Tools\ProcessTools.cs" />
     <Compile Include="Tools\WindowTools.cs" />
+    <Page Include="BenchConfigWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

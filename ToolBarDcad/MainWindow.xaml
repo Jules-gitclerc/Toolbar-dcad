@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="93" Width="600" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
-	<Grid Height="93" VerticalAlignment="Top">
+        Title="MainWindow" Height="119.308" Width="600" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="Manual" Left="-5000" Top="-5000" Topmost="True" BorderBrush="#FF77BBFF" BorderThickness="2">
+	<Grid Height="93" VerticalAlignment="Top" Margin="0,0,0,-4">
 		<Menu Width="470" Height="24" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,32,0,0" Name="MacroMenu">
 			<MenuItem Header="Outils Kalysse" Height="24" Width="85" IsCheckable="False">
 				<MenuItem Header="Cartouche" Padding="0" Margin="0" Click="CartoucheMenuItem_Click"/>
@@ -321,5 +321,6 @@
 		</Button>
 		<CheckBox Content="Reno" HorizontalAlignment="Left" Margin="442,65,0,0" VerticalAlignment="Top" Checked="RenoOptionCheckBox_OnChecked" Unchecked="RenoOptionCheckBox_OnChecked" Name="RenoOptionCheckBox"/>
 		<CheckBox Content="PNPC" HorizontalAlignment="Left" Margin="379,65,0,0" VerticalAlignment="Top" Checked="PNPCOptionCheckBox_OnChecked" Unchecked="PNPCOptionCheckBox_OnChecked" x:Name="PNPCOptionCheckBox"/>
+		<Button x:Name="BenchConfigButton" Content="Configuration Bancs" HorizontalAlignment="Left" Height="20" Margin="10,90,0,-17" VerticalAlignment="Top" Width="114" FontSize="10" Click="BenchConfigButton_Click"/>
 	</Grid>
 </Window>
