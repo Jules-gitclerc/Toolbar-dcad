@@ -26,7 +26,7 @@ namespace ToolBarDcad
 		private const string _standardPatereFile = @"config_pateres_standards.txt";
 		private const string _boxPatereFile = @"config_pateres_box.txt";
 		private const string _filPateresFile = @"config_pateres_fil.txt";
-		private const string _editListText = "Editer la liste";
+		private const string _editListText = "Éditer la liste";
 		private const string _savePath = @"C:\KalysseDesignCAD\banc_config.txt";
 		private Dictionary<string, string> _fileForEachNameDico = new Dictionary<string, string>();
 
@@ -103,16 +103,14 @@ namespace ToolBarDcad
 			try
 			{
 				string[] lines = System.IO.File.ReadAllLines(_savePath);
-
-				ConsoleColoringCombo.SelectedItem = lines[1];
-				LisseCombo.SelectedItem = lines[2];
-				PatereColoringCombo.SelectedItem = lines[4];
-				PatereTypeCombo.SelectedItem = lines[5];
+				string[] attributes = lines[1].Split(';');
+				ConsoleColoringCombo.SelectedItem = attributes[0];
+				LisseCombo.SelectedItem = attributes[1];
+				PatereColoringCombo.SelectedItem = attributes[2];
+				PatereTypeCombo.SelectedItem = attributes[3];
 
 				if (LisseCombo.SelectedItem.ToString() != lisses[0])
-					LisseColoringCombo.SelectedItem = lines[3];
-
-
+					LisseColoringCombo.SelectedItem = attributes[3];
 			}
 			catch
 			{
@@ -188,21 +186,11 @@ namespace ToolBarDcad
 			if (!IsLoaded)
 				return;
 
-			string content = "Format : Couleur de la console\\nLisse\\nCouleur de la lisse\\nType Patère\\nPatère\\nCouleur Patère\n" +
-				$"{ConsoleColoringCombo.SelectedItem}\n" +
-				$"{LisseCombo.SelectedItem}\n" +
-				$"{LisseColoringCombo.SelectedItem}\n" +
-				$"{PatereTypeCombo.SelectedItem}\n" +
-				$"{PatereColoringCombo.SelectedItem}\n";
+			string content = "Couleur de la console;Lisse;Couleur de la lisse;Type Patère;Patère;Couleur Patère\n" +
+				$"{ConsoleColoringCombo.SelectedItem};{LisseCombo.SelectedItem};{LisseColoringCombo.SelectedItem};{PatereTypeCombo.SelectedItem};{PatereColoringCombo.SelectedItem}\n";
 
 			File.WriteAllText(_savePath, content);
-/*
-Charger le fichier dans les macros DCAD :
-Open "o", 1, "C:\KalysseDesignCAD\model_config.txt"
-Print #1, sysex$(1)
-Print #1, sysex$(2)
-Close
-*/
+
 		}
 
 		private void LisseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
