@@ -103,14 +103,14 @@ namespace ToolBarDcad
 			try
 			{
 				string[] lines = System.IO.File.ReadAllLines(_savePath);
-				string[] attributes = lines[1].Split(';');
-				ConsoleColoringCombo.SelectedItem = attributes[0];
-				LisseCombo.SelectedItem = attributes[1];
-				PatereColoringCombo.SelectedItem = attributes[2];
-				PatereTypeCombo.SelectedItem = attributes[3];
+
+				ConsoleColoringCombo.SelectedItem = lines[1];
+				LisseCombo.SelectedItem = lines[2];
+				PatereColoringCombo.SelectedItem = lines[3];
+				PatereTypeCombo.SelectedItem = lines[4];
 
 				if (LisseCombo.SelectedItem.ToString() != lisses[0])
-					LisseColoringCombo.SelectedItem = attributes[3];
+					LisseColoringCombo.SelectedItem = lines[3];
 			}
 			catch
 			{
@@ -186,8 +186,8 @@ namespace ToolBarDcad
 			if (!IsLoaded)
 				return;
 
-			string content = "Couleur de la console;Lisse;Couleur de la lisse;Type Patère;Patère;Couleur Patère\n" +
-				$"{ConsoleColoringCombo.SelectedItem};{LisseCombo.SelectedItem};{LisseColoringCombo.SelectedItem};{PatereTypeCombo.SelectedItem};{PatereColoringCombo.SelectedItem}\n";
+			string content = "Couleur Console;Lisse;Couleur Lisse;Type Patère;Couleur Patère\n" +
+				$"{ConsoleColoringCombo.SelectedItem}\n{LisseCombo.SelectedItem}\n{LisseColoringCombo.SelectedItem}\n{PatereTypeCombo.SelectedItem}\n{PatereColoringCombo.SelectedItem}\n";
 
 			File.WriteAllText(_savePath, content);
 
