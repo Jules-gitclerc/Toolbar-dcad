@@ -54,9 +54,6 @@ namespace ToolBarDcad
 			LoadCombo(PatereTypeCombo, _patereTypes);
 
 			SelectCombos();
-
-			if (!File.Exists(SavePath))
-				WriteConfigToFile();
 		}
 
 		private void SelectCombos()
@@ -142,12 +139,7 @@ namespace ToolBarDcad
 
 			foreach (var comboBox in comboBoxes)
 			{
-				if (comboBox.SelectedItem == null)
-				{
-					content += "\n";
-					continue;
-				}
-				if (comboBox.SelectedItem.ToString() == _editListText)
+				if (comboBox.SelectedItem == null || comboBox.SelectedItem.ToString() == _editListText)
 					return;
 
 				if (comboBox == LisseCombo || comboBox == PatereTypeCombo)
