@@ -54,9 +54,6 @@ namespace ToolBarDcad
 			LoadCombo(PatereTypeCombo, _patereTypes);
 
 			SelectCombos();
-
-			if (!File.Exists(SavePath))
-				WriteConfigToFile();
 		}
 
 		private void SelectCombos()
