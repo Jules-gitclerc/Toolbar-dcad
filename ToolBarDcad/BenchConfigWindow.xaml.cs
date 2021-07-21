@@ -98,6 +98,11 @@ namespace ToolBarDcad
 				combo.SelectionChanged += EditList;
 				_fileForEachNameDico.Add(combo.Name, file);
 			}
+			else
+			{
+				_fileForEachNameDico[combo.Name] = file;
+			}
+
 			List<string> comboContent = lines.Skip(2).Select(line => $"{line.Split(';')[0]} - {line.Split(';')[1]}").ToList();
 
 			LoadCombo(combo, comboContent);
@@ -134,18 +139,19 @@ namespace ToolBarDcad
 
 		private void WriteConfigToFile()
 		{
-			ComboBox[] comboBoxes = new ComboBox[] { ConsoleColoringCombo, LisseCombo, LisseColoringCombo, PatereTypeCombo, PatereColoringCombo };
-			string content = @"// Format du fichier : voir \\serv-kalysse\EDatas\Dev\Doc\DocMacro\Macros Bancs Bois.docx" + "\n";
 
-			foreach (var comboBox in comboBoxes)
-			{
-				if (comboBox.SelectedItem == null)
+				ComboBox[] comboBoxes = new ComboBox[] { ConsoleColoringCombo, LisseCombo, LisseColoringCombo, PatereTypeCombo, PatereColoringCombo };
+				string content = @"// Format du fichier : voir \\serv-kalysse\EDatas\Dev\Doc\DocMacro\Macros Bancs Bois.docx" + "\n";
+
+				foreach (var comboBox in comboBoxes)
 				{
-					content += "\n";
-					continue;
-				}
-				if (comboBox.SelectedItem.ToString() == _editListText)
-					return;
+					if (comboBox.SelectedItem == null)
+					{
+						content += "\n";
+						continue;
+					}
+					if (comboBox.SelectedItem.ToString() == _editListText)
+						return;
 
 				if (comboBox == LisseCombo || comboBox == PatereTypeCombo)
 				{
@@ -153,11 +159,15 @@ namespace ToolBarDcad
 				}
 				else
 				{
+
 					string file = _fileForEachNameDico[comboBox.Name];
 					string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{file}");
 
 					string coloringRAL = comboBox.SelectedItem.ToString().Split(new string[] { " - " }, StringSplitOptions.RemoveEmptyEntries)[0];
 					string selectedLine = lines.Where(line => line.Split(';')[0] == coloringRAL).FirstOrDefault();
+					if (selectedLine == null)
+						return;
+
 					string[] attributes = selectedLine.Split(';');
 
 					foreach (string attribute in attributes)
@@ -165,9 +175,10 @@ namespace ToolBarDcad
 						content += $"{attribute}\n";
 					}
 				}
-			}
 
-			File.WriteAllText(SavePath, content);
+				File.WriteAllText(SavePath, content);
+			}
+			
 		}
 
 		private void LisseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
