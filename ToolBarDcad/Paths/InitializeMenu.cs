@@ -234,6 +234,10 @@ namespace ToolBarDcad.Paths
                 {"Repere12", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.12.d3m"},
                 {"Repere12P", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.12P.d3m"},
                 {"Repere14", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Profils\Macros\ImportRep.14.d3m"},
+
+
+                // BAncs bois
+                { "BancsBoisConfig", @"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Bancs\Modele\set_config_bancs.d3m" }
             };
 
             return newDict;

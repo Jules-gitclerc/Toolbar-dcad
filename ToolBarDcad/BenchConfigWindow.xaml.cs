@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ToolBarDcad.DesignCad;
+using ToolBarDcad.Paths;
 
 namespace ToolBarDcad
 {
@@ -27,6 +30,9 @@ namespace ToolBarDcad
 		private const string _standardPatereFile = @"config_pateres_standards.txt";
 		private const string _boxPatereFile = @"config_pateres_box.txt";
 		private const string _filPateresFile = @"config_pateres_fil.txt";
+		private const string _lamesFile = @"config_lames.txt";
+		private const string _typesLisseFile = @"config_types_lisses.txt";
+
 		private const string _editListText = "Éditer la liste";
 		private Dictionary<string, string> _fileForEachNameDico = new Dictionary<string, string>();
 
@@ -35,48 +41,72 @@ namespace ToolBarDcad
 			"Patères standards",
 			"Patères box"
 		};
-		private List<string> _lisses = new List<string>()
-		{
-			"Lisse en sapin rouge",
-			"Fil sur lisse métallique"
-		};
+		private List<string> _lisses;
+		private MainWindow _mainWindow;
 
+		public DocumentsManager DocsManager { get; }
 
-
-		public BenchConfigWindow()
+		public BenchConfigWindow(MainWindow mainWindow)
 		{
 			InitializeComponent();
+			_mainWindow = mainWindow;
+			Left = (_mainWindow.Left + _mainWindow.Width) - Width;
+			Top = _mainWindow.Top;
+			DocsManager = new DocumentsManager(mainWindow.App);
+			Topmost = true;
 
-			LoadComboFromFile(LisseColoringCombo, _colorConfigFile);
-			LoadComboFromFile(ConsoleColoringCombo, _colorConfigFile);
-			LoadComboFromFile(PatereColoringCombo, _standardPatereFile);
-			LoadCombo(LisseCombo, _lisses);
+
+			string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{_typesLisseFile}");
+			_lisses = lines.Skip(2).Select(line => $"{line.Split(';')[0]}").ToList();
+
+			LoadColoringComboFromFile(LisseColoringCombo, _colorConfigFile);
+			LoadColoringComboFromFile(ConsoleColoringCombo, _colorConfigFile);
+			LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
+
+			LoadComboFromFile(LameCombo, _lamesFile);
+			LoadComboFromFile(LisseCombo, _typesLisseFile);
 			LoadCombo(PatereTypeCombo, _patereTypes);
 
 			SelectCombos();
+
+			Loaded += (e, s) => WriteConfigToFile();
 		}
+
+
 
 		private void SelectCombos()
 		{
 			try
 			{
 				string[] lines = System.IO.File.ReadAllLines(SavePath);
+				ComboBox[] comboBoxes = new ComboBox[] { ConsoleColoringCombo, LisseCombo, LisseColoringCombo, PatereTypeCombo, PatereColoringCombo, LameCombo };
+				string[] indexes = lines[0].Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+				int i = 0;
 
-				ConsoleColoringCombo.SelectedItem = $"{lines[1]} - {lines[2]}";
+				foreach (var comboBox in comboBoxes)
+				{
+					comboBox.SelectedIndex = int.Parse(indexes[i]);
+					i++;
+				}
+
+
+/*				ConsoleColoringCombo.SelectedItem = $"{lines[1]} - {lines[2]}";
 				LisseCombo.SelectedItem = $"{lines[3]}";
 				PatereTypeCombo.SelectedItem = lines[4];
 				PatereColoringCombo.SelectedItem = $"{lines[5]} - {lines[6]}";
 
 				if (LisseCombo.SelectedItem.ToString() != _lisses[0])
-					LisseColoringCombo.SelectedItem = $"{lines[8]} - {lines[9]}";
+					LisseColoringCombo.SelectedItem = $"{lines[8]} - {lines[9]}";*/
 			}
 			catch
 			{
 				// default config
 				ConsoleColoringCombo.SelectedIndex = 3;
 				PatereColoringCombo.SelectedIndex = 0;
+				PatereTypeCombo.SelectedIndex = 0;
 				LisseColoringCombo.SelectedIndex = 0;
 				LisseCombo.SelectedIndex = 0;
+				LameCombo.SelectedIndex = 0;
 				if (LisseColoringCombo.IsEnabled)
 					PatereTypeCombo.SelectedIndex = 0;
 
@@ -103,8 +133,8 @@ namespace ToolBarDcad
 				_fileForEachNameDico[combo.Name] = file;
 			}
 
-			List<string> comboContent = lines.Skip(2).Select(line => $"{line.Split(';')[0]} - {line.Split(';')[1]}").ToList();
-
+			List<string> comboContent = lines.Skip(2).Select(line => $"{line.Split(';')[0]}").ToList();
+	
 			LoadCombo(combo, comboContent);
 			int last = combo.Items.Add(_editListText);
 		}
@@ -126,6 +156,44 @@ namespace ToolBarDcad
 			LoadComboFromFile(comboBox, file);
 		}
 
+
+		private void LoadColoringComboFromFile(ComboBox combo, string file)
+		{
+			string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{file}");
+			if (!_fileForEachNameDico.ContainsKey(combo.Name))
+			{
+				combo.SelectionChanged += EditColoringList;
+				_fileForEachNameDico.Add(combo.Name, file);
+			}
+			else
+			{
+				_fileForEachNameDico[combo.Name] = file;
+			}
+
+			List<string> comboContent = lines.Skip(2).Select(line => $"{line.Split(';')[0]} - {line.Split(';')[1]}").ToList();
+
+			LoadCombo(combo, comboContent);
+			int last = combo.Items.Add(_editListText);
+		}
+
+		private void EditColoringList(object sender, SelectionChangedEventArgs e)
+		{
+			if (!IsLoaded || e.AddedItems.Count == 0 || (e.AddedItems[0] as string) != _editListText)
+				return;
+			ComboBox comboBox = (sender as ComboBox);
+			string file = _fileForEachNameDico[comboBox.Name];
+
+			Process p = new Process();
+			p.StartInfo.WorkingDirectory = @"\\serv-kalysse\EDatas\Logiciels\AttributeConfig\";
+			p.StartInfo.FileName = "AttributeConfig.exe";
+			p.StartInfo.Arguments = $@"\\serv-kalysse\EDatas\Dev\Datas\Bancs\{file}";
+			p.Start();
+			p.WaitForExit();
+			comboBox.SelectedItem = 0;
+			LoadColoringComboFromFile(comboBox, file);
+		}
+
+
 		private void LoadCombo(ComboBox combo, List<string> contentList)
 		{
 			combo.Items.Clear();
@@ -134,24 +202,31 @@ namespace ToolBarDcad
 				combo.Items.Add(contentLine);
 			}
 			combo.SelectedIndex = 0;
-			
 		}
 
+		// Format du fichier : voir \\serv-kalysse\EDatas\Dev\Doc\DocMacro\Macros Bancs Bois.docx
 		private void WriteConfigToFile()
 		{
+			if (!IsLoaded)
+				return;
 
-				ComboBox[] comboBoxes = new ComboBox[] { ConsoleColoringCombo, LisseCombo, LisseColoringCombo, PatereTypeCombo, PatereColoringCombo };
-				string content = @"// Format du fichier : voir \\serv-kalysse\EDatas\Dev\Doc\DocMacro\Macros Bancs Bois.docx" + "\n";
+			ComboBox[] comboBoxes = new ComboBox[] { ConsoleColoringCombo, LisseCombo, LisseColoringCombo, PatereTypeCombo, PatereColoringCombo, LameCombo };
+			string content = "";
+			foreach (var comboBox in comboBoxes)
+			{
+				content += $"{comboBox.SelectedIndex};";
+			}
+			content += "\n";
 
-				foreach (var comboBox in comboBoxes)
+			foreach (var comboBox in comboBoxes)
+			{
+				if (comboBox.SelectedItem == null)
 				{
-					if (comboBox.SelectedItem == null)
-					{
-						content += "\n";
-						continue;
-					}
-					if (comboBox.SelectedItem.ToString() == _editListText)
-						return;
+					content += "\n";
+					continue;
+				}
+				if (comboBox.SelectedItem.ToString() == _editListText)
+					return;
 
 				if (comboBox == LisseCombo || comboBox == PatereTypeCombo)
 				{
@@ -159,7 +234,6 @@ namespace ToolBarDcad
 				}
 				else
 				{
-
 					string file = _fileForEachNameDico[comboBox.Name];
 					string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{file}");
 
@@ -175,21 +249,27 @@ namespace ToolBarDcad
 						content += $"{attribute}\n";
 					}
 				}
-
-				File.WriteAllText(SavePath, content);
 			}
-			
+			File.WriteAllText(SavePath, content);
+			DocsManager.SetActiveDoc();
+			DocsManager.ActiveDoc.RunBasicCAD(@"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Bancs\Modele\set_config_bancs.d3m");
+			Activate();
 		}
 
 		private void LisseCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			if (LisseCombo.SelectedItem == null)
+				return;
+			if (!LisseCombo.IsDropDownOpen)
+				return;
+
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
 				PatereTypeCombo.Items.Clear();
 				PatereTypeCombo.Items.Add("Patères fil");
 				PatereTypeCombo.SelectedIndex = 0;
-				LoadComboFromFile(LisseColoringCombo, _colorConfigFile);
-				LoadComboFromFile(PatereColoringCombo, _filPateresFile);
+				LoadColoringComboFromFile(LisseColoringCombo, _colorConfigFile);
+				LoadColoringComboFromFile(PatereColoringCombo, _filPateresFile);
 			}
 			else
 			{
@@ -200,11 +280,11 @@ namespace ToolBarDcad
 
 				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
 				{
-					LoadComboFromFile(PatereColoringCombo, _standardPatereFile);
+					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
 				}
 				else
 				{
-					LoadComboFromFile(PatereColoringCombo, _boxPatereFile);
+					LoadColoringComboFromFile(PatereColoringCombo, _boxPatereFile);
 				}
 			}
 
@@ -213,12 +293,12 @@ namespace ToolBarDcad
 
 		private void PatereTypeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (!IsLoaded)
+			if (!PatereTypeCombo.IsDropDownOpen)
 				return;
 
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
-				LoadComboFromFile(PatereColoringCombo, _filPateresFile);
+				LoadColoringComboFromFile(PatereColoringCombo, _filPateresFile);
 			}
 			else
 			{
@@ -228,11 +308,11 @@ namespace ToolBarDcad
 
 				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
 				{
-					LoadComboFromFile(PatereColoringCombo, _standardPatereFile);
+					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
 				}
 				else
 				{
-					LoadComboFromFile(PatereColoringCombo, _boxPatereFile);
+					LoadColoringComboFromFile(PatereColoringCombo, _boxPatereFile);
 				}
 			}
 			WriteConfigToFile();
@@ -240,7 +320,7 @@ namespace ToolBarDcad
 
 		private void LisseColoringCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (!IsLoaded)
+			if (!LisseColoringCombo.IsDropDownOpen)
 				return;
 
 			WriteConfigToFile();
@@ -248,7 +328,7 @@ namespace ToolBarDcad
 
 		private void PatereColoringCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (!IsLoaded)
+			if (!PatereColoringCombo.IsDropDownOpen)
 				return;
 
 			WriteConfigToFile();
@@ -256,7 +336,7 @@ namespace ToolBarDcad
 
 		private void ConsoleColoringCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (!IsLoaded)
+			if (!ConsoleColoringCombo.IsDropDownOpen)
 				return;
 
 			WriteConfigToFile();

@@ -26,7 +26,7 @@ namespace ToolBarDcad
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Application App;
+        public Application App { get; private set; }
         public string Model;
         public string Material;
         public Dictionary<string, int> ModelsDict;
@@ -599,7 +599,7 @@ namespace ToolBarDcad
         /// </summary>
         /// <param name="macroName"></param>
 
-        private void LaunchMacro(string macroName)
+        public void LaunchMacro(string macroName)
         {
             int result = DocsManager.RunMacroOnActiveDoc(MacroDict[macroName], macroName);
 
@@ -1061,7 +1061,7 @@ namespace ToolBarDcad
 
 		private void BenchConfigButton_Click(object sender, RoutedEventArgs e)
 		{
-            new BenchConfigWindow().Show();
-		}
+            new BenchConfigWindow(this).Show();
+        }
 	}
 }
