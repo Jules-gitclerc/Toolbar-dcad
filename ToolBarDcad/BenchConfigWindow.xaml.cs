@@ -86,39 +86,35 @@ namespace ToolBarDcad
 				foreach (var comboBox in comboBoxes)
 				{
 					comboBox.SelectedIndex = int.Parse(indexes[i]);
+
+					if (comboBox == LisseCombo)
+						UpdateLisseCombo();
+					else if (comboBox == PatereTypeCombo)
+						UpdatePatereTypeCombo();
+
 					i++;
 				}
-
-
-/*				ConsoleColoringCombo.SelectedItem = $"{lines[1]} - {lines[2]}";
-				LisseCombo.SelectedItem = $"{lines[3]}";
-				PatereTypeCombo.SelectedItem = lines[4];
-				PatereColoringCombo.SelectedItem = $"{lines[5]} - {lines[6]}";
-
-				if (LisseCombo.SelectedItem.ToString() != _lisses[0])
-					LisseColoringCombo.SelectedItem = $"{lines[8]} - {lines[9]}";*/
 			}
 			catch
 			{
 				// default config
-				ConsoleColoringCombo.SelectedIndex = 3;
-				PatereColoringCombo.SelectedIndex = 0;
-				PatereTypeCombo.SelectedIndex = 0;
-				LisseColoringCombo.SelectedIndex = 0;
+				// lisse combo
 				LisseCombo.SelectedIndex = 0;
+				UpdateLisseCombo();
+				LisseColoringCombo.SelectedIndex = 0;
+
+				// patere type
+				PatereTypeCombo.SelectedIndex = 0;
+				UpdatePatereTypeCombo();
+				PatereColoringCombo.SelectedIndex = 0;
+
+				// console & lames
+				ConsoleColoringCombo.SelectedIndex = 3;
 				LameCombo.SelectedIndex = 0;
-				if (LisseColoringCombo.IsEnabled)
-					PatereTypeCombo.SelectedIndex = 0;
 
 				WriteConfigToFile();
 			}
-
-			if (LisseCombo.SelectedItem.ToString() == _lisses[0])
-			{
-				LisseColoringCombo.Items.Clear();
-			}
 		}
-
 
 		private void LoadComboFromFile(ComboBox combo, string file)
 		{
@@ -263,6 +259,24 @@ namespace ToolBarDcad
 			if (!LisseCombo.IsDropDownOpen)
 				return;
 
+			UpdateLisseCombo();
+
+			WriteConfigToFile();
+		}
+
+		
+
+		private void PatereTypeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (!PatereTypeCombo.IsDropDownOpen)
+				return;
+
+			UpdatePatereTypeCombo();
+			WriteConfigToFile();
+		}
+
+		private void UpdateLisseCombo()
+		{
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
 				PatereTypeCombo.Items.Clear();
@@ -274,28 +288,19 @@ namespace ToolBarDcad
 			else
 			{
 				LisseColoringCombo.Items.Clear();
-				LoadCombo(PatereTypeCombo, _patereTypes);
 
+				LoadCombo(PatereTypeCombo, _patereTypes);
 				PatereTypeCombo.SelectedIndex = 0;
 
 				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
-				{
 					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
-				}
 				else
-				{
 					LoadColoringComboFromFile(PatereColoringCombo, _boxPatereFile);
-				}
 			}
-
-			WriteConfigToFile();
 		}
 
-		private void PatereTypeCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void UpdatePatereTypeCombo()
 		{
-			if (!PatereTypeCombo.IsDropDownOpen)
-				return;
-
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
 				LoadColoringComboFromFile(PatereColoringCombo, _filPateresFile);
@@ -305,7 +310,6 @@ namespace ToolBarDcad
 				if (PatereTypeCombo.SelectedItem == null)
 					return;
 
-
 				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
 				{
 					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
@@ -315,7 +319,6 @@ namespace ToolBarDcad
 					LoadColoringComboFromFile(PatereColoringCombo, _boxPatereFile);
 				}
 			}
-			WriteConfigToFile();
 		}
 
 		private void LisseColoringCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
