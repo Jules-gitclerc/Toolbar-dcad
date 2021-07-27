@@ -26,21 +26,21 @@ namespace ToolBarDcad
 	{
 		public static readonly string SavePath = @"C:\KalysseDesignCAD\banc_config.txt";
 		private const string _defaultConfigPath = @"\\serv-kalysse\EDatas\Dev\Datas\Bancs\";
-		private const string _colorConfigFile = @"config_couleurs.txt";
+		private const string _configColorFile = @"config_couleurs.txt";
 		private const string _standardPatereFile = @"config_pateres_standards.txt";
 		private const string _boxPatereFile = @"config_pateres_box.txt";
-		private const string _filPateresFile = @"config_pateres_fil.txt";
+		private const string _pateresFilSurLisseFile = @"config_pateres_fil.txt";
 		private const string _lamesFile = @"config_lames.txt";
 		private const string _typesLisseFile = @"config_types_lisses.txt";
+		private const string _pateresLisseSapinFile = @"config_pateres_lisse_sapin.txt";
+		private const string _pateresLisseSurFilFile = @"config_pateres_fil_sur_lisse.txt";
 
 		private const string _editListText = "Éditer la liste";
 		private Dictionary<string, string> _fileForEachNameDico = new Dictionary<string, string>();
 
-		private List<string> _patereTypes = new List<string>()
-		{
-			"Patères standards",
-			"Patères box"
-		};
+		private List<string> _pateresLisseSapin = new List<string>();
+
+
 		private List<string> _lisses;
 		private MainWindow _mainWindow;
 
@@ -59,13 +59,16 @@ namespace ToolBarDcad
 			string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{_typesLisseFile}");
 			_lisses = lines.Skip(2).Select(line => $"{line.Split(';')[0]}").ToList();
 
-			LoadColoringComboFromFile(LisseColoringCombo, _colorConfigFile);
-			LoadColoringComboFromFile(ConsoleColoringCombo, _colorConfigFile);
-			LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
+			lines = File.ReadAllLines($@"{_defaultConfigPath}\{_pateresLisseSapinFile}");
+			_pateresLisseSapin = lines.Skip(2).Select(line => $"{line.Split(';')[0]}").ToList();
 
-			LoadComboFromFile(LameCombo, _lamesFile);
 			LoadComboFromFile(LisseCombo, _typesLisseFile);
-			LoadCombo(PatereTypeCombo, _patereTypes);
+			LoadComboFromFile(LameCombo, _lamesFile);
+			LoadComboFromFile(PatereTypeCombo, _pateresLisseSapinFile);
+
+			LoadColoringComboFromFile(LisseColoringCombo, _configColorFile);
+			LoadColoringComboFromFile(ConsoleColoringCombo, _configColorFile);
+			LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
 
 			SelectCombos();
 
@@ -279,20 +282,20 @@ namespace ToolBarDcad
 		{
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
-				PatereTypeCombo.Items.Clear();
-				PatereTypeCombo.Items.Add("Patères fil");
+				LoadComboFromFile(PatereTypeCombo, _pateresLisseSurFilFile);
 				PatereTypeCombo.SelectedIndex = 0;
-				LoadColoringComboFromFile(LisseColoringCombo, _colorConfigFile);
-				LoadColoringComboFromFile(PatereColoringCombo, _filPateresFile);
+
+				LoadColoringComboFromFile(LisseColoringCombo, _configColorFile);
+				LoadColoringComboFromFile(PatereColoringCombo, _pateresFilSurLisseFile);
 			}
 			else
 			{
 				LisseColoringCombo.Items.Clear();
 
-				LoadCombo(PatereTypeCombo, _patereTypes);
+				LoadComboFromFile(PatereTypeCombo, _pateresLisseSapinFile);
 				PatereTypeCombo.SelectedIndex = 0;
 
-				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
+				if (PatereTypeCombo.SelectedItem.ToString() == _pateresLisseSapin[0])
 					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
 				else
 					LoadColoringComboFromFile(PatereColoringCombo, _boxPatereFile);
@@ -303,14 +306,14 @@ namespace ToolBarDcad
 		{
 			if (LisseCombo.SelectedItem.ToString() == _lisses[1])
 			{
-				LoadColoringComboFromFile(PatereColoringCombo, _filPateresFile);
+				LoadColoringComboFromFile(PatereColoringCombo, _pateresFilSurLisseFile);
 			}
 			else
 			{
 				if (PatereTypeCombo.SelectedItem == null)
 					return;
 
-				if (PatereTypeCombo.SelectedItem.ToString() == _patereTypes[0])
+				if (PatereTypeCombo.SelectedItem.ToString() == _pateresLisseSapin[0])
 				{
 					LoadColoringComboFromFile(PatereColoringCombo, _standardPatereFile);
 				}
