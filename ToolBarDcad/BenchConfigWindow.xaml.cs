@@ -217,6 +217,8 @@ namespace ToolBarDcad
 			}
 			content += "\n";
 
+			List<string> patereDims = new List<string>();
+
 			foreach (var comboBox in comboBoxes)
 			{
 				if (comboBox.SelectedItem == null)
@@ -230,6 +232,17 @@ namespace ToolBarDcad
 				if (comboBox == LisseCombo || comboBox == PatereTypeCombo)
 				{
 					content += $"{comboBox.SelectedItem}\n";
+					if (comboBox == PatereTypeCombo)
+					{
+						string file = _fileForEachNameDico[comboBox.Name];
+						string[] lines = File.ReadAllLines($@"{_defaultConfigPath}\{file}");
+
+						string selectedLine = lines.Where(line => line.Split(';')[0] == comboBox.SelectedItem.ToString()).FirstOrDefault();
+						if (selectedLine == null)
+							return;
+
+						patereDims = selectedLine.Split(';').Skip(1).ToList();
+					}
 				}
 				else
 				{
@@ -241,14 +254,19 @@ namespace ToolBarDcad
 					if (selectedLine == null)
 						return;
 
-					string[] attributes = selectedLine.Split(';');
-
-					foreach (string attribute in attributes)
+					foreach (string attribute in selectedLine.Split(';'))
 					{
 						content += $"{attribute}\n";
 					}
 				}
 			}
+
+			// add dimensions (length, height, depth) to the content
+			foreach (var patereDim in patereDims)
+			{
+				content += $"{patereDim}\n";
+			}
+
 			File.WriteAllText(SavePath, content);
 			DocsManager.SetActiveDoc();
 			DocsManager.ActiveDoc.RunBasicCAD(@"\\serv-kalysse\BE\Macros et interface\Kalysse DesignCAD\Bancs\Modele\set_config_bancs.d3m");
