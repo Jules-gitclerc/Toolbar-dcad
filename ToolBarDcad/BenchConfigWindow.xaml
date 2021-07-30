@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ToolBarDcad"
         mc:Ignorable="d"
         Title="Configuration des bancs bois" Height="142.992" Width="822.593" ResizeMode="NoResize">
-	<Grid MinHeight="125" Margin="5,0,4,0" Height="88" VerticalAlignment="Top">
+	<Grid MinHeight="125" Margin="5,0,4,-42" Height="156" VerticalAlignment="Top">
 		<GroupBox Header="Patère" HorizontalAlignment="Left" Height="87" Margin="204,10,0,0" VerticalAlignment="Top" Width="191" RenderTransformOrigin="0.409,-0.052">
 			<Grid>
 				<Grid.ColumnDefinitions>

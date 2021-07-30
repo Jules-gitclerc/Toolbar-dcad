@@ -20,6 +20,7 @@
 					<MenuItem Header="Chercher un attribut" Click="ChercherAttrMenuItem_Click"/>
 					<MenuItem Header="Multiplier un attribut" Click="MultiplierAttrMenuItem_Click"/>
 					<MenuItem Header="Supprimer attributs" Click="SupprimerAttrMenuItem_Click"/>
+
 				</MenuItem>
 				<MenuItem Header="Changer la nature des matériaux" Click="ChangerMatMenuItem_Click"/>
 				<MenuItem Header="Création DXF">

@@ -30,7 +30,7 @@ namespace ToolBarDcad
 		private const string _standardPatereFile = @"config_pateres_standards.txt";
 		private const string _boxPatereFile = @"config_pateres_box.txt";
 		private const string _pateresFilSurLisseFile = @"config_pateres_fil.txt";
-		private const string _lamesFile = @"config_lames.txt";
+		private const string _typesBoisFile = @"config_lames.txt";
 		private const string _typesLisseFile = @"config_types_lisses.txt";
 		private const string _pateresLisseSapinFile = @"config_pateres_lisse_sapin.txt";
 		private const string _pateresLisseSurFilFile = @"config_pateres_fil_sur_lisse.txt";
@@ -63,7 +63,7 @@ namespace ToolBarDcad
 			_pateresLisseSapin = lines.Skip(2).Select(line => $"{line.Split(';')[0]}").ToList();
 
 			LoadComboFromFile(LisseCombo, _typesLisseFile);
-			LoadComboFromFile(LameCombo, _lamesFile);
+			LoadColoringComboFromFile(LameCombo, _typesBoisFile);
 			LoadComboFromFile(PatereTypeCombo, _pateresLisseSapinFile);
 
 			LoadColoringComboFromFile(LisseColoringCombo, _configColorFile);
@@ -308,7 +308,7 @@ namespace ToolBarDcad
 			}
 			else
 			{
-				LisseColoringCombo.Items.Clear();
+				LoadColoringComboFromFile(LisseColoringCombo, _typesBoisFile);
 
 				LoadComboFromFile(PatereTypeCombo, _pateresLisseSapinFile);
 				PatereTypeCombo.SelectedIndex = 0;
